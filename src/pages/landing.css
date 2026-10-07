@@ -163,7 +163,6 @@
 .expansion__grid { display: grid; gap: 2.5rem; }
 .expansion__sheet { margin-top: 2rem; max-width: 34rem; }
 .expansion__fromto { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 1rem; }
-.expansion__arrow { width: 48px; height: 18px; color: var(--raisin); margin-bottom: 1.1rem; }
 .expansion__found { margin-top: 1.25rem; font-family: var(--font-ui); font-weight: 700; font-size: 1.125rem; display: flex; align-items: baseline; gap: 0.6rem; color: var(--sunset-ink); }
 .expansion__found-n { font-size: 2.5rem; letter-spacing: -0.04em; line-height: 1; }
 .expansion__filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
@@ -316,3 +315,16 @@
   .hero__title { max-width: none; font-size: clamp(2.75rem, 1rem + 3.9vw, 4rem); }
 }
 .africa__label { font-size: 2.1px; }
+
+/* ---- correctifs de la revue de finition ---- */
+.section > .container { position: relative; }
+.section-stamp { position: absolute; right: 0; top: -0.5rem; z-index: 2; }
+.section h2 + .lead { margin-top: 1.25rem; }
+.expansion__fromto { grid-template-columns: 24px 1fr; grid-template-rows: auto auto; gap: 0 1rem; align-items: stretch; }
+.expansion__route { grid-row: 1 / span 2; width: 24px; height: 100%; color: var(--raisin); margin: 0; }
+.expansion__route circle { fill: var(--sunset); }
+.expansion__fromto .field:first-of-type { grid-column: 2; }
+@media (max-width: 600px) { .expansion__fromto { grid-template-columns: 24px 1fr; } .expansion__arrow { display: none; } }
+@media (min-width: 1024px) { .section-stamp { top: 0; } }
+.section-stamp { top: -3.4rem; }
+@media (min-width: 1024px) { .section-stamp { top: -4.2rem; } }

@@ -71,8 +71,8 @@ export function Verifs({ levels, compact }: { levels: VerificationLevel[]; compa
   );
 }
 
-export const Stamp = ({ children, solid, className = "" }: { children: ReactNode; solid?: boolean; className?: string }) => (
-  <span className={`stamp ${solid ? "stamp--solid" : ""} ${className}`}>{children}</span>
+export const Stamp = ({ children, solid, className = "", ...rest }: { children: ReactNode; solid?: boolean; className?: string; "data-stamp"?: boolean }) => (
+  <span className={`stamp ${solid ? "stamp--solid" : ""} ${className}`} {...rest}>{children}</span>
 );
 
 export const Button = ({ to, href, children, primary, light, small, className = "", onClick, type = "button", disabled }: { to?: string; href?: string; children: ReactNode; primary?: boolean; light?: boolean; small?: boolean; className?: string; onClick?: () => void; type?: "button" | "submit"; disabled?: boolean }) => {

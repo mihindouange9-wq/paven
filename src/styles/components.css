@@ -67,7 +67,7 @@
 
 /* Vérification : pastilles sunset */
 .verif { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; color: var(--fg); }
-.verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sunset); box-shadow: 0 0 0 3px rgb(233 106 79 / 0.2); }
+.verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sunset); outline: 1px solid var(--sunset); outline-offset: 2px; }
 .verif--off { color: var(--fg-muted); }
 .verif--off .verif__dot { background: transparent; border: 1.5px solid var(--line-strong); box-shadow: none; }
 

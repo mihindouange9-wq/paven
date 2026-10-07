@@ -26,6 +26,15 @@ export function setupReveals(scope: HTMLElement) {
   );
   blocks.forEach((el) => io.observe(el));
 
+  // Tampons de section : posés à l'entrée de la section, une seule fois
+  const stamps = gsap.utils.toArray<HTMLElement>("[data-stamp]", scope);
+  gsap.set(stamps, { autoAlpha: 0, scale: 1.12, rotate: -3 });
+  const ioStamps = new IntersectionObserver(
+    (entries) => entries.filter((e) => e.isIntersecting).forEach((e) => { ioStamps.unobserve(e.target); stampIn(e.target); }),
+    { rootMargin: "0px 0px -20% 0px" },
+  );
+  stamps.forEach((el) => ioStamps.observe(el));
+
   const lines = gsap.utils.toArray<SVGGeometryElement>("[data-draw]", scope);
   lines.forEach((el) => {
     const len = el.getTotalLength ? el.getTotalLength() : 1000;
@@ -33,7 +42,7 @@ export function setupReveals(scope: HTMLElement) {
     gsap.to(el, { strokeDashoffset: 0, duration: 1.4, ease: "power2.inOut", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
   });
 
-  return () => io.disconnect();
+  return () => { io.disconnect(); ioStamps.disconnect(); };
 }
 
 /** Le tampon se pose : échelle 1,12 → 1, rotation −3° → −2°, sans rebond. */

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button, Country, Field, Label, Monogram, PType, Score, Verifs } from "../components/ui";
+import SectionStamp from "../components/SectionStamp";
 import { EXPANSION } from "../content/fr";
 import { COMPANIES, industryName } from "../data/mock";
 
@@ -15,6 +16,7 @@ export default function ExpansionSection() {
   return (
     <section id="expansion" className="section expansion">
       <div className="container expansion__grid">
+        <SectionStamp>Expansion</SectionStamp>
         <div className="expansion__copy">
           <h2 data-reveal>{EXPANSION.title}</h2>
           <p className="lead" data-reveal>{EXPANSION.lead}</p>
@@ -22,7 +24,7 @@ export default function ExpansionSection() {
             <div className="sheet__body">
               <div className="expansion__fromto">
                 <Field label={EXPANSION.from} value={<span className="dossier__place">Libreville <Country code="GA" nameless /></span>} state="filled" large />
-                <svg className="expansion__arrow" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12h52M46 4l10 8-10 8" fill="none" stroke="currentColor" strokeWidth="1.5" data-draw /></svg>
+                <svg className="expansion__route" viewBox="0 0 24 120" preserveAspectRatio="none" aria-hidden="true"><path d="M12 6V114" fill="none" stroke="currentColor" strokeWidth="1.5" data-draw /><circle cx="12" cy="6" r="5" /><circle cx="12" cy="114" r="5" /></svg>
                 <Field label={EXPANSION.to} value={<span className="dossier__place">Abidjan <Country code="CI" nameless /></span>} state="filled" large />
               </div>
               <Field label={EXPANSION.objective} value="Trouver des partenaires de distribution et un accès au marché" state="filled" />

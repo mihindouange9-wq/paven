@@ -154,7 +154,6 @@
 .table-wrap { overflow-x: auto; }
 .table-wrap .table { min-width: 40rem; }
 .stages { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.stages li { overflow-wrap: anywhere; }
 @media (max-width: 600px) {
   .stages li { font-size: 0.5625rem; letter-spacing: 0.04em; }
   .company-row { grid-template-columns: auto 1fr; }
@@ -164,3 +163,9 @@
   .counters { grid-template-columns: 1fr 1fr; }
 }
 .two-col > *, .app__page > *, .panel, .panel__body { min-width: 0; }
+
+.counter { height: 100%; align-content: start; }
+.stages { overflow-x: auto; }
+.stages li { overflow-wrap: normal; hyphens: manual; white-space: nowrap; min-width: 5.5rem; }
+@media (max-width: 600px) { .stages li { font-size: 0.625rem; letter-spacing: 0.04em; } }
+.stages { gap: 0.75rem; padding-bottom: 0.25rem; }

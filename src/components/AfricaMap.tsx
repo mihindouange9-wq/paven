@@ -29,7 +29,7 @@ const LABEL: Record<string, { dx: number; dy: number; anchor?: "end" | "middle" 
   lagos: { dx: 1.6, dy: -1.6 },
   brazzaville: { dx: 1.9, dy: -0.9 },
   kinshasa: { dx: 1.9, dy: 2.6 },
-  kigali: { dx: -1.9, dy: 0.5, anchor: "end" },
+  kigali: { dx: 1.9, dy: 2.8 },
   nairobi: { dx: 1.9, dy: 0.5 },
   libreville: { dx: -1.9, dy: 0.5, anchor: "end" },
   douala: { dx: 1.9, dy: -0.6 },
@@ -76,7 +76,7 @@ export default function AfricaMap({ selected, onSelect, routes = [], highlight =
         {CITIES.map((c) => {
           const on = c.country === selected || highlight.includes(c.id);
           const main = CITIES.find((x) => x.country === c.country)!.id === c.id;
-          if (!main && !on) return null;
+          if (!main && !highlight.includes(c.id)) return null;
           return (
             <g key={c.id} className={`africa__city ${on ? "is-on" : ""}`} transform={`translate(${c.x} ${c.y})`}>
               {onSelect ? (
