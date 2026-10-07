@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T23:04:41.178Z",
+  "title": "Design System: PAVEN",
+  "extensions": {
+    "colorMeta": {
+      "raisin": {
+        "role": "primary",
+        "displayName": "Noir raisin",
+        "canonical": "#242124",
+        "oklch": "oklch(25.2% 0.007 325.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 325.8)",
+          "oklch(26.0% 0.007 325.8)",
+          "oklch(38.0% 0.007 325.8)",
+          "oklch(50.0% 0.007 325.8)",
+          "oklch(62.0% 0.007 325.8)",
+          "oklch(74.0% 0.007 325.8)",
+          "oklch(86.0% 0.007 325.8)",
+          "oklch(95.0% 0.007 325.8)"
+        ]
+      },
+      "raisin-soft": {
+        "role": "primary",
+        "displayName": "Raisin doux",
+        "canonical": "#3a3639",
+        "oklch": "oklch(33.8% 0.008 334.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.008 334.2)",
+          "oklch(26.0% 0.008 334.2)",
+          "oklch(38.0% 0.008 334.2)",
+          "oklch(50.0% 0.008 334.2)",
+          "oklch(62.0% 0.008 334.2)",
+          "oklch(74.0% 0.008 334.2)",
+          "oklch(86.0% 0.008 334.2)",
+          "oklch(95.0% 0.008 334.2)"
+        ]
+      },
+      "raisin-deep": {
+        "role": "primary",
+        "displayName": "Raisin profond",
+        "canonical": "#1a1719",
+        "oklch": "oklch(20.9% 0.006 337.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 337.8)",
+          "oklch(26.0% 0.006 337.8)",
+          "oklch(38.0% 0.006 337.8)",
+          "oklch(50.0% 0.006 337.8)",
+          "oklch(62.0% 0.006 337.8)",
+          "oklch(74.0% 0.006 337.8)",
+          "oklch(86.0% 0.006 337.8)",
+          "oklch(95.0% 0.006 337.8)"
+        ]
+      },
+      "buff": {
+        "role": "secondary",
+        "displayName": "Buff",
+        "canonical": "#d8c39a",
+        "oklch": "oklch(82.5% 0.059 83.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.059 83.9)",
+          "oklch(26.0% 0.059 83.9)",
+          "oklch(38.0% 0.059 83.9)",
+          "oklch(50.0% 0.059 83.9)",
+          "oklch(62.0% 0.059 83.9)",
+          "oklch(74.0% 0.059 83.9)",
+          "oklch(86.0% 0.059 83.9)",
+          "oklch(95.0% 0.059 83.9)"
+        ]
+      },
+      "buff-tint": {
+        "role": "secondary",
+        "displayName": "Teinte buff",
+        "canonical": "#ece2c9",
+        "oklch": "oklch(91.4% 0.035 88.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.035 88.8)",
+          "oklch(26.0% 0.035 88.8)",
+          "oklch(38.0% 0.035 88.8)",
+          "oklch(50.0% 0.035 88.8)",
+          "oklch(62.0% 0.035 88.8)",
+          "oklch(74.0% 0.035 88.8)",
+          "oklch(86.0% 0.035 88.8)",
+          "oklch(95.0% 0.035 88.8)"
+        ]
+      },
+      "buff-deep": {
+        "role": "secondary",
+        "displayName": "Buff profond",
+        "canonical": "#b89a63",
+        "oklch": "oklch(70.1% 0.081 81.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.081 81.9)",
+          "oklch(26.0% 0.081 81.9)",
+          "oklch(38.0% 0.081 81.9)",
+          "oklch(50.0% 0.081 81.9)",
+          "oklch(62.0% 0.081 81.9)",
+          "oklch(74.0% 0.081 81.9)",
+          "oklch(86.0% 0.081 81.9)",
+          "oklch(95.0% 0.081 81.9)"
+        ]
+      },
+      "buff-ink": {
+        "role": "secondary",
+        "displayName": "Encre buff",
+        "canonical": "#6e5a30",
+        "oklch": "oklch(47.8% 0.065 84.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.065 84.5)",
+          "oklch(26.0% 0.065 84.5)",
+          "oklch(38.0% 0.065 84.5)",
+          "oklch(50.0% 0.065 84.5)",
+          "oklch(62.0% 0.065 84.5)",
+          "oklch(74.0% 0.065 84.5)",
+          "oklch(86.0% 0.065 84.5)",
+          "oklch(95.0% 0.065 84.5)"
+        ]
+      },
+      "paper-muted": {
+        "role": "secondary",
+        "displayName": "Papier atténué",
+        "canonical": "#d9cdb0",
+        "oklch": "oklch(85.0% 0.041 88.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.041 88.2)",
+          "oklch(26.0% 0.041 88.2)",
+          "oklch(38.0% 0.041 88.2)",
+          "oklch(50.0% 0.041 88.2)",
+          "oklch(62.0% 0.041 88.2)",
+          "oklch(74.0% 0.041 88.2)",
+          "oklch(86.0% 0.041 88.2)",
+          "oklch(95.0% 0.041 88.2)"
+        ]
+      },
+      "sunset": {
+        "role": "tertiary",
+        "displayName": "Sunset",
+        "canonical": "#e96a4f",
+        "oklch": "oklch(67.4% 0.163 33.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.160 33.5)",
+          "oklch(26.0% 0.160 33.5)",
+          "oklch(38.0% 0.160 33.5)",
+          "oklch(50.0% 0.160 33.5)",
+          "oklch(62.0% 0.160 33.5)",
+          "oklch(74.0% 0.160 33.5)",
+          "oklch(86.0% 0.160 33.5)",
+          "oklch(95.0% 0.160 33.5)"
+        ]
+      },
+      "sunset-ink": {
+        "role": "tertiary",
+        "displayName": "Encre sunset",
+        "canonical": "#b84b33",
+        "oklch": "oklch(55.3% 0.147 34.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.147 34.0)",
+          "oklch(26.0% 0.147 34.0)",
+          "oklch(38.0% 0.147 34.0)",
+          "oklch(50.0% 0.147 34.0)",
+          "oklch(62.0% 0.147 34.0)",
+          "oklch(74.0% 0.147 34.0)",
+          "oklch(86.0% 0.147 34.0)",
+          "oklch(95.0% 0.147 34.0)"
+        ]
+      },
+      "sunset-soft": {
+        "role": "tertiary",
+        "displayName": "Sunset doux",
+        "canonical": "#f0a391",
+        "oklch": "oklch(78.6% 0.096 33.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.096 33.7)",
+          "oklch(26.0% 0.096 33.7)",
+          "oklch(38.0% 0.096 33.7)",
+          "oklch(50.0% 0.096 33.7)",
+          "oklch(62.0% 0.096 33.7)",
+          "oklch(74.0% 0.096 33.7)",
+          "oklch(86.0% 0.096 33.7)",
+          "oklch(95.0% 0.096 33.7)"
+        ]
+      },
+      "on-sunset": {
+        "role": "tertiary",
+        "displayName": "Sur sunset",
+        "canonical": "#1f1413",
+        "oklch": "oklch(20.5% 0.018 24.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.018 24.7)",
+          "oklch(26.0% 0.018 24.7)",
+          "oklch(38.0% 0.018 24.7)",
+          "oklch(50.0% 0.018 24.7)",
+          "oklch(62.0% 0.018 24.7)",
+          "oklch(74.0% 0.018 24.7)",
+          "oklch(86.0% 0.018 24.7)",
+          "oklch(95.0% 0.018 24.7)"
+        ]
+      },
+      "offwhite": {
+        "role": "neutral",
+        "displayName": "Blanc cassé",
+        "canonical": "#f5f2ec",
+        "oklch": "oklch(96.2% 0.009 84.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 84.6)",
+          "oklch(26.0% 0.009 84.6)",
+          "oklch(38.0% 0.009 84.6)",
+          "oklch(50.0% 0.009 84.6)",
+          "oklch(62.0% 0.009 84.6)",
+          "oklch(74.0% 0.009 84.6)",
+          "oklch(86.0% 0.009 84.6)",
+          "oklch(95.0% 0.009 84.6)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanc",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 89.9)",
+          "oklch(26.0% 0.000 89.9)",
+          "oklch(38.0% 0.000 89.9)",
+          "oklch(50.0% 0.000 89.9)",
+          "oklch(62.0% 0.000 89.9)",
+          "oklch(74.0% 0.000 89.9)",
+          "oklch(86.0% 0.000 89.9)",
+          "oklch(95.0% 0.000 89.9)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Encre atténuée",
+        "canonical": "#6b6468",
+        "oklch": "oklch(51.1% 0.011 342.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.011 342.1)",
+          "oklch(26.0% 0.011 342.1)",
+          "oklch(38.0% 0.011 342.1)",
+          "oklch(50.0% 0.011 342.1)",
+          "oklch(62.0% 0.011 342.1)",
+          "oklch(74.0% 0.011 342.1)",
+          "oklch(86.0% 0.011 342.1)",
+          "oklch(95.0% 0.011 342.1)"
+        ]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Encre pâle",
+        "canonical": "#8c8488",
+        "oklch": "oklch(62.2% 0.011 345.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.011 345.6)",
+          "oklch(26.0% 0.011 345.6)",
+          "oklch(38.0% 0.011 345.6)",
+          "oklch(50.0% 0.011 345.6)",
+          "oklch(62.0% 0.011 345.6)",
+          "oklch(74.0% 0.011 345.6)",
+          "oklch(86.0% 0.011 345.6)",
+          "oklch(95.0% 0.011 345.6)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Filet",
+        "canonical": "rgb(36 33 36 / 0.16)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 325.8)",
+          "oklch(26.0% 0.007 325.8)",
+          "oklch(38.0% 0.007 325.8)",
+          "oklch(50.0% 0.007 325.8)",
+          "oklch(62.0% 0.007 325.8)",
+          "oklch(74.0% 0.007 325.8)",
+          "oklch(86.0% 0.007 325.8)",
+          "oklch(95.0% 0.007 325.8)"
+        ],
+        "note": "Filet translucide : alpha sur l'encre du ton, pas une couleur opaque."
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Filet fort",
+        "canonical": "rgb(36 33 36 / 0.32)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 325.8)",
+          "oklch(26.0% 0.007 325.8)",
+          "oklch(38.0% 0.007 325.8)",
+          "oklch(50.0% 0.007 325.8)",
+          "oklch(62.0% 0.007 325.8)",
+          "oklch(74.0% 0.007 325.8)",
+          "oklch(86.0% 0.007 325.8)",
+          "oklch(95.0% 0.007 325.8)"
+        ],
+        "note": "Filet translucide : alpha sur l'encre du ton, pas une couleur opaque."
+      },
+      "rule-on-dark": {
+        "role": "neutral",
+        "displayName": "Filet sur sombre",
+        "canonical": "rgb(245 242 236 / 0.16)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 84.6)",
+          "oklch(26.0% 0.009 84.6)",
+          "oklch(38.0% 0.009 84.6)",
+          "oklch(50.0% 0.009 84.6)",
+          "oklch(62.0% 0.009 84.6)",
+          "oklch(74.0% 0.009 84.6)",
+          "oklch(86.0% 0.009 84.6)",
+          "oklch(95.0% 0.009 84.6)"
+        ],
+        "note": "Filet translucide : alpha sur l'encre du ton, pas une couleur opaque."
+      },
+      "rule-on-dark-strong": {
+        "role": "neutral",
+        "displayName": "Filet fort sur sombre",
+        "canonical": "rgb(245 242 236 / 0.34)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 84.6)",
+          "oklch(26.0% 0.009 84.6)",
+          "oklch(38.0% 0.009 84.6)",
+          "oklch(50.0% 0.009 84.6)",
+          "oklch(62.0% 0.009 84.6)",
+          "oklch(74.0% 0.009 84.6)",
+          "oklch(86.0% 0.009 84.6)",
+          "oklch(95.0% 0.009 84.6)"
+        ],
+        "note": "Filet translucide : alpha sur l'encre du ton, pas une couleur opaque."
+      }
+    },
+    "tones": {
+      "paper": {
+        "bg": "{colors.offwhite}",
+        "fg": "{colors.raisin}",
+        "fgMuted": "{colors.ink-muted}",
+        "line": "{colors.rule}",
+        "lineStrong": "{colors.rule-strong}",
+        "field": "{colors.buff-tint}",
+        "accentText": "{colors.sunset-ink}"
+      },
+      "dark": {
+        "bg": "{colors.raisin}",
+        "fg": "{colors.offwhite}",
+        "fgMuted": "{colors.paper-muted}",
+        "line": "{colors.rule-on-dark}",
+        "lineStrong": "{colors.rule-on-dark-strong}",
+        "field": "{colors.raisin-soft}",
+        "accentText": "{colors.sunset-soft}"
+      },
+      "white": {
+        "bg": "{colors.white}"
+      },
+      "buff": {
+        "bg": "{colors.buff}",
+        "fg": "{colors.raisin}",
+        "fgMuted": "#5a4a2c",
+        "line": "rgb(36 33 36 / 0.22)",
+        "lineStrong": "rgb(36 33 36 / 0.4)",
+        "field": "#e6d6b4",
+        "accentText": "{colors.sunset-ink}"
+      }
+    },
+    "patterns": [
+      {
+        "name": "hatch",
+        "value": "repeating-linear-gradient(135deg, rgb(36 33 36 / 0.1) 0 1px, transparent 1px 6px)",
+        "purpose": "Champ vide sur papier ; emplacement vide de pipeline ; marqueur « fabricant »."
+      },
+      {
+        "name": "hatch-dark",
+        "value": "repeating-linear-gradient(135deg, rgb(245 242 236 / 0.14) 0 1px, transparent 1px 6px)",
+        "purpose": "Champ vide sur raisin."
+      }
+    ],
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titre du hero uniquement, lignes révélées une à une ; plafonné à 4 rem à partir de 1024 px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titre de section (h2) ; la clôture monte à 4,5 rem, l'espace produit descend à 2,5 rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nom d'entreprise, critère, étape (h3)."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Chapeau sous un titre, 32–36 rem de large, en encre atténuée."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphes et explications, DM Sans 420."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Métadonnées, notes de démonstration, texte de table."
+      },
+      "value": {
+        "displayName": "Valeur de champ",
+        "purpose": "La valeur sous un libellé ; grande variante pour DEPUIS / VERS."
+      },
+      "score": {
+        "displayName": "Score",
+        "purpose": "Chiffres en cellules fixes de 0,62 em ; de 1,5 rem à 4,5 rem."
+      },
+      "label": {
+        "displayName": "Libellé",
+        "purpose": "Capitales espacées 0,14 em : libellés de champ, en-têtes de table, ports, étapes."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Boutons, chips, navigation, pays, type de partenariat."
+      }
+    },
+    "shadows": [
+      {
+        "name": "phone-body",
+        "value": "inset 0 0 0 1px rgb(255 255 255 / 0.12), 0 46px 70px -34px rgb(36 33 36 / 0.55)",
+        "purpose": "Le téléphone dessiné en CSS, seul objet avec une ombre portée. Rien d'autre n'en porte."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Courbe CSS unique pour les transitions de transformation et de navigation."
+      },
+      {
+        "name": "t-fast",
+        "value": "180ms",
+        "purpose": "Fond, couleur, bordure des boutons, chips, lignes (linéaire)."
+      },
+      {
+        "name": "t-mid",
+        "value": "420ms",
+        "purpose": "En-tête qui devient plein, soulignement de navigation, rail, rayon des nœuds de carte."
+      },
+      {
+        "name": "t-slow",
+        "value": "800ms",
+        "purpose": "Réservé aux transitions longues ; durée GSAP par défaut 0,9 s power3.out."
+      },
+      {
+        "name": "reveal",
+        "value": "autoAlpha 0→1, y 22→0, stagger 0.07, power3.out",
+        "purpose": "[data-reveal] à l'entrée dans l'écran (IntersectionObserver, −8 %), une fois ; tout est visible sans JavaScript."
+      },
+      {
+        "name": "draw",
+        "value": "stroke-dashoffset len→0, 1.4s power2.inOut, trigger top 85 %, once",
+        "purpose": "[data-draw] : routes du dossier, de la carte, du parcours. Déjà tracées en mouvement réduit."
+      },
+      {
+        "name": "stamp-in",
+        "value": "autoAlpha 0→1, scale 1.12→1, rotate −3°→−2°, 0.55s expo.out",
+        "purpose": "Le tampon se pose, sans rebond ; tampon de section à l'entrée (−20 %), tampons du hero et du moteur dans leur timeline."
+      },
+      {
+        "name": "fill-step",
+        "value": "classe field--empty → field--filled par pas de 0.42s, valeur autoAlpha 0→1 x −6→0 0.45s power2.out",
+        "purpose": "Les champs du dossier du hero se remplissent un à un."
+      },
+      {
+        "name": "counter",
+        "value": "n 0→score 1.6s power2.out, contenu des cellules mis à jour",
+        "purpose": "Le score du moteur monte dans ses cellules fixes ; la mise en page ne bouge pas."
+      },
+      {
+        "name": "bar-fill",
+        "value": "scaleX 0→1 0.6s, pas de 0.22s, transform-origin left",
+        "purpose": "Barres de critères du moteur."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation-duration 0.01ms, transition-duration 0.01ms, scroll-behavior auto ; les timelines GSAP ne démarrent pas",
+        "purpose": "prefers-reduced-motion : état final livré directement."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "600px",
+        "purpose": "Sous ce palier : routes verticales, étapes en défilement horizontal, lignes d'entreprise en pile."
+      },
+      {
+        "name": "form",
+        "value": "760px",
+        "purpose": "Formulaire d'expansion en trois colonnes."
+      },
+      {
+        "name": "grid",
+        "value": "900px",
+        "purpose": "Compteurs et pipeline en 4–5 colonnes."
+      },
+      {
+        "name": "sections",
+        "value": "960px",
+        "purpose": "Sections de landing en deux colonnes 5/7, 4/7, 7/5 ; parcours horizontal."
+      },
+      {
+        "name": "nav",
+        "value": "1024px",
+        "purpose": "Navigation complète, hero 6/6, rail fixe, tampon de section en absolu."
+      },
+      {
+        "name": "app",
+        "value": "1100px",
+        "purpose": "Espace produit en 7/5."
+      },
+      {
+        "name": "max",
+        "value": "1280px",
+        "purpose": "Largeur maximale du conteneur."
+      }
+    ],
+    "brand": {
+      "logo": "src/brand/Logo.tsx : barre verticale et route (P sans le dire) en trait 14 sur grille 100, nœud Sunset r 10 ; mot-symbole Manrope 800 à −3 d'interlettrage ; tons light, dark, mono-light, mono-dark.",
+      "fonts": "@fontsource-variable/manrope et @fontsource-variable/dm-sans, auto-hébergées."
+    }
+  },
+  "components": [
+    {
+      "name": "Bouton principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "L'appel à l'action : aplat Sunset, texte sombre, angles vifs, 3,25 rem ; survol en sunset assombri.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Trouver un partenaire <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--raisin, #242124); border-radius: 0; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.01em; text-decoration: none; color: var(--raisin, #242124); background: transparent; cursor: pointer; transition: background 180ms linear, color 180ms linear, border-color 180ms linear, transform 180ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-primary:active { transform: scale(0.985); } .ds-btn-primary:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; border-radius: 2px; } .ds-btn-primary svg { width: 1.1em; height: 1.1em; } .ds-btn-primary { background: var(--sunset, #e96a4f); border-color: var(--sunset, #e96a4f); color: var(--on-sunset, #1f1413); } .ds-btn-primary:hover { background: #d95d43; border-color: #d95d43; }"
+    },
+    {
+      "name": "Bouton contour",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Action secondaire : contour raisin 1 px, survol inversé (fond raisin, texte Blanc cassé).",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\">Voir les marchés</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--raisin, #242124); border-radius: 0; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.01em; text-decoration: none; color: var(--raisin, #242124); background: transparent; cursor: pointer; transition: background 180ms linear, color 180ms linear, border-color 180ms linear, transform 180ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-outline:active { transform: scale(0.985); } .ds-btn-outline:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; border-radius: 2px; } .ds-btn-outline svg { width: 1.1em; height: 1.1em; } .ds-btn-outline:hover { background: var(--raisin, #242124); color: var(--offwhite, #f5f2ec); }"
+    },
+    {
+      "name": "Bouton clair (sur raisin)",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Variante pour les sections sombres : contour Blanc cassé, survol inversé. Variante small : 2,5 rem.",
+      "html": "<div class=\"ds-dark-canvas\"><button class=\"ds-btn-light ds-btn-light--small\" type=\"button\">Voir pourquoi <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-dark-canvas { display: inline-block; padding: 1.25rem; background: var(--raisin, #242124); } .ds-btn-light { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--raisin, #242124); border-radius: 0; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.01em; text-decoration: none; color: var(--raisin, #242124); background: transparent; cursor: pointer; transition: background 180ms linear, color 180ms linear, border-color 180ms linear, transform 180ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-light:active { transform: scale(0.985); } .ds-btn-light:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; border-radius: 2px; } .ds-btn-light svg { width: 1.1em; height: 1.1em; } .ds-btn-light { border-color: var(--offwhite, #f5f2ec); color: var(--offwhite, #f5f2ec); } .ds-btn-light:hover { background: var(--offwhite, #f5f2ec); color: var(--raisin, #242124); } .ds-btn-light:focus-visible { outline-color: var(--sunset-soft, #f0a391); } .ds-btn-light--small { min-height: 2.5rem; padding: 0 1rem; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Champ de saisie",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Saisie de l'espace produit : fond Blanc, cadre filet fort, 2,75 rem, caret Sunset, focus en anneau sunset-ink sans décalage.",
+      "html": "<label class=\"ds-input-wrap\"><span class=\"ds-input-label\">Secteur</span><input class=\"ds-input\" type=\"text\" placeholder=\"Agroalimentaire, logistique…\"></label>",
+      "css": ".ds-input-wrap { display: grid; gap: 0.35rem; max-width: 20rem; } .ds-input-label { font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted, #6b6468); } .ds-input { width: 100%; min-height: 2.75rem; padding: 0 0.85rem; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); border-radius: 0; background: var(--white, #ffffff); color: var(--raisin, #242124); font-family: \"DM Sans Variable\", \"DM Sans\", system-ui, sans-serif; font-size: 0.9375rem; caret-color: var(--sunset, #e96a4f); } .ds-input::placeholder { color: var(--ink-muted, #6b6468); opacity: 1; } .ds-input:focus { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 0; border-color: transparent; }"
+    },
+    {
+      "name": "Puce de filtre",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtre à bascule : cadre filet fort, survol buff-tint, sélectionné en aplat raisin (le remplissage change, pas la teinte).",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" type=\"button\" aria-pressed=\"true\">Distributeur</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Fournisseur</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Vérifiées</button></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-chip { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0 0.85rem; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); border-radius: 0; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; background: transparent; color: var(--raisin, #242124); cursor: pointer; transition: background 180ms linear, color 180ms linear; } .ds-chip:hover { background: var(--buff-tint, #ece2c9); } .ds-chip[aria-pressed=\"true\"] { background: var(--raisin, #242124); color: var(--offwhite, #f5f2ec); border-color: var(--raisin, #242124); } .ds-chip:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; }"
+    },
+    {
+      "name": "Fiche réglée avec champs",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Le dossier : cadre filet fort, en-tête libellé / référence, champs libellé-valeur-filet dans les trois états (rempli buff, vide hachuré, neutre).",
+      "html": "<article class=\"ds-sheet\"><div class=\"ds-sheet__head\"><span class=\"ds-label ds-label--strong\">Dossier d'expansion</span><span class=\"ds-label ds-tabular\">N° PV-2026-0417</span></div><div class=\"ds-sheet__body\"><div class=\"ds-field ds-field--filled\"><span class=\"ds-label\">Depuis</span><div class=\"ds-field__value ds-field__value--lg\">Libreville</div></div><div class=\"ds-field ds-field--filled\"><span class=\"ds-label\">Vers</span><div class=\"ds-field__value ds-field__value--lg\">Douala</div></div><div class=\"ds-field\"><span class=\"ds-label\">Objectif</span><div class=\"ds-field__value\">Distributeur</div></div><div class=\"ds-field ds-field--empty\"><span class=\"ds-label\">Résultat</span><div class=\"ds-field__value\">—</div></div></div></article>",
+      "css": ".ds-sheet { max-width: 26rem; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); background: var(--offwhite, #f5f2ec); color: var(--raisin, #242124); } .ds-sheet__head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); } .ds-sheet__body { padding: 0.5rem 1.25rem 1.25rem; display: grid; } .ds-label { display: inline-flex; align-items: center; gap: 0.55em; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted, #6b6468); } .ds-label--strong { color: var(--raisin, #242124); } .ds-tabular { font-variant-numeric: tabular-nums; } .ds-field { display: grid; gap: 0.35rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule, rgb(36 33 36 / 0.16)); } .ds-field:last-child { border-bottom: 0; } .ds-field__value { font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; line-height: 1.2; color: var(--raisin, #242124); } .ds-field__value--lg { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); letter-spacing: -0.03em; } .ds-field--filled .ds-field__value { background: var(--buff-tint, #ece2c9); padding: 0.35rem 0.6rem; margin-inline: -0.6rem; } .ds-field--empty .ds-field__value { background: repeating-linear-gradient(135deg, rgb(36 33 36 / 0.1) 0 1px, transparent 1px 6px); color: transparent; min-height: 1.4em; }"
+    },
+    {
+      "name": "Tampon",
+      "kind": "custom",
+      "refersTo": "stamp-solid",
+      "description": "Le seul élément incliné : pilule à bordure 2 px Sunset, −2°, chiffre tabulaire ; variante pleine en aplat Sunset. Se pose à l'arrivée (1,12 → 1, −3° → −2°, expo.out 550 ms).",
+      "html": "<div class=\"ds-stamp-row\"><span class=\"ds-stamp ds-stamp--solid\"><strong>94 %</strong>compatible</span><span class=\"ds-stamp\">Vérifié</span></div>",
+      "css": ".ds-stamp-row { display: flex; gap: 1.5rem; align-items: center; padding: 0.75rem; } .ds-stamp { display: inline-grid; place-items: center; gap: 0.1rem; padding: 0.6rem 1rem; border: 2px solid var(--sunset, #e96a4f); border-radius: 999px; color: var(--sunset-ink, #b84b33); font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; line-height: 1; transform: rotate(-2deg); background: var(--offwhite, #f5f2ec); animation: ds-stamp-in 550ms cubic-bezier(0.16, 1, 0.3, 1) both; } .ds-stamp--solid { background: var(--sunset, #e96a4f); color: var(--on-sunset, #1f1413); } .ds-stamp strong { font-size: 1.5rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } @keyframes ds-stamp-in { from { opacity: 0; transform: scale(1.12) rotate(-3deg); } to { opacity: 1; transform: scale(1) rotate(-2deg); } } @media (prefers-reduced-motion: reduce) { .ds-stamp { animation: none; } }"
+    },
+    {
+      "name": "Score en cellules fixes",
+      "kind": "custom",
+      "refersTo": "score",
+      "description": "Chaque chiffre dans une cellule de 0,62 em, Manrope 800 serré, tabular-nums ; le « % » à 0,4 em. Le changement est un fondu de contenu, jamais un saut.",
+      "html": "<span class=\"ds-score\" aria-label=\"94 %\"><span class=\"ds-score__cell\" aria-hidden=\"true\">9</span><span class=\"ds-score__cell\" aria-hidden=\"true\">4</span><small aria-hidden=\"true\">%</small></span> <span class=\"ds-score ds-score--accent\" style=\"font-size:1.75rem\" aria-label=\"87 %\"><span class=\"ds-score__cell\" aria-hidden=\"true\">8</span><span class=\"ds-score__cell\" aria-hidden=\"true\">7</span><small aria-hidden=\"true\">%</small></span>",
+      "css": ".ds-score { display: inline-flex; align-items: baseline; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 800; font-size: 4.5rem; letter-spacing: -0.04em; line-height: 0.9; font-variant-numeric: tabular-nums; color: var(--raisin, #242124); } .ds-score__cell { display: inline-block; width: 0.62em; text-align: center; } .ds-score small { font-size: 0.4em; font-weight: 700; letter-spacing: 0; margin-left: 0.15em; } .ds-score--accent { color: var(--sunset-ink, #b84b33); }"
+    },
+    {
+      "name": "Légende des types de partenariat",
+      "kind": "custom",
+      "refersTo": "ptype",
+      "description": "Marqueur géométrique constant de 0,75 rem par type, identique sur tout le site ; jamais remplacé par une icône.",
+      "html": "<ul class=\"ds-ptypes\"><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"distributor\"></i>Distributeur</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"supplier\"></i>Fournisseur</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"strategic\"></i>Stratégique</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"technology\"></i>Technologique</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"commercial\"></i>Commercial</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"manufacturer\"></i>Fabricant</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"logistics\"></i>Logistique</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"subcontractor\"></i>Sous-traitant</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"local\"></i>Local</li><li class=\"ds-ptype\"><i class=\"ds-ptype__mark\" data-k=\"jointventure\"></i>Coentreprise</li></ul>",
+      "css": ".ds-ptypes { display: grid; grid-template-columns: repeat(2, auto); gap: 0.6rem 1.5rem; list-style: none; margin: 0; padding: 0; } .ds-ptype { display: inline-flex; align-items: center; gap: 0.5rem; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 600; font-size: 0.875rem; color: var(--raisin, #242124); } .ds-ptype__mark { width: 0.75rem; height: 0.75rem; border: 2px solid var(--raisin, #242124); flex: none; box-sizing: border-box; } .ds-ptype__mark[data-k=\"distributor\"] { background: var(--raisin, #242124); } .ds-ptype__mark[data-k=\"supplier\"] { border-radius: 50%; } .ds-ptype__mark[data-k=\"strategic\"] { transform: rotate(45deg); } .ds-ptype__mark[data-k=\"technology\"] { border-radius: 50%; background: var(--raisin, #242124); } .ds-ptype__mark[data-k=\"commercial\"] { border-bottom-width: 6px; } .ds-ptype__mark[data-k=\"manufacturer\"] { background: repeating-linear-gradient(135deg, rgb(36 33 36 / 0.1) 0 1px, transparent 1px 6px); } .ds-ptype__mark[data-k=\"logistics\"] { border: 0; background: var(--raisin, #242124); clip-path: polygon(0 0, 100% 50%, 0 100%); } .ds-ptype__mark[data-k=\"subcontractor\"] { border-style: dashed; } .ds-ptype__mark[data-k=\"local\"] { border-radius: 50%; border-style: double; border-width: 3px; } .ds-ptype__mark[data-k=\"jointventure\"] { background: linear-gradient(135deg, var(--raisin, #242124) 50%, transparent 50%); }"
+    },
+    {
+      "name": "Ligne d'entreprise (registre)",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Entrée de registre : monogramme carré, nom, pays en case, pastilles de vérification, score à droite ; survol en buff-tint débordant.",
+      "html": "<a class=\"ds-company-row\" href=\"#\"><span class=\"ds-monogram\" aria-hidden=\"true\">AD</span><span class=\"ds-company-row__main\"><strong>AgroDistrib Cameroon</strong><span class=\"ds-company-row__meta\"><span class=\"ds-country\"><span class=\"ds-country__code\" aria-hidden=\"true\">CM</span>Cameroun</span> · Douala · Distribution · 100–250 pers.</span><span class=\"ds-verifs\"><span class=\"ds-verif\"><i class=\"ds-verif__dot\"></i>Entreprise vérifiée</span><span class=\"ds-verif\"><i class=\"ds-verif__dot\"></i>Informations vérifiées</span><span class=\"ds-verif ds-verif--off\"><i class=\"ds-verif__dot\"></i>Prête au partenariat</span></span></span><span class=\"ds-company-row__side\"><span class=\"ds-score\" aria-label=\"94 %\"><span class=\"ds-score__cell\" aria-hidden=\"true\">9</span><span class=\"ds-score__cell\" aria-hidden=\"true\">4</span><small aria-hidden=\"true\">%</small></span></span></a>",
+      "css": ".ds-company-row { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-top: 1px solid var(--raisin, #242124); border-bottom: 1px solid var(--rule, rgb(36 33 36 / 0.16)); text-decoration: none; color: var(--raisin, #242124); font-family: \"DM Sans Variable\", \"DM Sans\", system-ui, sans-serif; transition: background 180ms linear; } .ds-company-row:hover { background: var(--buff-tint, #ece2c9); margin-inline: -0.75rem; padding-inline: 0.75rem; } .ds-company-row:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; } .ds-monogram { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 800; font-size: 0.875rem; letter-spacing: 0.04em; background: var(--offwhite, #f5f2ec); } .ds-company-row__main { display: grid; gap: 0.3rem; min-width: 0; } .ds-company-row__main strong { font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 1.0625rem; letter-spacing: -0.01em; } .ds-company-row__meta { font-size: 0.875rem; color: var(--ink-muted, #6b6468); } .ds-country { display: inline-flex; align-items: center; gap: 0.5rem; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 600; } .ds-country__code { display: inline-grid; place-items: center; min-width: 2rem; height: 1.5rem; padding: 0 0.35rem; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.12em; color: var(--raisin, #242124); } .ds-verifs { display: flex; flex-wrap: wrap; gap: 0.75rem; } .ds-verif { display: inline-flex; align-items: center; gap: 0.4rem; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; } .ds-verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sunset, #e96a4f); outline: 1px solid var(--sunset, #e96a4f); outline-offset: 2px; } .ds-verif--off { color: var(--ink-muted, #6b6468); } .ds-verif--off .ds-verif__dot { background: transparent; border: 1.5px solid var(--rule-strong, rgb(36 33 36 / 0.32)); outline: none; box-sizing: border-box; } .ds-company-row__side { display: grid; justify-items: end; } .ds-score { display: inline-flex; align-items: baseline; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 800; font-size: 1.75rem; letter-spacing: -0.04em; line-height: 0.9; font-variant-numeric: tabular-nums; } .ds-score__cell { display: inline-block; width: 0.62em; text-align: center; } .ds-score small { font-size: 0.4em; font-weight: 700; letter-spacing: 0; margin-left: 0.15em; }"
+    },
+    {
+      "name": "Navigation : rail de l'espace",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Rail raisin de 16,5 rem : liens Manrope 600 en papier atténué, marqueur carré ; actif et survol en Blanc cassé sur raisin doux, marqueur rempli Sunset.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Espace PAVEN\"><a class=\"ds-rail__link is-active\" href=\"#\"><i class=\"ds-rail__mark\"></i>Vue d'ensemble</a><a class=\"ds-rail__link\" href=\"#\"><i class=\"ds-rail__mark\"></i>Découvrir</a><a class=\"ds-rail__link\" href=\"#\"><i class=\"ds-rail__mark\"></i>Compatibilités</a><a class=\"ds-rail__link\" href=\"#\"><i class=\"ds-rail__mark\"></i>Deal Rooms</a></nav>",
+      "css": ".ds-rail { display: grid; gap: 0.15rem; width: 16.5rem; padding: 1.25rem; background: var(--raisin, #242124); color: var(--offwhite, #f5f2ec); } .ds-rail__link { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.5rem; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-weight: 600; font-size: 0.9375rem; color: var(--paper-muted, #d9cdb0); text-decoration: none; transition: color 180ms linear, background 180ms linear; } .ds-rail__link:hover, .ds-rail__link.is-active { color: var(--offwhite, #f5f2ec); background: var(--raisin-soft, #3a3639); } .ds-rail__link:focus-visible { outline: 2px solid var(--sunset-soft, #f0a391); outline-offset: 3px; } .ds-rail__mark { width: 0.5rem; height: 0.5rem; border: 1.5px solid currentColor; flex: none; box-sizing: border-box; } .ds-rail__link.is-active .ds-rail__mark { background: var(--sunset, #e96a4f); border-color: var(--sunset, #e96a4f); }"
+    },
+    {
+      "name": "Navigation : en-tête de landing",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Barre de 4,5 rem, Blanc cassé à 94 % avec flou 8 px une fois défilée ; liens Manrope 600 au soulignement Sunset 2 px qui s'étend depuis la gauche ; sélecteur FR / EN cadré.",
+      "html": "<header class=\"ds-header\"><span class=\"ds-header__logo\"><svg viewBox=\"0 0 360 100\" height=\"24\" width=\"86\" aria-label=\"PAVEN\" role=\"img\"><path d=\"M28 12v76\" stroke=\"#242124\" stroke-width=\"14\" stroke-linecap=\"square\" fill=\"none\"/><path d=\"M28 19h26a19 19 0 0 1 0 38h-8\" stroke=\"#242124\" stroke-width=\"14\" stroke-linecap=\"square\" fill=\"none\"/><circle cx=\"73\" cy=\"78\" r=\"10\" fill=\"#e96a4f\"/><text x=\"112\" y=\"80\" font-family=\"Manrope Variable, Manrope, sans-serif\" font-weight=\"800\" font-size=\"78\" letter-spacing=\"-3\" fill=\"#242124\">PAVEN</text></svg></span><nav class=\"ds-header__nav\" aria-label=\"Principale\"><a href=\"#\">Le moteur</a><a href=\"#\">Marchés</a><a href=\"#\">Confiance</a></nav><span class=\"ds-header__lang\"><button type=\"button\" aria-pressed=\"true\">FR</button><button type=\"button\" aria-pressed=\"false\">EN</button></span></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 2rem; height: 4.5rem; padding: 0 1.5rem; background: rgb(245 242 236 / 0.94); border-bottom: 1px solid var(--rule, rgb(36 33 36 / 0.16)); backdrop-filter: blur(8px); } .ds-header__logo { display: inline-flex; } .ds-header__nav { display: flex; gap: 1.75rem; margin-left: auto; } .ds-header__nav a { position: relative; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; color: var(--raisin, #242124); padding: 0.5rem 0; } .ds-header__nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--sunset, #e96a4f); transform: scaleX(0); transform-origin: left; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-header__nav a:hover::after, .ds-header__nav a:focus-visible::after { transform: scaleX(1); } .ds-header__nav a:focus-visible { outline: 2px solid var(--sunset-ink, #b84b33); outline-offset: 3px; } .ds-header__lang { display: inline-flex; border: 1px solid var(--rule-strong, rgb(36 33 36 / 0.32)); } .ds-header__lang button { padding: 0.35rem 0.6rem; border: 0; background: none; cursor: pointer; font-family: \"Manrope Variable\", Manrope, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-muted, #6b6468); } .ds-header__lang button[aria-pressed=\"true\"] { background: var(--raisin, #242124); color: var(--offwhite, #f5f2ec); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "« Le dossier d'expansion »",
+    "overview": "PAVEN se présente comme un dossier de commerce international qui se remplit sous les yeux du lecteur : une feuille off-white réglée de filets raisin à 1 px, des champs dont la valeur se pose sur un aplat buff, et un tampon sunset qui vient clore chaque étape (score, « compatible », titre de section). Rien n'est décoré : chaque filet sépare un champ, chaque teinte signale un état, chaque chiffre est posé dans une cellule à largeur fixe. La densité est celle d'un formulaire administratif bien composé, non celle d'une landing SaaS ; la lecture avance de haut en bas le long d'un axe de route unique, de DEPUIS à VERS.\n\nLa matière est plate. Le papier (Blanc cassé), le papier sombre (Noir raisin pour le moteur et la clôture, Raisin profond pour le pied de page) et le blanc (interfaces de l'espace produit) se superposent par contraste de ton, jamais par ombre portée. Le seul objet qui projette une ombre est le téléphone dessiné en CSS ; le seul élément incliné est le tampon. Les icônes de type de partenariat sont une légende géométrique constante (carré plein, cercle, losange, hachure, triangle…), tenue identique de la landing à l'espace produit.\n\nLe mouvement reste la grammaire du dossier : les champs se remplissent par pas, les routes se tracent en `stroke-dashoffset`, le tampon se pose (échelle 1,12 → 1, rotation −3° → −2°, `expo.out`), sans rebond. Tout est déjà visible sans JavaScript et déjà tracé en mouvement réduit. Rejets confirmés par la construction : pas de dégradés multicolores, pas de blobs, pas de glassmorphism, pas d'arrondis généralisés, pas de carte d'Afrique littérale (la carte est une trame de points sans frontière), pas de titre centré, pas de grille de trois cartes.",
+    "keyCharacteristics": [
+      "Papier Blanc cassé réglé de filets raisin à 1 px ; les listes sont des registres (`border-top` plein, lignes séparées par un filet à 16 %).",
+      "Trois états de champ par remplissage : hachure (vide), aplat buff (rempli), contour seul (neutre) ; jamais une simple variation de teinte.",
+      "Chiffres Manrope 800 en cellules de 0,62 em, `tabular-nums` ; le score change par fondu, pas par saut.",
+      "Sunset réservé aux tampons, aux pastilles de vérification, aux routes, au CTA principal et aux chiffres d'accent.",
+      "Un seul élément incliné (le tampon, −2°), une seule ombre (le téléphone), une seule courbe (`cubic-bezier(0.22, 1, 0.36, 1)`).",
+      "Légende de types de partenariat constante sur tout le site."
+    ],
+    "rules": [
+      {
+        "name": "The Stamp Rule",
+        "body": "Le Sunset en aplat n'apparaît que sur ce qui tamponne ou appelle : tampon plein, CTA principal, pastille de vérification, point de route, badge de notification. Jamais en fond de section, jamais en dégradé, jamais en texte brut (le texte prend `sunset-ink` sur clair, `sunset-soft` sur raisin).",
+        "section": "colors"
+      },
+      {
+        "name": "The Fill-Not-Tint Rule",
+        "body": "Un état se lit au remplissage : vide = hachure, rempli = aplat buff-tint, choisi = aplat raisin avec texte Blanc cassé, touché = buff-tint. Changer seulement la teinte d'un texte ne suffit pas à signaler un état.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-Role Rule",
+        "body": "Toute couleur de texte provient d'un rôle de ton (`--fg`, `--fg-muted`, `--accent-text`), jamais d'une couleur brute : la même fiche doit rester lisible posée sur papier, sur raisin ou sur buff.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed-Cell Rule",
+        "body": "Un chiffre qui peut changer vit dans une cellule à largeur fixe (`.score__cell`, 0,62 em, `tabular-nums`) : le compteur monte par fondu de contenu, la mise en page ne bouge jamais.",
+        "section": "typography"
+      },
+      {
+        "name": "The Label-Then-Value Rule",
+        "body": "Toute donnée est présentée libellé au-dessus (Manrope capitales 0,14 em, `fg-muted`), valeur au-dessous (Manrope 700 serré), filet en bas. Pas de libellé inline, pas de deux-points.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single-Axis Rule",
+        "body": "Une route ne se trace que sur un seul axe : verticale dans le dossier (24 px de large, point d'origine raisin, point d'arrivée sunset), horizontale dans le parcours à partir de 960 px, courbe quadratique sur la carte. Jamais de graphe de nœuds multiples.",
+        "section": "layout"
+      },
+      {
+        "name": "The Phone-Only Shadow Rule",
+        "body": "La seule ombre portée du site est celle du téléphone. Les fiches, tampons, boutons, chips, panneaux et menus restent plats ; un composant qui a besoin de se détacher change de ton ou de filet, pas d'élévation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Only-Tilt Rule",
+        "body": "Le tampon est le seul élément incliné (−2° au repos, −3° à l'arrivée). Aucun autre bloc, image ou texte ne tourne.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do poser toute donnée en champ libellé / valeur / filet (Manrope capitales 0,14 em à 0,6875 rem, puis Manrope 700 serré, puis 1 px `rule`).",
+      "Do mettre tout chiffre variable en cellules fixes `tabular-nums` et le faire changer par fondu, jamais par saut de mise en page.",
+      "Do lire les couleurs dans les rôles de ton (`--bg`, `--fg`, `--fg-muted`, `--line`, `--field`, `--accent-text`) et poser le ton d'une section par `data-tone`.",
+      "Do signaler un état par le remplissage : hachure pour vide, aplat `buff-tint` pour rempli ou touché, aplat raisin / texte Blanc cassé pour choisi.",
+      "Do réserver l'aplat Sunset au tampon, au CTA principal, aux pastilles de vérification, aux points de route et aux badges ; en texte, utiliser `sunset-ink` sur clair et `sunset-soft` sur raisin.",
+      "Do utiliser le marqueur géométrique constant de type de partenariat partout où un type est nommé.",
+      "Do tracer les routes en `stroke-dashoffset` au défilement, une seule fois, et les livrer déjà tracées en mouvement réduit ; durées 180 / 420 / 800 ms, courbe `cubic-bezier(0.22, 1, 0.36, 1)`, tampon en `expo.out` 550 ms.",
+      "Do garder les angles vifs (0) sur tout ce qui n'est pas un tampon, une pastille ou le téléphone."
+    ],
+    "donts": [
+      "Don't ajouter une ombre portée à autre chose que le téléphone ; les fiches, tampons, boutons et menus restent plats.",
+      "Don't incliner autre chose que le tampon.",
+      "Don't utiliser de dégradé de surface hors du corps du téléphone, ni de dégradé multicolore, ni de blob, ni de glassmorphism.",
+      "Don't introduire de bleu ou de violet, ni une sixième couleur : toute nuance dérive des cinq couleurs imposées.",
+      "Don't dessiner de frontières, de pays colorés ou de carte d'Afrique littérale ; la carte reste une trame de points, des villes et des routes.",
+      "Don't centrer un titre de section ni composer une grille de trois cartes de fonctionnalités.",
+      "Don't faire rebondir une animation ni animer une propriété de mise en page ; les champs se remplissent par pas, les barres par `scaleX`.",
+      "Don't remplacer la légende géométrique des types de partenariat par des icônes, ni un filet par un espace blanc."
+    ]
+  }
+}

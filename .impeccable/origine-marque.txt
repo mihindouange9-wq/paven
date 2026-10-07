@@ -1,0 +1,1 @@
+Origine : rendu par tools/build-brand.mjs (Chrome sans interface) a partir du symbole vectoriel PAVEN de src/brand/Logo.tsx et de la police Manrope Variable. Aucune generation par IA.
