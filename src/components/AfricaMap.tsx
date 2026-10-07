@@ -20,6 +20,9 @@ function inside(x: number, y: number) {
 
 const STEP = 2.1;
 
+/* Villes dont l'étiquette reste sur téléphone ; les autres ne sont étiquetées qu'à partir de 600 px. */
+const TIER1 = new Set(["casablanca", "dakar", "abidjan", "lagos", "douala", "libreville", "nairobi", "johannesburg", "cairo", "addis", "dar"]);
+
 /* Position des étiquettes : les villes côtières d'Afrique de l'Ouest et les capitales jumelles se chevauchent sinon. */
 const LABEL: Record<string, { dx: number; dy: number; anchor?: "end" | "middle" } | null> = {
   abidjan: { dx: -1.9, dy: 0.5, anchor: "end" },
@@ -83,7 +86,7 @@ export default function AfricaMap({ selected, onSelect, routes = [], highlight =
                 <circle r="2.4" className="africa__hit" onClick={() => onSelect(c.country)} tabIndex={0} role="button" aria-label={`${c.name}, ${countryByCode(c.country).name}`} onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onSelect(c.country)} />
               ) : null}
               <circle r={on ? 1.3 : 0.9} className="africa__node" />
-              {labels && main && LABEL[c.id] !== null ? (() => { const p = LABEL[c.id] ?? { dx: 1.9, dy: 0.5 }; return <text x={p.dx} y={p.dy} textAnchor={p.anchor ?? "start"} className="africa__label">{c.name}</text>; })() : null}
+              {labels && main && LABEL[c.id] !== null ? (() => { const p = LABEL[c.id] ?? { dx: 1.9, dy: 0.5 }; return <text x={p.dx} y={p.dy} textAnchor={p.anchor ?? "start"} className={`africa__label ${TIER1.has(c.id) || on ? "" : "africa__label--2"}`}>{c.name}</text>; })() : null}
             </g>
           );
         })}

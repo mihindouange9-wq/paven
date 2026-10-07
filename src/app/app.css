@@ -169,3 +169,8 @@
 .stages li { overflow-wrap: normal; hyphens: manual; white-space: nowrap; min-width: 5.5rem; }
 @media (max-width: 600px) { .stages li { font-size: 0.625rem; letter-spacing: 0.04em; } }
 .stages { gap: 0.75rem; padding-bottom: 0.25rem; }
+
+@media (max-width: 599px) {
+  .stages { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 0.35rem; }
+  .stages li { flex: 0 0 auto; min-width: 6.5rem; }
+}

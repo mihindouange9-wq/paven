@@ -282,7 +282,8 @@
 }
 
 /* Clôture */
-.final__inner { display: grid; gap: 1.5rem; text-align: left; max-width: 46rem; }
+.final__inner { display: grid; gap: 1.5rem; text-align: left; }
+.final__inner > h2, .final__inner > .lead, .final__inner > .final__actions { max-width: 46rem; }
 .final h2 { font-size: clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem); letter-spacing: -0.04em; }
 .final__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
 
@@ -328,3 +329,7 @@
 @media (min-width: 1024px) { .section-stamp { top: 0; } }
 .section-stamp { top: -3.4rem; }
 @media (min-width: 1024px) { .section-stamp { top: -4.2rem; } }
+
+/* ---- second verdict ---- */
+@media (max-width: 599px) { .africa__label--2 { display: none; } .africa__label { font-size: 1.9px; } }
+@media (max-width: 1023px) { .section-stamp { position: static; justify-self: start; margin-bottom: 1.25rem; display: inline-grid; } .section-stamp + * { margin-top: 0; } }
