@@ -1,0 +1,121 @@
+/* ───────────── Composants : le vocabulaire du dossier ───────────── */
+
+/* Libellé de champ : capitales espacées Manrope, précédé d'un index optionnel */
+.label {
+  display: inline-flex; align-items: center; gap: 0.55em;
+  font-family: var(--font-ui); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted);
+}
+.label--strong { color: var(--fg); }
+
+/* Champ du dossier : libellé en haut, valeur dessous, filet en bas */
+.field { display: grid; gap: 0.35rem; padding: 0.85rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.field__value { font-family: var(--font-ui); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; line-height: 1.2; color: var(--fg); }
+.field__value--lg { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); letter-spacing: -0.03em; }
+.field--filled .field__value { background: var(--field); padding: 0.35rem 0.6rem; margin-inline: -0.6rem; }
+.field--empty .field__value { background: var(--hatch); color: transparent; min-height: 1.4em; }
+[data-tone="dark"] .field--empty .field__value { background: var(--hatch-dark); }
+
+/* Fiche réglée : un bloc de champs encadré d'un filet fort */
+.sheet { border: 1px solid var(--line-strong); background: var(--bg); color: var(--fg); position: relative; }
+.sheet__head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--line-strong); }
+.sheet__body { padding: 0.5rem 1.25rem 1.25rem; }
+.sheet__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+.sheet__row { display: grid; grid-template-columns: 1fr; }
+
+/* Tampon : le seul élément incliné du site */
+.stamp {
+  display: inline-grid; place-items: center; gap: 0.1rem;
+  padding: 0.6rem 1rem; border: 2px solid var(--sunset); border-radius: var(--radius-pill);
+  color: var(--sunset-ink); font-family: var(--font-ui); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; line-height: 1;
+  transform: rotate(-2deg); background: var(--bg);
+}
+.stamp--solid { background: var(--sunset); color: var(--on-sunset); border-color: var(--sunset); }
+.stamp strong { font-size: 1.5rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+[data-tone="dark"] .stamp { color: var(--sunset-soft); border-color: var(--sunset); }
+[data-tone="dark"] .stamp--solid { color: var(--on-sunset); }
+
+/* Score : cellules de chiffres à largeur fixe */
+.score { display: inline-flex; align-items: baseline; font-family: var(--font-ui); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; font-variant-numeric: tabular-nums; color: var(--fg); }
+.score__cell { display: inline-block; width: 0.62em; text-align: center; }
+.score small { font-size: 0.4em; font-weight: 700; letter-spacing: 0; margin-left: 0.15em; }
+.score--accent { color: var(--accent-text); }
+
+/* Pays : code en pastille carrée + nom */
+.country { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.01em; }
+.country__code { display: inline-grid; place-items: center; min-width: 2rem; height: 1.5rem; padding: 0 0.35rem; border: 1px solid var(--line-strong); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.12em; }
+.country--filled .country__code { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+[data-tone="dark"] .country--filled .country__code { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+
+/* Marqueur de type de partenariat : légende constante sur tout le site */
+.ptype { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.875rem; }
+.ptype__mark { width: 0.75rem; height: 0.75rem; border: 2px solid var(--fg); flex: none; }
+.ptype__mark[data-k="distributor"] { background: var(--fg); }
+.ptype__mark[data-k="supplier"] { border-radius: 50%; }
+.ptype__mark[data-k="strategic"] { transform: rotate(45deg); }
+.ptype__mark[data-k="technology"] { border-radius: 50%; background: var(--fg); }
+.ptype__mark[data-k="commercial"] { border-bottom-width: 6px; }
+.ptype__mark[data-k="manufacturer"] { background: var(--hatch); }
+.ptype__mark[data-k="logistics"] { border: 0; background: var(--fg); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.ptype__mark[data-k="subcontractor"] { border-style: dashed; }
+.ptype__mark[data-k="local"] { border-radius: 50%; border-style: double; border-width: 3px; }
+.ptype__mark[data-k="jointventure"] { background: linear-gradient(135deg, var(--fg) 50%, transparent 50%); }
+
+/* Monogramme d'entreprise : carré, initiales Manrope */
+.monogram { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid var(--line-strong); font-family: var(--font-ui); font-weight: 800; font-size: 0.875rem; letter-spacing: 0.04em; color: var(--fg); background: var(--bg); flex: none; }
+.monogram--lg { width: 4.5rem; height: 4.5rem; font-size: 1.25rem; }
+.monogram--dark { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+
+/* Vérification : pastilles sunset */
+.verif { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; color: var(--fg); }
+.verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sunset); box-shadow: 0 0 0 3px rgb(233 106 79 / 0.2); }
+.verif--off { color: var(--fg-muted); }
+.verif--off .verif__dot { background: transparent; border: 1.5px solid var(--line-strong); box-shadow: none; }
+
+/* Boutons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--raisin);
+  font-family: var(--font-ui); font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.01em; text-decoration: none;
+  color: var(--raisin); background: transparent; transition: background var(--t-fast) linear, color var(--t-fast) linear, border-color var(--t-fast) linear, transform var(--t-fast) var(--ease);
+}
+.btn:hover { background: var(--raisin); color: var(--offwhite); }
+.btn:active { transform: scale(0.985); }
+.btn--primary { background: var(--sunset); border-color: var(--sunset); color: var(--on-sunset); }
+.btn--primary:hover { background: #d95d43; border-color: #d95d43; color: var(--on-sunset); }
+.btn--small { min-height: 2.5rem; padding: 0 1rem; font-size: 0.875rem; }
+.btn--light { border-color: var(--offwhite); color: var(--offwhite); }
+.btn--light:hover { background: var(--offwhite); color: var(--raisin); }
+.btn svg { width: 1.1em; height: 1.1em; }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+/* Listes à filets : la structure */
+.ledger { border-top: 1px solid var(--fg); }
+.ledger > li { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+
+/* Filet de section : une barre d'en-tête de dossier */
+.rule-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--fg); margin-bottom: 1.5rem; }
+
+/* Étiquette de démonstration */
+.demo-note { font-size: var(--fs-small); color: var(--fg-muted); }
+
+/* Pastille de statut d'étape */
+.stage { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.stage__dot { width: 0.5rem; height: 0.5rem; background: var(--sunset); }
+
+/* Champ de recherche / filtres */
+.input { width: 100%; min-height: 2.75rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); background: var(--white); color: var(--fg); font-family: var(--font-text); font-size: 0.9375rem; }
+[data-tone="dark"] .input { background: var(--raisin-soft); }
+.input:focus { outline: 2px solid var(--sunset-ink); outline-offset: 0; border-color: transparent; }
+.select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2rem; }
+
+/* Puce de filtre */
+.chip { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; background: transparent; color: var(--fg); transition: background var(--t-fast) linear, color var(--t-fast) linear; }
+.chip:hover { background: var(--field); }
+.chip[aria-pressed="true"], .chip.is-on { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+[data-tone="dark"] .chip[aria-pressed="true"] { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+
+/* Table du dossier */
+.table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.table th { text-align: left; font-family: var(--font-ui); font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); font-weight: 700; padding: 0.6rem 0; border-bottom: 1px solid var(--fg); }
+.table td { padding: 0.8rem 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-weight: 700; }

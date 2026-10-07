@@ -1,0 +1,146 @@
+{
+  "title": "PAVEN — choisir le monde visuel",
+  "question": "Le tirage a assigné « Le dossier d'expansion ». Gardez-le, prenez une alternative, ou relancez.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Le dossier d'expansion",
+      "kicker": "THE ROLL",
+      "lineage": "Documents du commerce international : connaissement, lettre de crédit, dossier d'exportation",
+      "thesis": "Chaque mise en relation est un dossier qui se remplit sous vos yeux, champ par champ, jusqu'au tampon de compatibilité.",
+      "palette": ["#F5F2EC", "#242124", "#D8C39A", "#E96A4F", "#FFFFFF"],
+      "materials": ["papier off-white réglé de filets raisin", "champs teintés buff", "tampons sunset", "chiffres tabulaires Manrope"],
+      "viewport": "Un dossier pleine largeur sur fond off-white : à gauche le titre « Les affaires changent de rythme quand l'Afrique se connecte. » et les deux actions ; à droite le dossier DEPUIS Libreville · VERS Douala · OBJECTIF Distributeur qui se remplit au défilement, la route se trace entre les deux villes, puis le tampon 94 % · COMPATIBLE se pose. Sous le dossier, les villes du réseau comme ports d'escale.",
+      "risk": "Si les filets et les champs sont posés sans rigueur, le dossier devient un formulaire administratif froid ; la chaleur vient du buff et du rythme des tampons.",
+      "raised": [
+        { "from": "Compteur nixie", "raise": "Scores et effectifs occupent des cellules de chiffres à largeur fixe ; un changement de valeur est un fondu physique, jamais un saut." },
+        { "from": "Plongée mésophotique", "raise": "Un seul axe vertical de route règle toute la page, de DEPUIS à VERS ; chaque section s'y accroche." },
+        { "from": "Jardin de pluie", "raise": "Une légende tenue droite : les types de partenariat gardent un marqueur constant sur tout le site." },
+        { "from": "Fanzine technique", "raise": "Les routes se tracent au défilement par stroke-dashoffset, déjà tracées en mouvement réduit." },
+        { "from": "Identité coffeehouse 90s", "raise": "Le passage d'une section à l'autre est un tampon qui se pose, pas un fondu générique." },
+        { "from": "Showroom Memphis", "raise": "Un état change le remplissage d'un champ (hachure, aplat, contour), jamais seulement sa teinte." }
+      ],
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "nav", "x": 0, "y": 0, "w": 12, "h": 1 },
+        { "label": "titre + actions", "x": 0, "y": 1, "w": 5, "h": 6 },
+        { "label": "dossier DEPUIS → VERS", "x": 6, "y": 1, "w": 6, "h": 7, "accent": true },
+        { "label": "villes du réseau", "x": 0, "y": 8, "w": 12, "h": 2 }
+      ] },
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Le plan de réseau",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Plans schématiques de réseaux de transport (Beck) appliqués aux corridors africains",
+      "thesis": "Les villes sont des stations, les partenariats des lignes, le match une correspondance.",
+      "palette": ["#F5F2EC", "#242124", "#E96A4F", "#D8C39A"],
+      "materials": ["lignes à 45° raisin", "cercles de station", "pastilles de correspondance sunset", "capitales Manrope"],
+      "viewport": "Un plan de réseau abstrait occupe l'écran ; Libreville est une station, la ligne vers Douala s'allume, le titre et les deux actions sont posés dans l'angle comme la cartouche d'un plan.",
+      "risk": "La direction la plus familière pour une plateforme de connexion : le réseau de nœuds et de lignes est ce que la catégorie attend, et il faut une discipline de plan de métro stricte pour ne pas retomber dans le graphe générique.",
+      "wireframe": { "cols": 12, "rows": 10, "regions": [
+        { "label": "cartouche : titre + actions", "x": 0, "y": 7, "w": 5, "h": 3 },
+        { "label": "plan de réseau", "x": 0, "y": 1, "w": 12, "h": 7, "accent": true },
+        { "label": "nav", "x": 0, "y": 0, "w": 12, "h": 1 }
+      ] },
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-nixie",
+      "label": "Compteur nixie",
+      "verdict": "declined",
+      "lineage": "signals-instruments-nixie-laboratory-counter",
+      "thesis": "Les quantités sont l'interface : chaque métrique dans sa banque de tubes.",
+      "palette": ["#1B1B1B", "#FF8A3D", "#7A7A7A"],
+      "materials": ["tubes de verre", "chiffres métal empilés"],
+      "viewport": "Des banques de chiffres orange sur châssis noir.",
+      "risk": "Un laboratoire, pas une entreprise africaine.",
+      "case": "Perd l'identification (laboratoire) et la clarté (le score expliqué devient un simple compteur).",
+      "kept": "Chiffres à positions fixes, changement de valeur visible.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp"
+    },
+    {
+      "id": "challenger-dive",
+      "label": "Plongée mésophotique",
+      "verdict": "declined",
+      "lineage": "rivers-tides-ocean-depths-mesophotic-deep-dive",
+      "thesis": "Un seul axe de profondeur règle chaque ligne.",
+      "palette": ["#07142A", "#E8F0F5", "#19C3E6"],
+      "materials": ["bleu abyssal", "neige marine"],
+      "viewport": "Une descente verticale le long d'une paroi.",
+      "risk": "Palette bleue interdite par le brief, récit sans rapport.",
+      "case": "Perd les deux axes : bleu SaaS proscrit, aucune identification pour un dirigeant d'entreprise.",
+      "kept": "Un axe vertical unique qui règle toute la page.",
+      "hero": "https://impeccable.style/worlds/cards/rivers-tides-ocean-depths-mesophotic-deep-dive-hero.webp"
+    },
+    {
+      "id": "challenger-rain",
+      "label": "Jardin de pluie",
+      "verdict": "declined",
+      "lineage": "dream-surreal-impossible-worlds-gravity-rain-garden",
+      "thesis": "Chaque flux obéit à sa propre gravité colorée.",
+      "palette": ["#4C5A4F", "#3B6BD6", "#C8372D"],
+      "materials": ["gouttes", "nuages colorés"],
+      "viewport": "Un jardin où la pluie tombe dans tous les sens.",
+      "risk": "Surréalisme contraire à la confiance institutionnelle.",
+      "case": "Perd les deux axes : illisible pour un acheteur B2B, et le mécanisme du match disparaît.",
+      "kept": "Une légende tenue droite au milieu du mouvement.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-gravity-rain-garden-hero.webp"
+    },
+    {
+      "id": "challenger-zine",
+      "label": "Fanzine technique",
+      "verdict": "declined",
+      "lineage": "hand-drawn-zine-explainer",
+      "thesis": "Expliquer comme sur une serviette, au marqueur.",
+      "palette": ["#F4EEDC", "#111111", "#F7E04A"],
+      "materials": ["marqueur", "surligneur"],
+      "viewport": "Panneaux de BD et flèches gribouillées.",
+      "risk": "Ton amical incompatible avec le premium panafricain.",
+      "case": "Perd l'identification (amateur) ; la clarté pédagogique ne compense pas.",
+      "kept": "Les tracés se dessinent au défilement.",
+      "hero": "https://impeccable.style/worlds/cards/hand-drawn-zine-explainer-hero.webp"
+    },
+    {
+      "id": "challenger-coffeehouse",
+      "label": "Identité coffeehouse 90s",
+      "verdict": "declined",
+      "lineage": "brand-identity-canon-village-coffeehouse-identity",
+      "thesis": "Soleil gravé, papier déchiré, globe pour dire le monde.",
+      "palette": ["#B5532E", "#6B7A3A", "#D9A441", "#CDBA96"],
+      "materials": ["kraft", "gravure sur bois"],
+      "viewport": "Une étiquette de café bio.",
+      "risk": "Le globe et le folklore sont interdits par le brief.",
+      "case": "Perd les deux axes : globe-cliché et artisanat, l'inverse de l'Afrique technologique.",
+      "kept": "Le tampon posé à chaque changement de section.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-village-coffeehouse-identity-hero.webp"
+    },
+    {
+      "id": "challenger-memphis",
+      "label": "Showroom Memphis",
+      "verdict": "declined",
+      "lineage": "design-canon-memphis-showroom-morning",
+      "thesis": "Les meubles se disputent gaiement.",
+      "palette": ["#F2A7C8", "#9EE6C8", "#F6E34B", "#111111"],
+      "materials": ["terrazzo", "laminé squiggle"],
+      "viewport": "Des objets géométriques en désordre choisi.",
+      "risk": "Ludique et bruyant, à l'opposé du quiet confidence.",
+      "case": "Perd les deux axes : palette interdite, chaos contraire à la confiance.",
+      "kept": "Un état change le remplissage, pas seulement la teinte.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-memphis-showroom-morning-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": false },
+  "canon": true,
+  "canonCard": {
+    "label": "Le standard de la catégorie",
+    "thesis": "La landing de plateforme B2B que tout le monde livre, exécutée impeccablement : hero sombre, réseau de nœuds, cartes de fonctionnalités.",
+    "palette": ["#242124", "#F5F2EC", "#E96A4F"],
+    "materials": ["grille propre", "cartes", "graphe de nœuds"],
+    "viewport": "Titre centré, deux boutons, visuel de réseau derrière, trois cartes dessous.",
+    "risk": "Indiscernable de la concurrence, par construction.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}
