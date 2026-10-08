@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import AfricaMap from "../components/AfricaMap";
 import { Button, Country, Field, Label } from "../components/ui";
-import SectionStamp from "../components/SectionStamp";
 import { MAP } from "../content/fr";
 import { COUNTRIES, countryByCode } from "../data/mock";
 import type { CountryCode } from "../data/types";
@@ -14,9 +13,8 @@ export default function MapSection() {
   const n = (v: number) => v.toLocaleString("fr-FR");
 
   return (
-    <section id="marches" className="section map" data-tone="white">
+    <section id="marches" className="section map" data-tone="dark">
       <div className="container">
-        <SectionStamp>Marchés</SectionStamp>
         <header className="map__head">
           <h2 data-reveal>{MAP.title}</h2>
           <p className="lead" data-reveal>{MAP.lead}</p>

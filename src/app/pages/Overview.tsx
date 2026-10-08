@@ -36,7 +36,7 @@ export function Component() {
         </section>
 
         <div style={{ display: "grid", gap: "1.75rem" }}>
-          <section className="panel panel--dark" aria-labelledby="dossier">
+          <section className="panel panel--sheet" aria-labelledby="dossier">
             <div className="panel__head"><Label strong><span id="dossier">Dossier en cours</span></Label><Stamp>{STAGES[dr.stage]}</Stamp></div>
             <div className="panel__body">
               <Field label="Partenaire" value={companyById(dr.companies[1]).name} state="filled" />

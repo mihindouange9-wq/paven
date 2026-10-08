@@ -13,7 +13,7 @@ const HOPS = [
 export default function Local() {
   const og = companyById("ogooue-services");
   return (
-    <section id="local" className="section local">
+    <section id="local" className="section local" data-tone="dark">
       <div className="container local__grid">
         <div className="local__copy">
           <h2 data-reveal>{LOCAL.title}</h2>

@@ -19,7 +19,7 @@ export default function Shell() {
     <div className={`app ${open ? "is-open" : ""}`}>
       <a className="skip-link" href="#page">Aller au contenu</a>
       <aside className="app__rail" aria-label="Navigation de l'espace">
-        <NavLink to="/" className="app__brand" aria-label="PAVEN, retour au site"><Logo height={24} title="" /></NavLink>
+        <NavLink to="/" className="app__brand" aria-label="PAVEN, retour au site"><Logo tone="dark" height={24} title="" /></NavLink>
         <nav className="app__nav">
           {APP_NAV.map((n) => (
             <NavLink key={n.id} to={n.path} end={n.path === "/app"} className={({ isActive }) => `app__link ${isActive ? "is-active" : ""}`}>
@@ -39,7 +39,7 @@ export default function Shell() {
           <button type="button" className="app__toggle" aria-expanded={open} aria-controls="rail" onClick={() => setOpen((v) => !v)}>
             <span className="sr-only">{open ? "Fermer la navigation" : "Ouvrir la navigation"}</span><i /><i />
           </button>
-          <NavLink to="/app" className="app__bar-brand" aria-label="Vue d'ensemble"><Mark size={22} title="" /></NavLink>
+          <NavLink to="/app" className="app__bar-brand" aria-label="Vue d'ensemble"><Mark tone="dark" size={22} title="" /></NavLink>
           <label className="app__search">
             <Search size={16} aria-hidden="true" />
             <input type="search" placeholder="Rechercher une entreprise, un marché, un secteur" aria-label="Rechercher" />

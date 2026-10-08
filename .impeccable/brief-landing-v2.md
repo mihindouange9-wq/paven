@@ -1,10 +1,3 @@
----
-version: 1
-slug: "src-pages-landing-tsx"
-primary_target: "src/pages/Landing.tsx"
-related_targets: ["src/App.tsx"]
----
-
 # Surface : landing PAVEN (src/pages/Landing.tsx) — mode Persuade — direction v2 (8 oct. 2026)
 
 Audience : dirigeants d'entreprises africaines qui cherchent un partenaire dans leur pays ou sur un autre marché africain ; lecteurs secondaires : investisseurs, institutions, incubateurs. Action : « Trouver un partenaire » ; preuve : le moteur de compatibilité expliqué (94 % décomposé) et les niveaux de vérification. Contraintes : palette, polices et interdits du brief (PRODUCT.md) ; aucune entreprise réelle, données signalées comme démonstration. Les écrans produit (/app/*) héritent du même monde en mode Operate (le bain reste en fond des en-têtes ; les panneaux de travail restent lisibles, posés sur sombre).

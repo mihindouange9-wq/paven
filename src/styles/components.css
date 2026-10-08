@@ -119,3 +119,55 @@
 .table th { text-align: left; font-family: var(--font-ui); font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); font-weight: 700; padding: 0.6rem 0; border-bottom: 1px solid var(--fg); }
 .table td { padding: 0.8rem 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .table .num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-weight: 700; }
+
+/* ───────────── Monde v2 : le bain et la feuille ───────────── */
+/* La feuille : la seule surface qui porte une ombre, celle d'une feuille levée du bain */
+.sheet, .feuille { --bg: var(--offwhite); --fg: var(--raisin); --fg-muted: var(--ink-muted); --line: var(--rule); --line-strong: var(--rule-strong); --field: var(--buff-tint); --accent-text: var(--sunset-ink); background: var(--offwhite); color: var(--raisin); border: 0; box-shadow: 0 30px 60px -30px rgb(10 8 9 / 0.7), 0 2px 0 0 rgb(36 33 36 / 0.3); color-scheme: light; }
+.sheet .label { color: var(--ink-muted); }
+.sheet .field--empty .field__value { background: var(--hatch); }
+.sheet .stamp { background: var(--offwhite); color: var(--sunset-ink); }
+.sheet .stamp--solid { background: var(--sunset); color: var(--on-sunset); }
+.sheet .country--filled .country__code { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+.sheet .monogram { background: var(--offwhite); color: var(--raisin); border-color: var(--rule-strong); }
+.sheet .btn { border-color: var(--raisin); color: var(--raisin); }
+.sheet .btn:hover { background: var(--raisin); color: var(--offwhite); }
+.sheet .btn--primary, .sheet .btn--primary:hover { color: var(--on-sunset); }
+.sheet .chip { border-color: var(--rule-strong); color: var(--raisin); }
+.sheet .chip[aria-pressed="true"], .sheet .chip.is-on { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+.sheet .input { background: var(--white); color: var(--raisin); }
+
+/* Boutons sur le bain : contour ivoire ; sur la feuille, contour raisin (règle ci-dessus) */
+.btn { border-color: var(--fg); color: var(--fg); }
+.btn:hover { background: var(--fg); color: var(--bg); }
+.btn--primary, .btn--primary:hover { color: var(--on-sunset); }
+.btn--light { border-color: var(--offwhite); color: var(--offwhite); }
+
+/* La goutte : le marqueur du bain (anneaux concentriques nets) */
+.goutte { display: inline-block; width: 0.85em; height: 0.85em; border-radius: 50%; background: var(--sunset); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--buff); flex: none; }
+.goutte--buff { background: var(--buff); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--sunset); }
+.goutte--vide { background: transparent; box-shadow: inset 0 0 0 0.12em var(--line-strong); }
+
+/* Marqueurs de type de partenariat sur le bain */
+.ptype__mark { border-color: var(--fg); }
+.ptype__mark[data-k="distributor"], .ptype__mark[data-k="technology"], .ptype__mark[data-k="logistics"] { background: var(--fg); }
+.ptype__mark[data-k="manufacturer"] { background: var(--hatch-dark); }
+.sheet .ptype__mark[data-k="manufacturer"] { background: var(--hatch); }
+.ptype__mark[data-k="jointventure"] { background: linear-gradient(135deg, var(--fg) 50%, transparent 50%); }
+
+/* Pays, monogrammes, vérification sur le bain */
+.country__code { border-color: var(--line-strong); }
+.country--filled .country__code { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.monogram { background: transparent; color: var(--fg); border-color: var(--line-strong); }
+.monogram--dark { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.verif { color: var(--fg); }
+.verif--off { color: var(--fg-muted); }
+.stamp { background: var(--bg); color: var(--sunset-soft); }
+.stamp--solid { background: var(--sunset); border-color: var(--sunset); color: var(--on-sunset); }
+.ledger { border-top-color: var(--fg); }
+.rule-head { border-bottom-color: var(--fg); }
+.table th { border-bottom-color: var(--fg); }
+.chip:hover { background: var(--field); }
+.chip[aria-pressed="true"], .chip.is-on { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.input { background: var(--raisin-soft); color: var(--offwhite); border-color: var(--line-strong); }
+.input::placeholder { color: var(--paper-muted); }
+.select { background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); }

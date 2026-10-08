@@ -32,7 +32,7 @@ export function Component() {
 
       <div className="two-col">
         <div style={{ display: "grid", gap: "1.75rem" }}>
-          <section className="panel">
+          <section className="panel panel--sheet">
             <div className="panel__head"><Label strong>Fiche entreprise</Label><span className="label tabular">Réf. {c.id.toUpperCase().slice(0, 12)}</span></div>
             <div className="panel__body">
               <p style={{ marginBottom: "0.75rem" }}>{c.description}</p>

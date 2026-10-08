@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reasons } from "../../components/CompanyRow";
-import { Button, Country, Field, Label, Monogram, PType, Score, Stamp, Verifs } from "../../components/ui";
+import { Button, Country, Field, Label, Monogram, PType, Score, Verifs } from "../../components/ui";
 import { companyById, industryName, MATCHES } from "../../data/mock";
 
 export function Component() {
@@ -22,15 +22,12 @@ export function Component() {
               <Verifs levels={c.verification} compact />
             </div>
           </div>
-          <div style={{ display: "grid", justifyItems: "end", gap: "0.5rem" }}>
-            <Score value={m.score} size="4rem" accent />
-            <Stamp solid>{m.score} % compatible</Stamp>
-          </div>
+          <Score value={m.score} size="4rem" accent />
         </div>
       </header>
 
       <div className="two-col">
-        <section className="panel">
+        <section className="panel panel--sheet">
           <div className="panel__head"><Label strong>Pourquoi cette compatibilité ?</Label><PType id={m.partnershipType} /></div>
           <div className="panel__body">
             <p style={{ marginBottom: "0.5rem" }}>{m.summary}</p>

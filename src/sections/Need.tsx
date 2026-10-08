@@ -11,7 +11,7 @@ export default function Need() {
   const chosen = PARTNERSHIP_TYPES.find((p) => p.id === need);
 
   return (
-    <section id="besoin" className="section need">
+    <section id="besoin" className="section need" data-tone="dark">
       <div className="container need__grid">
         <div className="need__copy">
           <h2 data-reveal>{NEED.title}</h2>

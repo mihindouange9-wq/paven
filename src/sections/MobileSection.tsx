@@ -26,7 +26,7 @@ export default function MobileSection() {
   );
 
   return (
-    <section id="mobile" className="section mobile" ref={root}>
+    <section id="mobile" className="section mobile" data-tone="dark" ref={root}>
       <div className="container mobile__grid">
         <div className="mobile__copy">
           <h2 data-reveal>Une compatibilité arrive. Vous savez déjà pourquoi.</h2>

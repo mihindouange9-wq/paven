@@ -22,7 +22,7 @@ export default function Journey() {
   );
 
   return (
-    <section id="parcours" className="section journey" data-tone="white" ref={root}>
+    <section id="parcours" className="section journey" data-tone="dark" ref={root}>
       <div className="container">
         <header className="journey__head">
           <h2 data-reveal>{JOURNEY.title}</h2>

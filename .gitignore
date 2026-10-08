@@ -10,3 +10,5 @@ video/*.mp4
 video/*.jpg
 video/scene.html
 livrables/
+.impeccable/shots/
+.impeccable/questions/

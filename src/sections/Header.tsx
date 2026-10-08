@@ -25,7 +25,7 @@ export default function Header() {
     <header className={`header ${solid || open ? "is-solid" : ""} ${open ? "is-open" : ""}`}>
       <div className="container header__bar">
         <a className="header__logo" href="#accueil" aria-label="PAVEN, retour à l'accueil" onClick={() => setOpen(false)}>
-          <Logo title="" height={26} />
+          <Logo tone="dark" title="" height={26} />
         </a>
         <nav className="header__nav" aria-label="Navigation principale">
           {NAV.map((n) => <a key={n.href} href={n.href}>{n.label}</a>)}

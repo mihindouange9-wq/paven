@@ -1,13 +1,16 @@
 import { ArrowRight } from "lucide-react";
+import { useMemo } from "react";
+import Marbling from "../components/Marbling";
 import { Button } from "../components/ui";
-import SectionStamp from "../components/SectionStamp";
+import { buildFinalOps } from "./Hero";
 import { FINAL } from "../content/fr";
 
 export default function Final() {
+  const ops = useMemo(buildFinalOps, []);
   return (
-    <section id="commencer" className="section final" data-tone="dark">
+    <section id="commencer" className="section final" data-tone="deep">
+      <div className="final__bath" aria-hidden="true"><Marbling ops={ops} progress={ops.length} bath="#1a1719" /></div>
       <div className="container final__inner">
-        <SectionStamp solid>Commencer</SectionStamp>
         <h2 data-reveal>{FINAL.title}</h2>
         <p className="lead" data-reveal>{FINAL.lead}</p>
         <div className="final__actions" data-reveal>

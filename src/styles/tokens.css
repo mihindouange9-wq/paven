@@ -1,4 +1,4 @@
-/* ───────────── PAVEN — jetons ───────────── */
+/* ───────────── PAVEN — jetons (monde v2 : le bain) ───────────── */
 :root {
   /* Palette imposée */
   --raisin: #242124;
@@ -8,17 +8,17 @@
   --white: #ffffff;
 
   /* Nuances dérivées (toujours de la palette) */
-  --raisin-soft: #3a3639;       /* surfaces sur fond sombre */
-  --raisin-deep: #1a1719;       /* pied de page */
+  --raisin-soft: #3a3639;       /* panneau posé sur le bain */
+  --raisin-deep: #1a1719;       /* fond du bain, pied de page */
   --ink-muted: #6b6468;         /* texte secondaire sur clair, 5,2:1 */
-  --ink-faint: #8c8488;         /* métadonnées discrètes sur clair, 3,6:1 (grands textes seulement) */
-  --buff-tint: #ece2c9;         /* champ rempli */
+  --ink-faint: #8c8488;
+  --buff-tint: #ece2c9;         /* champ rempli sur la feuille */
   --buff-deep: #b89a63;         /* texte buff sur raisin, 6,1:1 */
   --buff-ink: #6e5a30;          /* texte buff sur clair, 5,9:1 */
   --sunset-ink: #b84b33;        /* texte sunset sur clair, 4,6:1 */
   --sunset-soft: #f0a391;       /* texte sunset sur raisin, 7:1 */
   --on-sunset: #1f1413;
-  --paper-muted: #d9cdb0;       /* texte secondaire sur raisin (teinte buff), 9:1 */
+  --paper-muted: #d9cdb0;       /* texte secondaire sur raisin, 9:1 */
   --rule: rgb(36 33 36 / 0.16);
   --rule-strong: rgb(36 33 36 / 0.32);
   --rule-on-dark: rgb(245 242 236 / 0.16);
@@ -26,15 +26,15 @@
   --hatch: repeating-linear-gradient(135deg, rgb(36 33 36 / 0.1) 0 1px, transparent 1px 6px);
   --hatch-dark: repeating-linear-gradient(135deg, rgb(245 242 236 / 0.14) 0 1px, transparent 1px 6px);
 
-  /* Rôles (ton papier par défaut) */
-  --bg: var(--offwhite);
-  --fg: var(--raisin);
-  --fg-muted: var(--ink-muted);
-  --line: var(--rule);
-  --line-strong: var(--rule-strong);
-  --field: var(--buff-tint);
+  /* Rôles : le bain (raisin) est le fond par défaut ; la feuille (off-white) se pose dessus */
+  --bg: var(--raisin);
+  --fg: var(--offwhite);
+  --fg-muted: var(--paper-muted);
+  --line: var(--rule-on-dark);
+  --line-strong: var(--rule-on-dark-strong);
+  --field: var(--raisin-soft);
   --accent: var(--sunset);
-  --accent-text: var(--sunset-ink);
+  --accent-text: var(--sunset-soft);
 
   /* Typographie */
   --font-ui: "Manrope Variable", "Manrope", system-ui, sans-serif;
@@ -51,15 +51,27 @@
   --gutter: clamp(1.25rem, 0.5rem + 3.4vw, 3rem);
   --max: 1280px;
   --section: clamp(5rem, 3rem + 7vw, 9rem);
-  --radius: 2px;      /* le dossier est carré ; seuls le tampon, les pastilles et le téléphone sont ronds */
+  --radius: 2px;
   --radius-pill: 999px;
 
-  /* Mouvement */
+  /* Mouvement : une goutte se pose en 800 ms, une feuille se lève en 600 ms, jamais de rebond */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 180ms;
   --t-mid: 420ms;
   --t-slow: 800ms;
 
+  color-scheme: dark;
+}
+
+/* La feuille : surface claire posée sur le bain */
+[data-tone="sheet"], [data-tone="paper"] {
+  --bg: var(--offwhite);
+  --fg: var(--raisin);
+  --fg-muted: var(--ink-muted);
+  --line: var(--rule);
+  --line-strong: var(--rule-strong);
+  --field: var(--buff-tint);
+  --accent-text: var(--sunset-ink);
   color-scheme: light;
 }
 
@@ -73,8 +85,19 @@
   --accent-text: var(--sunset-soft);
 }
 
+[data-tone="deep"] {
+  --bg: var(--raisin-deep);
+}
+
 [data-tone="white"] {
   --bg: var(--white);
+  --fg: var(--raisin);
+  --fg-muted: var(--ink-muted);
+  --line: var(--rule);
+  --line-strong: var(--rule-strong);
+  --field: var(--buff-tint);
+  --accent-text: var(--sunset-ink);
+  color-scheme: light;
 }
 
 [data-tone="buff"] {
@@ -85,4 +108,5 @@
   --line-strong: rgb(36 33 36 / 0.4);
   --field: #e6d6b4;
   --accent-text: var(--sunset-ink);
+  color-scheme: light;
 }

@@ -34,7 +34,7 @@ for (const width of widths) {
   page.on("console", (m) => m.type() === "error" && console.log(`[${width}] console :`, m.text()));
   await page.goto(url, { waitUntil: "networkidle0", timeout: 90000 });
   await page.evaluate(() => document.fonts.ready);
-  await sleep(2600); // entrée du hero terminée
+  await sleep(3800); // entrée du hero terminée
   if (!only || only.includes("accueil")) await page.screenshot({ path: path.join(out, `${width}-00-accueil.png`) });
 
   // un premier passage déclenche toutes les révélations, comme le ferait un visiteur

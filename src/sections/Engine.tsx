@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button, Check, Country, Label, Monogram, PType, Score, Stamp, Verifs } from "../components/ui";
-import SectionStamp from "../components/SectionStamp";
 import { ENGINE } from "../content/fr";
 import { companyById, industryName, MATCHES } from "../data/mock";
 import { gsap, prefersReducedMotion, ScrollTrigger, stampIn, useGSAP } from "../lib/motion";
@@ -36,7 +35,6 @@ export default function Engine() {
   return (
     <section id="compatibilite" className="section engine" data-tone="dark" ref={root}>
       <div className="container engine__grid">
-        <SectionStamp solid>Moteur de compatibilité</SectionStamp>
         <div className="engine__copy">
           <h2 data-reveal>{ENGINE.title}</h2>
           <p className="lead" data-reveal>{ENGINE.lead}</p>

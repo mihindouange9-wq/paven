@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button, Country, Field, Label, Monogram, PType, Score, Verifs } from "../components/ui";
-import SectionStamp from "../components/SectionStamp";
 import { EXPANSION } from "../content/fr";
 import { COMPANIES, industryName } from "../data/mock";
 
@@ -14,9 +13,8 @@ export default function ExpansionSection() {
   const list = COMPANIES.filter((c) => RESULTS.includes(c.id as (typeof RESULTS)[number]));
 
   return (
-    <section id="expansion" className="section expansion">
+    <section id="expansion" className="section expansion" data-tone="dark">
       <div className="container expansion__grid">
-        <SectionStamp>Expansion</SectionStamp>
         <div className="expansion__copy">
           <h2 data-reveal>{EXPANSION.title}</h2>
           <p className="lead" data-reveal>{EXPANSION.lead}</p>

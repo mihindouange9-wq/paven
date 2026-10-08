@@ -1,13 +1,11 @@
 import { Check, Stamp } from "../components/ui";
-import SectionStamp from "../components/SectionStamp";
 import { TRUST } from "../content/fr";
 
 /** « Des connexions d'affaires construites sur le contexte. » : six garanties, trois niveaux de vérification. */
 export default function Trust() {
   return (
-    <section id="confiance" className="section trust" data-tone="white">
+    <section id="confiance" className="section trust" data-tone="dark">
       <div className="container trust__grid">
-        <SectionStamp solid>Vérifié</SectionStamp>
         <div className="trust__copy">
           <h2 data-reveal>{TRUST.title}</h2>
           <p className="lead" data-reveal>{TRUST.lead}</p>

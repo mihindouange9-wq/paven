@@ -63,7 +63,7 @@ export function Component() {
           </section>
         </div>
         <div style={{ display: "grid", gap: "1.75rem" }}>
-          <section className="panel">
+          <section className="panel panel--sheet">
             <div className="panel__head"><Label strong>Documents</Label><span className="label tabular">{room.documents.length}</span></div>
             <div className="panel__body"><ul>
               {room.documents.map((d) => (
