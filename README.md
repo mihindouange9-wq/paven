@@ -48,6 +48,14 @@ DESIGN.md                  système visuel documenté depuis le build
 docs/DEPLOIEMENT.md        mise en ligne sur Render
 ```
 
+## Film de 30 secondes
+
+Un film de présentation (1920 × 1080, 30 i/s, H.264 + AAC) est produit depuis `video/` : `build-scene.mjs` génère une
+scène HTML animée par une ligne de temps GSAP déterministe, `tools/video-render.mjs` capture les 900 images dans Chrome
+et les encode par WebCodecs (`video/encodeur.html`, muxeur MP4), avec une bande-son générée. Commandes : `npm run
+video:apercu` (planche-contact), `npm run video` (rendu complet, environ quatre minutes), `npm run video:check`. Le film
+et son affiche sont déposés dans `livrables/` (hors Git).
+
 ## Données
 
 Toutes les entreprises, personnes, chiffres par pays, scores et conversations sont **fictifs** et signalés comme tels

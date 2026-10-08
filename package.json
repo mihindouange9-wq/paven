@@ -7,7 +7,11 @@
     "dev": "vite --host 127.0.0.1 --port 5190",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 5191",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "video:scene": "node video/build-scene.mjs",
+    "video:apercu": "node video/build-scene.mjs && node tools/video-render.mjs --apercu",
+    "video": "node video/build-scene.mjs && node tools/video-render.mjs",
+    "video:check": "node tools/video-check.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.2.5",

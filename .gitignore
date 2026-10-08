@@ -6,3 +6,7 @@ dist
 .DS_Store
 desktop.ini
 Thumbs.db
+video/*.mp4
+video/*.jpg
+video/scene.html
+livrables/

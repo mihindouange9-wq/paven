@@ -1,0 +1,93 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Encodeur LOCAGAB</title>
+<script src="mp4-muxer.js"></script>
+<script>
+/* Encode les images capturées (frames/iNNNNN.jpg) en MP4 H.264 + AAC par WebCodecs. */
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* Bande sonore sobre : nappe chaude, ponctuations discrètes sur les vérifications, respiration finale. */
+async function bandeSon(duree, reperes) {
+  const sr = 48000;
+  const ac = new OfflineAudioContext(2, Math.ceil(duree * sr), sr);
+  const master = ac.createGain(); master.gain.value = 0.9; master.connect(ac.destination);
+  const nappe = (t0, t1, notes, gain, fc) => {
+    const g = ac.createGain(); g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(gain, t0 + 1.6); g.gain.setValueAtTime(gain, t1 - 1.4); g.gain.linearRampToValueAtTime(0, t1);
+    const f = ac.createBiquadFilter(); f.type = 'lowpass'; f.frequency.setValueAtTime(fc, t0); f.frequency.linearRampToValueAtTime(fc * 1.6, t1);
+    g.connect(f); f.connect(master);
+    notes.forEach((fr, i) => { for (const [type, det, k] of [['sine', 0, 1], ['triangle', 4, 0.35], ['sine', -3, 0.5]]) { const o = ac.createOscillator(); o.type = type; o.frequency.value = fr; o.detune.value = det + (i % 2 ? 2 : -2); const og = ac.createGain(); og.gain.value = k / notes.length; o.connect(og); og.connect(g); o.start(t0); o.stop(t1 + 0.1); } });
+  };
+  const note = (t, fr, gain = 0.12, dur = 1.4) => {
+    const o = ac.createOscillator(); o.type = 'sine'; o.frequency.value = fr;
+    const o2 = ac.createOscillator(); o2.type = 'sine'; o2.frequency.value = fr * 2; const g2 = ac.createGain(); g2.gain.value = 0.25;
+    const g = ac.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(gain, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0008, t + dur);
+    o.connect(g); o2.connect(g2); g2.connect(g); g.connect(master); o.start(t); o2.start(t); o.stop(t + dur + 0.05); o2.stop(t + dur + 0.05);
+  };
+  const souffle = (t0, t1, gain = 0.05) => {
+    const n = ac.createBuffer(1, Math.ceil((t1 - t0) * sr), sr); const d = n.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1);
+    const s = ac.createBufferSource(); s.buffer = n; const f = ac.createBiquadFilter(); f.type = 'bandpass'; f.frequency.setValueAtTime(300, t0); f.frequency.exponentialRampToValueAtTime(2400, t1); f.Q.value = 0.7;
+    const g = ac.createGain(); g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(gain, t1 - 0.1); g.gain.linearRampToValueAtTime(0, t1);
+    s.connect(f); f.connect(g); g.connect(master); s.start(t0); s.stop(t1);
+  };
+  /* Ré mineur chaleureux → Si bémol majeur → Fa majeur → Do majeur : une progression calme, sans résolution dramatique. */
+  nappe(0.0, 8.0, [146.83, 220, 293.66, 349.23], 0.10, 520);
+  nappe(7.6, 17.8, [116.54, 174.61, 233.08, 293.66], 0.11, 600);
+  nappe(17.4, 23.6, [174.61, 261.63, 349.23, 440], 0.11, 700);
+  nappe(23.2, 30.0, [130.81, 196, 261.63, 329.63, 392], 0.12, 900);
+  note(0.25, 587.33, 0.05, 2.2);                 /* le repère se trace */
+  souffle(7.5, 8.7, 0.035);                       /* panneau vert */
+  note(8.5, 440, 0.07, 1.8);                      /* « centralise tout » */
+  souffle(10.2, 11.6, 0.03);                      /* l'appareil monte */
+  [11.6, 12.5, 13.4].forEach((t, i) => note(t, [880, 1046.5, 1174.66][i], 0.035, 0.9));
+  reperes.forEach((t, i) => note(t, [523.25, 587.33, 659.25, 783.99, 880, 1046.5][i], 0.06, 1.1)); /* six critères */
+  note(21.4, 1046.5, 0.05, 1.6);                  /* « Vérifié » */
+  souffle(23.1, 24.2, 0.03);
+  note(24.0, 523.25, 0.06, 2.4); note(24.9, 659.25, 0.05, 2.2);   /* signature */
+  souffle(27.0, 28.0, 0.03);
+  note(27.7, 392, 0.07, 2.6); note(27.72, 587.33, 0.05, 2.6);     /* logo */
+  return await ac.startRendering();
+}
+
+window.encoder = async ({ dossier, total, ips, largeur, hauteur, debit, reperes }) => {
+  const vcfg = { codec: 'avc1.640028', width: largeur, height: hauteur, bitrate: debit, framerate: ips, avc: { format: 'avc' } };
+  const acfg = { codec: 'mp4a.40.2', sampleRate: 48000, numberOfChannels: 2, bitrate: 160000 };
+  const vs = await VideoEncoder.isConfigSupported(vcfg);
+  const as = await AudioEncoder.isConfigSupported(acfg);
+  if (!vs.supported) throw new Error('H.264 non pris en charge');
+  const muxer = new Mp4Muxer.Muxer({ target: new Mp4Muxer.ArrayBufferTarget(), video: { codec: 'avc', width: largeur, height: hauteur, frameRate: ips }, audio: as.supported ? { codec: 'aac', numberOfChannels: 2, sampleRate: 48000 } : undefined, fastStart: 'in-memory', firstTimestampBehavior: 'offset' });
+  window.audio = as.supported;
+  if (as.supported) {
+    const son = await bandeSon(total / ips, reperes);
+    const aenc = new AudioEncoder({ output: (c, m) => muxer.addAudioChunk(c, m), error: (e) => { window.erreur = 'audio ' + e.message; } });
+    aenc.configure(acfg);
+    const L = son.getChannelData(0), R = son.getChannelData(1), N = 1024;
+    let crete = 0; for (let i = 0; i < L.length; i += 97) crete = Math.max(crete, Math.abs(L[i]));
+    window.crete = crete;
+    for (let i = 0; i < L.length; i += N) { const n = Math.min(N, L.length - i); const d = new Float32Array(n * 2); d.set(L.subarray(i, i + n), 0); d.set(R.subarray(i, i + n), n); const ad = new AudioData({ format: 'f32-planar', sampleRate: 48000, numberOfFrames: n, numberOfChannels: 2, timestamp: Math.round((i * 1e6) / 48000), data: d }); aenc.encode(ad); ad.close(); }
+    await aenc.flush();
+  }
+  const venc = new VideoEncoder({ output: (c, m) => muxer.addVideoChunk(c, m), error: (e) => { window.erreur = 'vidéo ' + e.message; } });
+  venc.configure(vcfg);
+  const canvas = new OffscreenCanvas(largeur, hauteur);
+  const ctx = canvas.getContext('2d');
+  for (let i = 0; i < total; i++) {
+    const img = new Image();
+    img.src = dossier + '/i' + String(i).padStart(5, '0') + '.jpg';
+    await img.decode();
+    ctx.drawImage(img, 0, 0, largeur, hauteur);
+    const vf = new VideoFrame(canvas, { timestamp: Math.round((i * 1e6) / ips), duration: Math.round(1e6 / ips) });
+    venc.encode(vf, { keyFrame: i % (ips * 2) === 0 });
+    vf.close();
+    while (venc.encodeQueueSize > 6) await new Promise((r) => setTimeout(r, 4));
+    window.avancement = i + 1;
+  }
+  await venc.flush();
+  muxer.finalize();
+  const octets = new Uint8Array(muxer.target.buffer);
+  window.resultat = octets;
+  return octets.length;
+};
+/* lecture par tranches pour le transfert CDP */
+window.tranche = (debut, fin) => { const o = window.resultat.subarray(debut, fin); let s = ''; for (let i = 0; i < o.length; i += 32768) s += String.fromCharCode.apply(null, o.subarray(i, i + 32768)); return btoa(s); };
+window.pret = true;
+</script>
