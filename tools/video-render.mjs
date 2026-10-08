@@ -116,4 +116,4 @@ await writeFile(join(RACINE, "livrables", "PAVEN-film-30s-affiche.jpg"), affiche
 serveur.close();
 await attendre(600); await rm(DOSSIER, { recursive: true, force: true }).catch(() => {});
 const { size } = await stat(sortie);
-console.log(`\n  ${sortie}\n  ${(size / 1048576).toFixed(1)} Mo · ${DUREE} s · audio AAC : ${audio ? "oui (crête " + crete.toFixed(2) + ")" : "non"}\n  affiche : video/LOCAGAB-30s-affiche.jpg`);
+console.log(`\n  ${sortie}\n  ${(size / 1048576).toFixed(1)} Mo · ${DUREE} s · audio AAC : ${audio ? "oui (crête " + crete.toFixed(2) + ")" : "non"}\n  affiche : livrables/PAVEN-film-30s-affiche.jpg`);
