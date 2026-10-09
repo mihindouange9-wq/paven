@@ -11,11 +11,26 @@ Dépôt GitHub privé `mihindouange9-wq/paven`, branche `main`. Le dépôt local
 
 ## 2. Service Render
 
-1. Ouvrir https://render.com/deploy?repo=https://github.com/mihindouange9-wq/paven, ou tableau de bord → **New** →
-   **Blueprint** → dépôt `paven`. Le dépôt étant privé, Render doit avoir accès au compte GitHub (Configure account).
-2. Render lit `render.yaml` et propose le service `paven` (site statique). Nommer le Blueprint `paven`, cliquer sur
-   **Apply**.
-3. Premier déploiement en deux à trois minutes : https://paven.onrender.com. Chaque push sur `main` redéploie.
+**En ligne depuis le 9 octobre 2026 : https://paven.onrender.com** (service `srv-db4bn9nlot8c738g7kb0`, espace de
+travail « My Workspace »). Chaque push sur `main` redéploie en une à deux minutes.
+
+Le service a été créé par l'API de Render avec `tools/render-deploy.mjs`, qui reproduit `render.yaml` (les pages
+« Deploy to Render » et « New Blueprint » du tableau de bord renvoyaient en boucle sur la même page). Pour recréer le
+service ou forcer un déploiement :
+
+```
+RENDER_API_KEY=rnd_xxx node tools/render-deploy.mjs
+```
+
+La clé se crée dans Render → Account Settings → API Keys ; la supprimer après usage. Si le service existe déjà, le
+script demande simplement un nouveau déploiement et le suit jusqu'à l'état « live ».
+
+Le dépôt GitHub a été rendu **public** le 9 octobre 2026 : Render ne pouvait pas lire le dépôt privé (l'application
+GitHub de Render n'avait pas accès à `paven`). Pour le repasser en privé sans casser les déploiements, d'abord
+autoriser l'application Render sur le dépôt (https://github.com/apps/render/installations/new), puis
+`gh repo edit mihindouange9-wq/paven --visibility private`.
+
+Variante par le tableau de bord, si elle fonctionne : **New** → **Blueprint** → dépôt `paven` → **Apply**.
 
 ## 3. Adresse publique (`SITE_URL`)
 
