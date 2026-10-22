@@ -330,6 +330,10 @@
 .footer__lang { display: flex; gap: 0.5rem; }
 .footer__lang button { padding: 0.35rem 0.6rem; border: 1px solid var(--rule-on-dark-strong); color: var(--offwhite); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; }
 .footer__lang button[aria-pressed="true"] { background: var(--offwhite); color: var(--raisin); }
+.footer__partner { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--rule-on-dark); }
+.footer__partner .label { color: var(--paper-muted); }
+.footer__partner-logo { width: auto; height: 2.5rem; }
+.footer__partner-note { color: var(--paper-muted); font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600; }
 .footer__bottom { display: grid; gap: 0.5rem; padding-top: 1.5rem; font-size: 0.8125rem; color: var(--paper-muted); }
 @media (min-width: 960px) {
   .footer__top { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }

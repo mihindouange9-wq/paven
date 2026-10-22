@@ -136,6 +136,7 @@ export const FOOTER = {
   legal: ["Confidentialité", "Conditions", "Sécurité"],
   languages: ["FR", "EN"],
   demo: "Les entreprises, scores et conversations présentés sont des données de démonstration fictives.",
+  partner: { label: "En partenariat avec", name: "MÉTHODE AURA", note: "Conception et réalisation du site" },
 };
 
 export const APP_NAV = [

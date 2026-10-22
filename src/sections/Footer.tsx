@@ -27,6 +27,20 @@ export default function Footer() {
             <ul className="footer__lang">{FOOTER.languages.map((l, i) => <li key={l}><button type="button" aria-pressed={i === 0}>{l}</button></li>)}</ul>
           </div>
         </div>
+        {/* Le partenaire qui a conçu et réalisé le site : logo ivoire, tel que sa charte le fixe sur fond sombre. */}
+        <p className="footer__partner">
+          <span className="label">{FOOTER.partner.label}</span>
+          <img
+            className="footer__partner-logo"
+            src="/partenaires/methode-aura.png"
+            alt={FOOTER.partner.name}
+            width="800"
+            height="246"
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="footer__partner-note">{FOOTER.partner.note}</span>
+        </p>
         <div className="footer__bottom">
           <p>© 2026 PAVEN · {BRAND.tagline}</p>
           <p>{FOOTER.demo}</p>
