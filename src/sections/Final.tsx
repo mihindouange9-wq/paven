@@ -1,13 +1,13 @@
 import { ArrowRight } from "lucide-react";
-import { useMemo } from "react";
-import Marbling from "../components/Marbling";
+import { useCallback } from "react";
+import LiveBath from "../components/LiveBath";
 import { Button, Duo } from "../components/ui";
-import { buildFinalOps } from "./Hero";
+import { buildFinalOps, PIGMENTS } from "./Hero";
 import { FINAL } from "../content/fr";
 
 /** Clôture, sur turquoise : le titre en très grand, deux actions, et le bain peigné vu dans une goutte. */
 export default function Final() {
-  const ops = useMemo(() => buildFinalOps({ a: "#0D9DA4", b: "#FCE688", c: "#FFFBEA" }), []);
+  const build = useCallback((t: number) => buildFinalOps(PIGMENTS, t), []);
   return (
     <section id="commencer" className="scene final" data-scene data-tone="turquoise" tabIndex={-1}>
       <div className="container final__inner">
@@ -19,7 +19,7 @@ export default function Final() {
             <Button href="#marches">{FINAL.secondary}</Button>
           </div>
         </div>
-        <div className="final__bath" aria-hidden="true" data-reveal><Marbling ops={ops} progress={ops.length} bath="#0b2a2c" /></div>
+        <div className="final__bath" aria-hidden="true" data-reveal><LiveBath build={build} bath="#0b2a2c" /></div>
       </div>
     </section>
   );

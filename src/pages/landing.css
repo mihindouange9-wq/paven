@@ -80,8 +80,8 @@
 .hero__title .line > span { display: block; }
 .hero__lead { margin-top: 1.4rem; font-size: var(--fs-lead); line-height: 1.5; color: var(--fg-muted); max-width: 33rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.9rem; }
-.hero__stage { position: relative; display: flex; align-items: end; min-height: 30rem; padding: 0.9rem; border-radius: var(--r-panel); background: var(--ink); overflow: clip; box-shadow: 0 40px 70px -44px rgb(11 42 44 / 0.75); }
-.hero__bath { position: absolute; inset: 0; }
+.hero__stage { position: relative; display: flex; align-items: end; min-height: 36rem; padding: 0.9rem; border-radius: var(--r-panel); background: var(--ink); box-shadow: 0 40px 70px -44px rgb(11 42 44 / 0.75); }
+.hero__bath { position: absolute; inset: 0; border-radius: inherit; overflow: clip; }
 .feuille--hero { position: relative; width: 100%; }
 .feuille--hero .sheet__head { padding: 0.75rem 1.1rem; }
 .feuille--hero .sheet__body { position: relative; padding: 0.25rem 1.1rem 1rem; }
@@ -89,11 +89,13 @@
 .feuille--hero .field__value--lg { font-size: clamp(1.25rem, 1rem + 0.9vw, 1.75rem); }
 .dossier__meta { font-weight: 500; color: var(--ink-muted); font-size: 0.9rem; letter-spacing: 0; }
 .dossier__place { display: inline-flex; align-items: center; gap: 0.6rem; }
-.dossier__result { max-width: 15rem; padding-top: 0.8rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-muted); }
+.dossier__result { max-width: 12.5rem; padding-top: 0.8rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-muted); }
 .dossier__stamp { position: absolute; right: 1.1rem; bottom: 0.9rem; }
 @media (min-width: 1024px) {
-  .hero__grid { grid-template-columns: 7fr 5fr; gap: 3rem; }
-  .hero__stage { min-height: 0; height: min(36rem, 100svh - 11.5rem); }
+  /* Le panneau est grand ; la carte d'exemple flotte par-dessus son bord gauche */
+  .hero__grid { grid-template-columns: minmax(0, 6.6fr) minmax(0, 5.4fr); gap: 5rem; }
+  .hero__stage { min-height: 0; height: min(40rem, 100svh - 9rem); padding: 0; cursor: crosshair; }
+  .feuille--hero { position: absolute; left: -3.25rem; bottom: 1.5rem; width: min(24.5rem, 90%); cursor: auto; box-shadow: 0 34px 60px -28px rgb(7 31 33 / 0.85); }
 }
 
 /* Le constat : quatre obstacles distribués comme quatre cartes, puis la réponse */

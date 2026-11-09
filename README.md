@@ -70,6 +70,7 @@ dans l'interface. Pour brancher un vrai moteur, remplacer `src/data/mock.ts` par
 npm run build && npm run preview
 node tools/scenes.mjs http://localhost:5191 .impeccable/review/scenes desktop,laptop,mobile   # une capture par scène, les étapes du nuage, la hauteur de chaque scène
 node tools/charte-check.mjs http://localhost:5191                                             # charte : police réelle de chaque texte, chiffres en Manrope, couleurs de la palette
+node tools/hero-shoot.mjs http://localhost:5191                                               # le bain vivant de l'accueil : images à un demi-battement d'écart, cadence d'affichage
 node tools/atlas-shoot.mjs http://localhost:5191                                              # la construction de la carte d'Afrique, image par image
 node tools/nuage-check.mjs http://localhost:5191                                              # comportement : passage terminé seul, liens, rail, mouvement réduit
 node tools/shoot-app.mjs http://127.0.0.1:5191 .impeccable/review/app 1440,390
