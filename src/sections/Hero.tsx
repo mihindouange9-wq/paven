@@ -45,7 +45,7 @@ export function buildFinalOps(): Op[] {
   return ops;
 }
 
-/** Le hero v2 : le bain à droite, la feuille levée qui porte le dossier, le titre sur le sombre. */
+/** Première scène : le titre dit ce que fait PAVEN, la feuille levée du bain le montre sur un exemple. */
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
   const ops = useMemo(buildHeroOps, []);
@@ -68,38 +68,36 @@ export default function Hero() {
     { scope: root },
   );
 
-  const split = (t: string) => t.split("\n").map((l, i) => (
-    <span className="line" key={i}><span>{l}</span></span>
-  ));
-
   return (
-    <section id="accueil" className="hero section" ref={root} data-tone="dark">
+    <section id="accueil" className="scene hero" ref={root} data-scene data-tone="dark" tabIndex={-1}>
       <div className="hero__bath" aria-hidden="true">
         <Marbling ops={ops} progress={progress} bath="#242124" />
       </div>
       <div className="container hero__grid">
         <div className="hero__copy">
-          <h1 className="hero__title">{split("Les affaires\nchangent de rythme\nquand l'Afrique\nse connecte.")}</h1>
+          <h1 className="hero__title">
+            {HERO.title.map((l) => <span className="line" key={l}><span>{l}</span></span>)}
+          </h1>
           <p className="hero__lead">{HERO.lead}</p>
           <div className="hero__actions">
             <Button to="/app/decouvrir" primary>{HERO.primary}<ArrowRight /></Button>
-            <Button href="#marches">{HERO.secondary}</Button>
+            <Button href="#parcours">{HERO.secondary}</Button>
           </div>
         </div>
 
-        <div className="feuille feuille--hero sheet" aria-label="Exemple de dossier levé du bain : Gabon Fresh Foods, de Libreville vers Douala">
+        <div className="feuille feuille--hero sheet" aria-label="Exemple de mise en relation : Gabon Fresh Foods cherche un distributeur, de Libreville vers Douala">
           <div className="sheet__head">
-            <Label strong>Feuille levée · dossier d'expansion</Label>
-            <span className="label tabular">N° PV-2026-0417 · démonstration</span>
+            <Label strong>{HERO.sheet}</Label>
+            <span className="label tabular">Démonstration</span>
           </div>
           <div className="sheet__body">
-            <Field label="Entreprise" value={<>Gabon Fresh Foods <span className="dossier__meta">· Agroalimentaire · 50–100 pers.</span></>} state="filled" />
+            <Field label="Entreprise" value={<>Gabon Fresh Foods <span className="dossier__meta">· Agroalimentaire</span></>} state="filled" />
+            <Field label="Cherche" value={<PType id="distributor" />} state="filled" />
             <div className="sheet__grid">
               <Field label="Depuis" value={<span className="dossier__place">Libreville <Country code="GA" nameless /></span>} state="filled" large />
               <Field label="Vers" value={<span className="dossier__place">Douala <Country code="CM" nameless /></span>} state="filled" large />
             </div>
-            <Field label="Objectif" value={<PType id="distributor" />} state="filled" />
-            <Field label="Résultat" value={<span className="dossier__result">3 partenaires potentiels · AgroDistrib Cameroon en tête</span>} state="filled" />
+            <Field label="PAVEN propose" value={<span className="dossier__result">3 partenaires potentiels · AgroDistrib Cameroon en tête</span>} state="filled" />
             <Stamp solid className="dossier__stamp"><strong className="tabular">94 %</strong>compatible</Stamp>
           </div>
         </div>

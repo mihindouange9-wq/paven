@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import { Button, Check, Country, Label, Monogram, PType, Score, Stamp, Verifs } from "../components/ui";
+import { Button, Country, Label, Monogram, PType, Score, Stamp, Verifs } from "../components/ui";
 import { ENGINE } from "../content/fr";
 import { companyById, industryName, MATCHES } from "../data/mock";
 import { gsap, prefersReducedMotion, ScrollTrigger, stampIn, useGSAP } from "../lib/motion";
 
-/** Le moteur : un match expliqué critère par critère. Les barres se remplissent, le score monte, le tampon se pose. */
+/** Le moteur : une compatibilité expliquée critère par critère. Les barres se remplissent, le score monte, le tampon se pose. */
 export default function Engine() {
   const root = useRef<HTMLElement>(null);
   const match = MATCHES[0];
@@ -19,11 +19,11 @@ export default function Engine() {
       const show = () => { const s = String(Math.round(counter.n)).padStart(2, "0"); cells.forEach((c, i) => (c.textContent = s[i] ?? "")); };
       gsap.set(".engine__bar i", { scaleX: 0 });
       gsap.set(".engine__stamp", { autoAlpha: 0 });
-      const tl = gsap.timeline({ scrollTrigger: { trigger: ".engine__card", start: "top 70%", once: true }, defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top 34%", once: true }, defaults: { ease: "power3.out" } });
       show();
       match.reasons.forEach((_, i) => {
         tl.to(`.engine__reason:nth-child(${i + 1}) .engine__bar i`, { scaleX: 1, duration: 0.6 }, 0.2 + i * 0.22)
-          .from(`.engine__reason:nth-child(${i + 1})`, { autoAlpha: 0.3, duration: 0.3 }, 0.2 + i * 0.22);
+          .fromTo(`.engine__reason:nth-child(${i + 1})`, { autoAlpha: 0.3 }, { autoAlpha: 1, duration: 0.3 }, 0.2 + i * 0.22);
       });
       tl.to(counter, { n: match.score, duration: 1.6, ease: "power2.out", onUpdate: show }, 0.2);
       stampIn(".engine__stamp", 1.9, tl);
@@ -33,19 +33,14 @@ export default function Engine() {
   );
 
   return (
-    <section id="compatibilite" className="section engine" data-tone="dark" ref={root}>
+    <section id="compatibilite" className="scene engine" data-scene data-tone="dark" tabIndex={-1} ref={root}>
       <div className="container engine__grid">
         <div className="engine__copy">
-          <h2 data-reveal>{ENGINE.title}</h2>
+          <h2 data-reveal="lines">{ENGINE.title}</h2>
           <p className="lead" data-reveal>{ENGINE.lead}</p>
-          <ul className="engine__principles" data-reveal>
-            <li><Check /> Un score est toujours décomposé en critères mesurés.</li>
-            <li><Check /> Chaque critère dit ce qu'il compare et pourquoi il compte.</li>
-            <li><Check /> Les intentions des deux entreprises sont confrontées, pas seulement leurs secteurs.</li>
-          </ul>
         </div>
 
-        <article className="engine__card sheet" data-reveal aria-label={`Compatibilité avec ${partner.name}`}>
+        <article className="engine__card sheet" data-reveal="lift" aria-label={`Compatibilité avec ${partner.name}`}>
           <div className="sheet__head">
             <Label strong>Compatibilité d'entreprise</Label>
             <span className="label tabular">Réf. {match.id.toUpperCase()} · {new Date(match.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>

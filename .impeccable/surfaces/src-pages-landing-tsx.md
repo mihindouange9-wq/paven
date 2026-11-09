@@ -11,6 +11,8 @@ Audience : dirigeants d'entreprises africaines qui cherchent un partenaire dans 
 
 Historique : la direction v1 « Le dossier d'expansion » (clé fffb381b, index 5) a été construite, revue (ship) et documentée, puis refusée par le client le 8 oct. 2026 : trop papier, trop sobre, fond clair dominant. Relance en registre audacieux (reroll 1) ; le client a adopté la piste écartée « Pigment flottant » (medium-native-ebru-floated-pigment).
 
+Refonte du 9 nov. 2026 (demande du client : « trop long », « pas assez travaillé », compréhension immédiate, passages par nuage coloré) : la page passe de treize sections (14 écrans sur ordinateur, 21 sur téléphone) à sept scènes d'un écran (7,6 et 11,5). Le titre d'accueil dit ce que fait PAVEN (« Trouvez le bon partenaire d'affaires, partout en Afrique. ») ; besoin, marché, expansion, local et transfrontalier sont réunis dans la scène interactive « Comment ça marche » ; confiance et mobile dans une même scène ; le parcours en six étapes est retiré. Le monde « le bain » est conservé ; s'y ajoute le nuage de pigment des passages de scène (src/lib/nuage.ts), seule matière floue du système.
+
 ## Direction contract
 
 THESIS: La landing est un bain d'ebru : les marchés africains sont des gouttes de pigment posées sur une eau sombre, chaque nouvelle goutte repousse les précédentes en anneaux sans jamais se mélanger, et une connexion est un trait de stylet qui tire une goutte vers une autre ; le match est la feuille posée une seule fois sur le bain, qui emporte l'image. Elle refuse le hero « titre centré + graphe de nœuds + trois cartes », et refuse aussi toute forme aléatoire : chaque figure est calculée (déplacement de goutte, peigne), jamais un blob.

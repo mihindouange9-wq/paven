@@ -476,6 +476,12 @@ Canvas `Marbling` plein cadre, fond raisin (ou raisin profond en clôture), rend
 ### Le tampon
 Pilule Manrope 800 0.75rem en capitales 0.1em, bordure 2 px sunset, inclinée de −2°, chiffre 1.5rem tabulaire ; contour (sunset doux sur bain, sunset encre sur feuille) ou plein sunset. Il se pose en 550 ms expo.out, de l'échelle 1.12 et −3° vers 1 et −2°, une seule fois à l'entrée dans l'écran.
 
+### Le nuage (passage de scène)
+La page d'accueil tient en sept scènes d'un écran (accueil, constat, comment ça marche, compatibilité, marchés, confiance, clôture). Entre deux scènes, le bain se trouble : un nuage de pigment naît à la couture des deux scènes, enveloppe l'écran, puis s'éclaircit sur la scène suivante. C'est une toile WebGL plein écran (`src/lib/nuage.ts`, `.nuage`, sous l'en-tête) : bruit fractal replié deux fois sur lui-même, teintes prises dans les jetons seulement (fond raisin doux, buff, sunset, blanc cassé), trois dominantes qui alternent (ivoire marbré, sunset, buff veiné de sunset). Le nuage est piloté par le défilement, donc réversible ; si le visiteur s'arrête au milieu, le passage se termine seul dans le sens où il allait (0,45 à 1,2 s, power2.inOut) ; les liens internes et le rail des scènes le jouent en un geste (0,5 s pour couvrir, 0,9 s pour éclaircir). Pendant qu'il monte, la scène quittée s'efface vers le haut (−1,75rem, opacité 0,4) ; la scène suivante finit de se poser quand il s'éclaircit et ne joue ses entrées qu'à ce moment. Sans WebGL : un voile de la même palette. En mouvement réduit : aucun nuage, aucun défilement automatique.
+
+### Le rail des scènes
+Sept gouttes de 0,5rem fixées à droite à partir de 1100 px (pointeur fin) : contour ivoire (raisin sur la scène buff), la scène courante porte sa goutte sunset et ses deux anneaux. Au survol ou au focus, le nom de la scène sort à gauche en libellé. Chaque goutte est un lien vers la scène.
+
 ### La goutte
 Marqueur rond de 0.85em en sunset (ou buff) cerné d'un anneau du fond puis d'un anneau de l'autre pigment ; vide = contour seul. Il précède chaque ville du bandeau, chaque jalon, chaque niveau de vérification (`.verif__dot` 0.5rem sunset cerné 1 px).
 
@@ -488,10 +494,11 @@ Marqueur rond de 0.85em en sunset (ou buff) cerné d'un anneau du fond puis d'un
 - **Do** écrire chiffres et scores en Manrope 700/800 tabulaire, titres en Manrope 700 serré (−0.035 à −0.04em), texte en DM Sans 420.
 - **Do** marquer un état par un changement de figure ou une inversion de surface (contour → plein, ivoire ↔ raisin), en 180 ms linéaire, et faire poser gouttes, feuilles et tampons sans rebond (800 / 600 / 550 ms, expo.out ou `cubic-bezier(0.22, 1, 0.36, 1)`).
 - **Do** rendre le bain à son état final quand `prefers-reduced-motion` est actif, et laisser chaque contenu lisible sans JavaScript.
+- **Do** tenir chaque scène de la page d'accueil dans un écran sur ordinateur (1440 × 900 comme 1366 × 700) : une scène, une idée ; ce qui ne tient pas se retire ou rejoint une autre scène.
 
 ### Don't:
 - **Don't** mettre d'ombre portée sur autre chose que la feuille levée ; panneaux, boutons, puces, menus restent à plat.
-- **Don't** utiliser de flou, de dégradé de pigment, de transparence de pigment, de blob ou de forme aléatoire dans la marbrure ou ses figures ; seul le fondu de bord de cuve (≤ 14 % de la largeur du canvas) est admis.
+- **Don't** utiliser de flou, de dégradé de pigment, de transparence de pigment, de blob ou de forme aléatoire dans la marbrure ou ses figures ; seul le fondu de bord de cuve (≤ 14 % de la largeur du canvas) est admis. Le nuage des passages de scène est l'unique matière floue du système, demandée par le client le 9 novembre 2026 : il ne sert qu'à passer d'une scène à l'autre, jamais de décor à l'intérieur d'une scène.
 - **Don't** arrondir ce qui n'est pas une goutte ou un tampon : feuilles, panneaux, boutons, champs, puces de filtre restent à angles droits.
 - **Don't** écrire du texte en sunset pur ; passer par sunset encre sur clair ou sunset doux sur sombre.
 - **Don't** incliner autre chose que le tampon, ni introduire une quatrième teinte, un violet ou un bleu SaaS, un fond clair dominant.

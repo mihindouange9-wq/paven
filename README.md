@@ -30,7 +30,9 @@ src/
   styles/                  tokens.css (palette, rôles, typographie), base.css, components.css (vocabulaire du dossier)
   brand/Logo.tsx           symbole et logo (le symbole : une route qui part d'un marché vers un autre)
   components/              ui.tsx (Field, Score, Country, PType, Stamp, Button…), AfricaMap, Phone, CompanyRow
-  sections/                les quatorze sections de la landing
+  sections/                les sept scènes de la page d'accueil (Hero, Problem, How, Engine, MapSection, Trust, Final)
+  lib/nuage.ts             le nuage de pigment qui fait passer d'une scène à la suivante (WebGL, piloté par le défilement)
+  lib/motion.ts            entrées des scènes (titres par lignes, feuille levée, tampon, traits)
   pages/Landing.tsx        assemblage de la landing + landing.css
   app/                     Shell (rail, barre) + app.css + pages/ (Overview, Discover, Matches, MatchDetail,
                            Companies, CompanyProfile, Opportunities, Messages, DealRooms, DealRoomDetail,
@@ -66,7 +68,8 @@ dans l'interface. Pour brancher un vrai moteur, remplacer `src/data/mock.ts` par
 
 ```bash
 npm run build && npm run preview
-node tools/shoot.mjs http://127.0.0.1:5191 .impeccable/review/shots 1440,390
+node tools/scenes.mjs http://localhost:5191 .impeccable/review/scenes desktop,laptop,mobile   # une capture par scène, les étapes du nuage, la hauteur de chaque scène
+node tools/nuage-check.mjs http://localhost:5191                                              # comportement : passage terminé seul, liens, rail, mouvement réduit
 node tools/shoot-app.mjs http://127.0.0.1:5191 .impeccable/review/app 1440,390
 ```
 

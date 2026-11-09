@@ -11,23 +11,22 @@ function Figure({ n }: { n: number }) {
   return <svg {...common}><path d="M22 28a16 16 0 1 1 16 16c-10 0-26-8-36-16 10-8 26-16 36-16" fill={BUFF} /><path d="M26 28a12 12 0 1 1 12 12c-8 0-22-6-32-12 10-6 24-12 32-12" fill={SUNSET} /><circle cx="38" cy="28" r="5" fill={OFF} /><circle cx="82" cy="28" r="8" fill={BUFF} /><circle cx="82" cy="28" r="3.5" fill={OFF} /></svg>;
 }
 
+/** Le constat : quatre obstacles sur une seule ligne, puis la réponse. */
 export default function Problem() {
   return (
-    <section id="plateforme" className="section problem" data-tone="dark">
+    <section id="plateforme" className="scene problem" data-scene data-tone="dark" tabIndex={-1}>
       <div className="container problem__grid">
-        <h2 className="problem__title" data-reveal>{PROBLEM.title}</h2>
-        <ul className="ledger problem__list">
+        <h2 className="problem__title" data-reveal="lines">{PROBLEM.title}</h2>
+        <ul className="problem__list">
           {PROBLEM.items.map((p, i) => (
             <li key={p.title} className="problem__item" data-reveal>
-              <div>
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
-              </div>
               <Figure n={i} />
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
             </li>
           ))}
         </ul>
-        <p className="problem__answer" data-reveal>PAVEN résout cette fragmentation.</p>
+        <p className="problem__answer" data-reveal>{PROBLEM.answer}</p>
       </div>
     </section>
   );

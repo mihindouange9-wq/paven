@@ -103,8 +103,8 @@
 .stage__dot { width: 0.5rem; height: 0.5rem; background: var(--sunset); }
 
 /* Champ de recherche / filtres */
-.input { width: 100%; min-height: 2.75rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); background: var(--white); color: var(--fg); font-family: var(--font-text); font-size: 0.9375rem; }
-[data-tone="dark"] .input { background: var(--raisin-soft); }
+.input { width: 100%; min-height: 2.75rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); background-color: var(--white); color: var(--fg); font-family: var(--font-text); font-size: 0.9375rem; }
+[data-tone="dark"] .input { background-color: var(--raisin-soft); }
 .input:focus { outline: 2px solid var(--sunset-ink); outline-offset: 0; border-color: transparent; }
 .select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2rem; }
 
@@ -134,7 +134,7 @@
 .sheet .btn--primary, .sheet .btn--primary:hover { color: var(--on-sunset); }
 .sheet .chip { border-color: var(--rule-strong); color: var(--raisin); }
 .sheet .chip[aria-pressed="true"], .sheet .chip.is-on { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
-.sheet .input { background: var(--white); color: var(--raisin); }
+.sheet .input { background-color: var(--white); color: var(--raisin); }
 
 /* Boutons sur le bain : contour ivoire ; sur la feuille, contour raisin (règle ci-dessus) */
 .btn { border-color: var(--fg); color: var(--fg); }
@@ -168,6 +168,6 @@
 .table th { border-bottom-color: var(--fg); }
 .chip:hover { background: var(--field); }
 .chip[aria-pressed="true"], .chip.is-on { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
-.input { background: var(--raisin-soft); color: var(--offwhite); border-color: var(--line-strong); }
+.input { background-color: var(--raisin-soft); color: var(--offwhite); border-color: var(--line-strong); }
 .input::placeholder { color: var(--paper-muted); }
 .select { background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); }
