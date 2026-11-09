@@ -31,23 +31,23 @@ async function open(reduced) {
   const vh = 900;
   // 1. Arrêt au milieu d'un passage, en descendant : il se termine sur la scène suivante
   await page.evaluate((y) => window.scrollTo(0, y), tops[1] - vh + 0.4 * vh);
-  await sleep(200);
+  await sleep(350);
   check("le nuage est visible au milieu du passage", (await state()).cloud === "visible");
-  await sleep(1900);
+  await sleep(3200);
   let s = await state();
   check("passage terminé seul vers la scène 2", Math.abs(s.y - tops[1]) <= 1, `y=${s.y}, attendu ${tops[1]}`);
   check("nuage dissipé une fois arrivé", s.cloud === "hidden");
   check("rail sur la scène 2", s.current === 1, `courant=${s.current}`);
   // 2. En remontant : retour à la scène précédente
   await page.evaluate((y) => window.scrollTo(0, y), tops[1] - 0.35 * vh);
-  await sleep(2200);
+  await sleep(3200);
   s = await state();
   check("en remontant, retour à la scène 1", Math.abs(s.y - (tops[1] - vh)) <= 1, `y=${s.y}, attendu ${tops[1] - vh}`);
   // 3. Lien du menu : le nuage joue en un geste et mène à la scène
   await page.click('.header__nav a[href="#marches"]');
-  await sleep(250);
+  await sleep(450);
   check("nuage joué au clic sur « Marchés »", (await state()).cloud === "visible");
-  await sleep(1900);
+  await sleep(2600);
   s = await state();
   check("arrivée sur la scène Marchés", Math.abs(s.y - tops[4]) <= 1, `y=${s.y}, attendu ${tops[4]}`);
   check("nuage dissipé après le lien", s.cloud === "hidden");
@@ -55,7 +55,7 @@ async function open(reduced) {
   check("adresse mise à jour", (await page.evaluate(() => location.hash)) === "#marches");
   // 4. Rail
   await page.click('.rail__dot[href="#parcours"]');
-  await sleep(2100);
+  await sleep(3000);
   s = await state();
   check("rail : arrivée sur Comment ça marche", Math.abs(s.y - tops[2]) <= 1 && s.current === 2, `y=${s.y}, courant=${s.current}`);
   // 5. Les trois choix sont réels

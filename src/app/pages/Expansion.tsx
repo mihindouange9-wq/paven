@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import AfricaMap from "../../components/AfricaMap";
@@ -23,7 +24,7 @@ export function Component() {
       <header className="page-head"><h1>Expansion</h1><p>Développez-vous sans repartir de zéro : dites d'où vous partez, où vous allez, ce que vous cherchez.</p></header>
       <div className="two-col">
         <section className="panel">
-          <div className="panel__head"><Label strong>Demande d'expansion</Label><span className="label">{fromCity.name} → {toCity.name}</span></div>
+          <div className="panel__head"><Label strong>Demande d'expansion</Label><span className="label">{fromCity.name}<ArrowRight size={13} aria-label="vers" />{toCity.name}</span></div>
           <div className="panel__body">
             <form className="expansion-form" onSubmit={(e) => { e.preventDefault(); setLaunched(true); }}>
               <div className="expansion-form__row">
@@ -33,7 +34,7 @@ export function Component() {
               </div>
               <div style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}>
                 <Button type="submit" primary small>Lancer l'analyse</Button>
-                <span className="company-row__meta"><Country code={from} /> → <Country code={to} /> · <PType id={type} /></span>
+                <span className="company-row__meta"><Country code={from} /> <ArrowRight size={13} aria-label="vers" style={{ display: "inline", verticalAlign: "-0.15em" }} /> <Country code={to} /> · <PType id={type} /></span>
               </div>
             </form>
             <div style={{ marginTop: "1.5rem" }}><AfricaMap highlight={[fromCity.id, toCity.id]} routes={[[fromCity.id, toCity.id]]} labels /></div>

@@ -276,3 +276,14 @@
 .panel--sheet .stamp--solid { background: var(--turquoise); border-color: var(--turquoise); color: var(--on-turquoise); }
 .panel--sheet .btn--primary { border-color: var(--turquoise); }
 .panel--sheet .btn--primary:hover { border-color: var(--turquoise-press); background: var(--turquoise-press); color: var(--on-turquoise); }
+/* Carte abstraite (trame de points) de la page Expansion */
+.africa { width: 100%; height: auto; }
+.africa__dots circle { fill: var(--rule-on-dark-strong); }
+.africa__routes path { fill: none; stroke: var(--yellow); stroke-width: 0.45; }
+.africa__node { fill: var(--ivory); transition: r var(--t-mid) var(--ease); }
+.africa__city.is-on .africa__node { fill: var(--turquoise-soft); }
+.africa__hit { fill: transparent; cursor: pointer; }
+.africa__hit:focus-visible { outline: none; stroke: var(--yellow); stroke-width: 0.4; }
+.africa__label { font-family: var(--font-ui); font-size: 2.1px; font-weight: 700; fill: var(--ivory); letter-spacing: 0.04em; pointer-events: none; }
+.africa__city.is-on .africa__label { fill: var(--yellow); }
+@media (max-width: 599px) { .africa__label--2 { display: none; } .africa__label { font-size: 2.4px; } }

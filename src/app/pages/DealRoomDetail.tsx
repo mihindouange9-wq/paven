@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Country, Field, Label, Monogram, Stamp, Button } from "../../components/ui";
@@ -22,7 +23,7 @@ export function Component() {
   return (
     <>
       <header className="page-head">
-        <Link to="/app/deal-rooms" className="label">← Deal Rooms</Link>
+        <Link to="/app/deal-rooms" className="label"><ArrowLeft size={13} aria-hidden="true" />Deal Rooms</Link>
         <div className="page-head__row">
           <div className="profile-head">
             <Monogram company={partner} large />

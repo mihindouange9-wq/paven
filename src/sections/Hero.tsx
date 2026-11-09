@@ -3,10 +3,8 @@ import { ArrowRight } from "lucide-react";
 import Marbling, { type Op } from "../components/Marbling";
 import { Button, Country, Field, Label, PType, Stamp } from "../components/ui";
 import { HERO } from "../content/fr";
-import { CITIES } from "../data/mock";
 import { gsap, prefersReducedMotion, useGSAP } from "../lib/motion";
 
-const PORTS = ["libreville", "douala", "abidjan", "lagos", "accra", "dakar", "casablanca", "nairobi", "kigali", "johannesburg", "cairo"];
 /* Les trois pigments du bain, pris dans la palette : turquoise, jaune pastel, ivoire. */
 export const PIGMENTS = { a: "#0D9DA4", b: "#FCE688", c: "#FFFBEA" };
 
@@ -64,13 +62,10 @@ export default function Hero() {
         .to(p, { n: ops.length, duration: 2.6, ease: "none", onUpdate: () => setProgress(p.n) }, 0.3)
         .fromTo(".feuille--hero", { autoAlpha: 0, y: 46 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "expo.out" }, 1.5)
         .from(".feuille--hero .field", { autoAlpha: 0, x: -8, duration: 0.45, stagger: 0.09, ease: "power2.out" }, 1.75)
-        .fromTo(".feuille--hero .stamp", { autoAlpha: 0, scale: 1.12, rotate: -3 }, { autoAlpha: 1, scale: 1, rotate: -2, duration: 0.55, ease: "expo.out" }, 2.3)
-        .from(".hero__marquee", { autoAlpha: 0, duration: 0.8 }, 1.1);
+        .fromTo(".feuille--hero .stamp", { autoAlpha: 0, scale: 1.12, rotate: -3 }, { autoAlpha: 1, scale: 1, rotate: -2, duration: 0.55, ease: "expo.out" }, 2.3);
     },
     { scope: root },
   );
-
-  const cities = PORTS.map((id) => CITIES.find((x) => x.id === id)!);
 
   return (
     <section id="accueil" className="scene hero" ref={root} data-scene data-tone="yellow" tabIndex={-1}>
@@ -107,16 +102,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Les villes du réseau défilent en grand ; la liste n'est lue qu'une fois. */}
-      <div className="hero__marquee">
-        <ul className="marquee" aria-label="Villes du réseau PAVEN">
-          {cities.map((c) => <li key={c.id}>{c.name}<i className="marquee__dot" aria-hidden="true" /></li>)}
-        </ul>
-        <ul className="marquee" aria-hidden="true">
-          {cities.map((c) => <li key={c.id}>{c.name}<i className="marquee__dot" /></li>)}
-        </ul>
       </div>
     </section>
   );

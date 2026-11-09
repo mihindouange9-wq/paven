@@ -51,7 +51,7 @@ export function Component() {
             <div className="panel__body">
               {EXPANSIONS.map((e) => (
                 <div key={e.id} className="field">
-                  <Label>{e.fromCity} → {e.toCity}</Label>
+                  <Label>{e.fromCity}<ArrowRight size={13} aria-label="vers" />{e.toCity}</Label>
                   <div className="field__value" style={{ display: "flex", justifyContent: "space-between", gap: "1rem", alignItems: "center" }}>
                     <span><Country code={e.to} /></span>
                     <span className="tabular" style={{ color: "var(--turquoise-ink)" }}>{e.found} entreprises</span>

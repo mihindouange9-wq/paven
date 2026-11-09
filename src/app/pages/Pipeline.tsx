@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Label, Monogram } from "../../components/ui";
@@ -27,8 +28,8 @@ export function Component() {
                   <Link to={`/app/entreprises/${c.id}`} style={{ textDecoration: "none" }}><strong>{c.name}</strong></Link>
                   <span className="tabular">{e.score} % · depuis le {new Date(e.since).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span>
                   <div style={{ display: "flex", gap: "0.35rem", marginTop: "0.4rem" }}>
-                    <button type="button" className="chip" onClick={() => move(e.company, -1)} disabled={s === "potential"} aria-label={`Reculer ${c.name}`}>←</button>
-                    <button type="button" className="chip" onClick={() => move(e.company, 1)} disabled={s === "active"} aria-label={`Avancer ${c.name}`}>→</button>
+                    <button type="button" className="chip" onClick={() => move(e.company, -1)} disabled={s === "potential"} aria-label={`Reculer ${c.name}`}><ArrowLeft size={14} aria-hidden="true" /></button>
+                    <button type="button" className="chip" onClick={() => move(e.company, 1)} disabled={s === "active"} aria-label={`Avancer ${c.name}`}><ArrowRight size={14} aria-hidden="true" /></button>
                   </div>
                 </div>
               </article>

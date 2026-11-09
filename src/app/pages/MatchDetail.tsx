@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reasons } from "../../components/CompanyRow";
 import { Button, Country, Field, Label, Monogram, PType, Score, Verifs } from "../../components/ui";
 import { companyById, industryName, MATCHES } from "../../data/mock";
@@ -12,7 +12,7 @@ export function Component() {
   return (
     <>
       <header className="page-head">
-        <Link to="/app/compatibilites" className="label">← Compatibilités</Link>
+        <Link to="/app/compatibilites" className="label"><ArrowLeft size={13} aria-hidden="true" />Compatibilités</Link>
         <div className="page-head__row">
           <div className="profile-head">
             <Monogram company={c} large />

@@ -15,35 +15,40 @@ uniform float uTime, uGrow, uClear, uSeam, uSeed;
 uniform vec3 uA, uB, uC, uD;
 float hash(vec2 p){ p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
 float noise(vec2 p){
-  vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  vec2 i = floor(p), f = fract(p); f = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
   return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
 }
 float fbm(vec2 p){
   float s = 0.0, a = 0.5; mat2 m = mat2(1.6, 1.2, -1.2, 1.6);
-  for (int i = 0; i < 4; i++) { s += a * noise(p); p = m * p; a *= 0.5; }
-  return s / 0.9375;
+  for (int i = 0; i < 5; i++) { s += a * noise(p); p = m * p; a *= 0.5; }
+  return s / 0.96875;
 }
 void main(){
   float asp = uRes.x / uRes.y;
-  vec2 p = vec2(v.x * asp, v.y) * 1.35 + uSeed;
-  float t = uTime * 0.05;
-  // Le pigment se replie sur lui-même : deux déformations de domaine successives
-  vec2 q = vec2(fbm(p + vec2(0.0, t)), fbm(p + vec2(5.2, 1.3 - t)));
-  vec2 r = vec2(fbm(p + 2.6 * q + vec2(1.7, 9.2) + t * 0.6), fbm(p + 2.6 * q + vec2(8.3, 2.8) - t * 0.4));
-  float n = fbm(p + 3.0 * r);
-  // Couverture : le nuage naît à la couture des deux scènes et gagne l'écran
+  float t = uTime;
+  // Une fumée monte : tout le champ dérive vers le haut et ondule lentement sur les côtés
+  vec2 p = vec2(v.x * asp, v.y) * 1.2 + uSeed;
+  p.y -= t * 0.07;
+  p.x += sin(t * 0.11 + v.y * 2.1) * 0.05;
+  // Elle se replie sur elle-même : deux déformations de domaine, chacune emportée à sa vitesse
+  vec2 q = vec2(fbm(p + vec2(0.0, -t * 0.05)), fbm(p + vec2(5.2, 1.3 + t * 0.035)));
+  vec2 r = vec2(fbm(p + 2.1 * q + vec2(1.7, 9.2 - t * 0.075)), fbm(p + 2.1 * q + vec2(8.3 + t * 0.03, 2.8)));
+  float n = fbm(p + 2.5 * r);
+  float wisp = fbm(p * 2.4 + 2.8 * r - vec2(0.0, t * 0.16));
+  // Couverture : la fumée naît à la couture des deux scènes et gagne l'écran, par volutes
   float dist = abs(v.y - uSeam);
-  float D = uGrow * 2.3 - dist * (1.7 - uGrow * 0.7) + (n - 0.5) * 1.1;
-  float a = smoothstep(0.02, 0.55, D) * smoothstep(0.0, 0.12, uGrow);
-  // Éclaircie : des trouées s'ouvrent là où le pigment est le plus fin
-  float n2 = fbm(p * 0.75 + 1.8 * q + 11.0);
-  a *= 1.0 - smoothstep(n2 - 0.24, n2 + 0.24, uClear * 1.5 - 0.26);
-  // Nuances : fond de cuve, puis les trois pigments de la charte, jamais d'autre teinte
-  vec3 col = mix(uA, uB, smoothstep(0.26, 0.70, n));
-  col = mix(col, uC, smoothstep(0.40, 0.88, r.x) * 0.85);
-  col = mix(col, uD, smoothstep(0.58, 0.96, q.y * 0.55 + n * 0.55) * 0.8);
-  col = mix(col, uA, smoothstep(0.58, 0.18, n + r.y * 0.35) * 0.34);
-  col += (hash(gl_FragCoord.xy + uTime) - 0.5) * 0.012;
+  float D = uGrow * 2.5 - dist * (1.75 - uGrow * 0.75) + (n - 0.5) * 1.25 + (wisp - 0.5) * 0.4;
+  float a = smoothstep(0.0, 0.9, D) * smoothstep(0.0, 0.1, uGrow);
+  // Dissipation : elle s'amincit partout et se déchire là où elle est la plus fine
+  float n2 = fbm(p * 0.7 + 1.6 * q + 11.0);
+  a *= 1.0 - smoothstep(n2 - 0.36, n2 + 0.36, uClear * 1.75 - 0.38);
+  a *= 1.0 - 0.3 * smoothstep(0.25, 1.0, uClear);
+  // Nuances : le cœur est dense, les volutes fines s'éclaircissent ; teintes de la palette seulement
+  vec3 col = mix(uA, uB, smoothstep(0.18, 0.82, n));
+  col = mix(col, uC, smoothstep(0.34, 0.96, r.x) * 0.78);
+  col = mix(col, uD, smoothstep(0.5, 1.0, q.y * 0.5 + wisp * 0.6) * 0.7);
+  col = mix(col, uA, smoothstep(0.6, 0.12, n + r.y * 0.3) * 0.28);
+  col += (hash(gl_FragCoord.xy + t) - 0.5) * 0.012;
   gl_FragColor = vec4(col * a, a);
 }`;
 
@@ -102,15 +107,19 @@ export function mountNuage(main: HTMLElement, canvas: HTMLCanvasElement, onScene
   const size = () => {
     const w = window.innerWidth, h = window.innerHeight;
     // Un nuage n'a pas de détail fin : la toile est rendue sous la résolution de l'écran, puis étirée
-    const k = Math.min(1, 900 / Math.max(w, h));
+    const k = Math.min(1, 1200 / Math.max(w, h));
     const cw = Math.max(2, Math.round(w * k)), ch = Math.max(2, Math.round(h * k));
     if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
     if (gl) gl.viewport(0, 0, cw, ch);
   };
 
   /* ── État ── */
-  const st = { grow: 0, clear: 0, seam: 0.5, pal: 0, seed: 0 };
+  /* Le défilement fixe une cible (tg) ; ce qui est dessiné (st) la rejoint en douceur, image après image.
+     Une molette avance par crans : sans cet amorti la fumée grandirait par à-coups. */
+  const st = { grow: 0, clear: 0, seam: 0.5, pal: 0, seed: 0, d: 0 };
+  const tg = { grow: 0, clear: 0, seam: 0.5, pal: 0, seed: 0, d: 0, k: -1 };
   const over = { on: false, grow: 0, clear: 0, seam: 1.02, pal: 0, seed: 0 };
+  let shownK = -1;
   let pair = -1, sceneIndex = -1, running = false, raf = 0, time = 0, last = 0, lastY = window.scrollY, dir = 1;
   let touching = false, idle = 0, auto: gsap.core.Tween | null = null, jump: gsap.core.Timeline | null = null;
 
@@ -126,14 +135,31 @@ export function mountNuage(main: HTMLElement, canvas: HTMLCanvasElement, onScene
     }
   };
 
-  const visible = () => (over.on ? over.grow > 0.001 && over.clear < 0.999 : st.grow > 0.001 && st.clear < 0.999);
+  const shown = (s: { grow: number; clear: number }) => s.grow > 0.001 && s.clear < 0.999;
+  const visible = () => (over.on ? shown(over) : shown(st) || shown(tg) || Math.abs(st.d - tg.d) > 0.002);
+
+  /** Ce qui est dessiné rejoint la cible du défilement (constante de temps : 0,17 s). */
+  const follow = (dt: number) => {
+    if (!shown(st)) {
+      // rien à l'écran : on se cale sur le passage demandé sans que cela se voie
+      if (st.grow <= 0.001) { st.clear = tg.clear; st.seam = tg.seam; st.pal = tg.pal; st.seed = tg.seed; if (tg.k !== shownK) st.d = tg.d; }
+      else if (tg.k > 0 && tg.k !== shownK) { st.grow = 0; st.clear = tg.clear; st.seam = tg.seam; st.pal = tg.pal; st.seed = tg.seed; st.d = tg.d; }
+      if (tg.k > 0) shownK = tg.k;
+    }
+    const f = 1 - Math.exp(-dt / 0.17);
+    st.grow += (tg.grow - st.grow) * f; st.clear += (tg.clear - st.clear) * f;
+    st.seam += (tg.seam - st.seam) * f; st.d += (tg.d - st.d) * f;
+    setVars(tg.k, st.d);
+  };
 
   const draw = (now: number) => {
     raf = 0;
     const dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now; time += dt;
+    if (!over.on) follow(dt);
     const s = over.on ? over : st;
     if (!visible()) { canvas.style.visibility = "hidden"; running = false; return; }
-    canvas.style.visibility = "visible";
+    canvas.style.visibility = shown(s) ? "visible" : "hidden";
+    if (!shown(s)) { raf = requestAnimationFrame(draw); return; }
     if (gl) {
       const pal = PALETTES[s.pal % PALETTES.length];
       gl.uniform2f(U.uRes, canvas.width, canvas.height);
@@ -160,9 +186,13 @@ export function mountNuage(main: HTMLElement, canvas: HTMLCanvasElement, onScene
     for (let i = 0; i < tops.length; i++) if (tops[i] <= y + vh * 0.5) idx = i;
     if (idx !== sceneIndex) { sceneIndex = idx; onScene({ index: idx, tone: scenes[idx].dataset.tone || "dark" }); }
     if (over.on || still) return { k, d };
-    setVars(k, d);
-    if (k > 0) { st.grow = smooth((d - 0.05) / 0.4); st.clear = clamp((d - 0.56) / 0.42); st.seam = 1 - d; st.pal = k - 1; st.seed = k * 3.7; }
-    else { st.grow = 0; st.clear = 0; }
+    if (k > 0) { tg.k = k; tg.d = d; tg.grow = smooth((d - 0.05) / 0.4); tg.clear = clamp((d - 0.56) / 0.42); tg.seam = 1 - d; tg.pal = k - 1; tg.seed = k * 3.7; }
+    else {
+      // la couture a quitté l'écran : vers le bas le passage est fini (la fumée se dissipe), vers le haut il est annulé
+      if (tg.d > 0.5) { tg.grow = 1; tg.clear = 1; tg.d = 1; } else { tg.grow = 0; tg.clear = 0; tg.d = 0; }
+      tg.k = -1;
+    }
+    if (!running) setVars(tg.k, st.d);
     kick();
     return { k, d };
   };
@@ -176,7 +206,7 @@ export function mountNuage(main: HTMLElement, canvas: HTMLCanvasElement, onScene
     const target = dir >= 0 ? Math.ceil(tops[k]) : Math.floor(tops[k] - vh);
     const span = Math.abs(target - window.scrollY) / vh;
     auto = gsap.to(window, {
-      scrollTo: { y: target, autoKill: true }, duration: 0.45 + span * 0.75, ease: "power2.inOut",
+      scrollTo: { y: target, autoKill: true }, duration: 0.7 + span * 0.9, ease: "sine.inOut",
       onComplete: () => { auto = null; }, onInterrupt: () => { auto = null; },
     });
   };
@@ -201,12 +231,14 @@ export function mountNuage(main: HTMLElement, canvas: HTMLCanvasElement, onScene
     if (auto) { auto.kill(); auto = null; }
     if (jump) jump.kill();
     setVars(-1, 0);
+    Object.assign(st, { grow: 0, clear: 0, d: 0 }); Object.assign(tg, { grow: 0, clear: 0, d: 0, k: -1 });
     Object.assign(over, { on: true, grow: 0, clear: 0, seam: top > window.scrollY ? 1.02 : -0.02, pal: (over.pal + 1) % PALETTES.length, seed: over.seed + 2.3 });
     kick();
+    // la fumée monte du bord vers le centre et couvre l'écran, la page change dessous, puis elle se dissipe
     jump = gsap.timeline({ onComplete: () => { over.on = false; jump = null; update(); } })
-      .to(over, { grow: 1, duration: 0.5, ease: "power2.in", onUpdate: kick })
+      .to(over, { grow: 1, seam: 0.5, duration: 0.8, ease: "sine.inOut", onUpdate: kick })
       .add(() => { window.scrollTo(0, top); lastY = top; })
-      .to(over, { clear: 1, duration: 0.9, ease: "power1.inOut" }, "+=0.06");
+      .to(over, { clear: 1, duration: 1.25, ease: "sine.inOut" }, "+=0.05");
   };
 
   size(); measure(); update();

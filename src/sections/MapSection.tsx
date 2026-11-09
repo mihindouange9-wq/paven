@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import AfricaMap from "../components/AfricaMap";
+import Atlas from "../components/Atlas";
 import { Button, Country, Duo, Label } from "../components/ui";
 import { MAP } from "../content/fr";
 import { COUNTRIES, countryByCode } from "../data/mock";
 import type { CountryCode } from "../data/types";
 
-/** Les marchés : on choisit un pays (sur la carte ou dans la liste), ses chiffres et ses marchés connectés suivent. */
+/** Les marchés : le continent se construit sous les yeux du visiteur ; on choisit un pays (sur la carte ou dans la liste),
+    ses chiffres et ses liaisons suivent. */
 export default function MapSection() {
+  const root = useRef<HTMLElement>(null);
   const [code, setCode] = useState<CountryCode>("GA");
   const c = countryByCode(code);
   const n = (v: number) => v.toLocaleString("fr-FR");
@@ -19,7 +21,7 @@ export default function MapSection() {
   ];
 
   return (
-    <section id="marches" className="scene map" data-scene data-tone="yellow" tabIndex={-1}>
+    <section id="marches" className="scene map" data-scene data-tone="yellow" tabIndex={-1} ref={root}>
       <div className="container map__grid">
         <div className="map__copy">
           <h2 data-reveal="lines"><Duo parts={MAP.title} /></h2>
@@ -60,8 +62,8 @@ export default function MapSection() {
           </aside>
         </div>
 
-        <div className="map__canvas" data-reveal>
-          <AfricaMap selected={code} onSelect={setCode} />
+        <div className="map__stage">
+          <Atlas selected={code} onSelect={setCode} scene={root} />
         </div>
       </div>
     </section>

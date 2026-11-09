@@ -73,7 +73,6 @@
 }
 
 /* Accueil, sur jaune : le titre dit ce que fait PAVEN ; le panneau sombre porte le bain et un exemple */
-.hero { gap: clamp(1.25rem, 3.5vh, 2.25rem); padding-bottom: 1.25rem; }
 .hero__grid { display: grid; gap: 2rem; align-items: center; }
 .hero__copy { container-type: inline-size; }
 .hero__title { font-size: clamp(1.75rem, 8.2cqi, 4.6rem); }
@@ -92,16 +91,9 @@
 .dossier__place { display: inline-flex; align-items: center; gap: 0.6rem; }
 .dossier__result { max-width: 15rem; padding-top: 0.8rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-muted); }
 .dossier__stamp { position: absolute; right: 1.1rem; bottom: 0.9rem; }
-/* Les villes du réseau, en très grand, défilent sous la scène */
-.hero__marquee { display: flex; width: max-content; animation: marquee 46s linear infinite; }
-.marquee { display: flex; flex: none; align-items: center; }
-.marquee li { display: inline-flex; align-items: center; font-family: var(--font-ui); font-size: clamp(2.25rem, 1.2rem + 3.4vw, 4.5rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1; text-transform: uppercase; white-space: nowrap; color: var(--ink); }
-.marquee__dot { flex: none; width: 0.3em; height: 0.3em; margin: 0 0.42em; border-radius: 50%; background: var(--turquoise); }
-@keyframes marquee { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .hero__marquee { animation: none; } }
 @media (min-width: 1024px) {
   .hero__grid { grid-template-columns: 7fr 5fr; gap: 3rem; }
-  .hero__stage { min-height: 0; height: min(34rem, 100svh - 15.5rem); }
+  .hero__stage { min-height: 0; height: min(36rem, 100svh - 11.5rem); }
 }
 
 /* Le constat : quatre obstacles distribués comme quatre cartes, puis la réponse */
@@ -164,7 +156,7 @@
 .how__row-main > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font-size: 0.8125rem; color: var(--fg-muted); }
 .how__row-main .country__code { min-width: 1.6rem; height: 1.2rem; font-size: 0.625rem; }
 .how__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1rem; padding-top: 1rem; }
-.how__next { display: flex; align-items: center; gap: 0.8rem; margin-top: clamp(1rem, 3vh, 1.75rem); font-family: var(--font-ui); font-weight: 700; font-size: 0.9375rem; color: var(--fg); }
+.how__next { display: flex; align-items: center; gap: 0.8rem; margin-top: clamp(1rem, 3vh, 1.75rem); font-size: 0.9375rem; font-weight: 500; color: var(--fg); }
 .how__next-dot { flex: none; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 0.2rem var(--turquoise), 0 0 0 0.3rem var(--on-turquoise); }
 @media (max-width: 599px) {
   .how__types { display: flex; flex-wrap: wrap; }
@@ -210,17 +202,16 @@
 /* Marchés, sur jaune : la carte du continent, la fiche du marché sur sombre */
 .map__grid { display: grid; gap: 2rem; }
 .map__copy .lead { margin-bottom: clamp(1.25rem, 3.5vh, 2rem); }
-.map__canvas { display: grid; place-items: center; min-width: 0; }
-.africa { width: 100%; height: auto; max-height: min(42rem, 100svh - 10rem); }
-.africa__dots circle { fill: rgb(11 42 44 / 0.24); }
-.africa__routes path { fill: none; stroke: var(--turquoise-ink); stroke-width: 0.5; }
-.africa__node { fill: var(--ink); transition: r var(--t-mid) var(--ease); }
-.africa__city.is-on .africa__node { fill: var(--turquoise); stroke: var(--ink); stroke-width: 0.35; }
-.africa__hit { fill: transparent; cursor: pointer; }
-.africa__hit:focus-visible { outline: none; stroke: var(--turquoise-ink); stroke-width: 0.4; }
-.africa__label { font-family: var(--font-ui); font-size: 2.1px; font-weight: 700; fill: var(--ink); letter-spacing: 0.04em; pointer-events: none; }
-.africa__city.is-on .africa__label { fill: var(--turquoise-ink); }
-@media (max-width: 599px) { .africa__label--2 { display: none; } .africa__label { font-size: 2.4px; } }
+/* L'atlas : un panneau sombre arrondi, la carte dessinée sur une toile, sa légende et le bouton « Rejouer » */
+.map__stage { position: relative; min-width: 0; aspect-ratio: 1 / 1.03; border-radius: var(--r-panel); background: var(--ink); overflow: clip; box-shadow: 0 40px 70px -44px rgb(11 42 44 / 0.75); }
+.atlas, .atlas__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.atlas__legend { position: absolute; left: 1.25rem; bottom: 1.1rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory-muted); pointer-events: none; }
+.atlas__legend span { color: var(--yellow); }
+.atlas__legend i { width: 0.3rem; height: 0.3rem; border-radius: 50%; background: var(--turquoise); }
+.atlas__replay { position: absolute; right: 1rem; top: 1rem; display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.25rem; padding: 0 0.85rem; border-radius: var(--radius-pill); background: rgb(255 251 234 / 0.1); color: var(--ivory); font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; transition: background var(--t-fast) linear; }
+.atlas__replay:hover { background: rgb(255 251 234 / 0.2); }
+.atlas__replay:focus-visible { outline-color: var(--yellow); }
+@media (prefers-reduced-motion: reduce) { .atlas__replay { display: none; } }
 .map__pick { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
 .map__sheet .sheet__head > .label { text-align: right; }
 .map__select { width: auto; min-width: 10.5rem; min-height: 2.5rem; padding-right: 2.25rem; font-family: var(--font-ui); font-weight: 700; }
@@ -235,6 +226,7 @@
 @media (max-width: 519px) { .map__sheet .sheet__head > .label { display: none; } .map__pick { flex: 1; } .map__select { flex: 1; min-width: 0; } }
 @media (min-width: 1024px) {
   .map__grid { grid-template-columns: 5fr 7fr; gap: 3rem; align-items: center; }
+  .map__stage { aspect-ratio: auto; height: min(41rem, 100svh - 9.5rem); }
 }
 
 /* Confiance, sur vert pétrole : trois niveaux, quatre garanties, la preuve dans la main */
@@ -304,11 +296,9 @@
   .scene { padding-block: 5.5rem 1.5rem; }
   .scene h2 { font-size: clamp(1.75rem, 1rem + 2vw, 2.6rem); }
   .lead, .hero__lead { font-size: 1.0625rem; }
-  .hero { gap: 1rem; padding-bottom: 0.75rem; }
   .hero__title { font-size: clamp(1.75rem, 7cqi, 3.6rem); }
-  .hero__stage { height: calc(100svh - 12.5rem); }
+  .hero__stage { height: calc(100svh - 8.5rem); }
   .feuille--hero .field { padding: 0.4rem 0; }
-  .marquee li { font-size: 2.5rem; }
   .problem__card { height: 16.5rem; }
   .how__head { margin-bottom: 1rem; }
   .how__choices, .how__result { padding: 1.25rem 1.5rem; }

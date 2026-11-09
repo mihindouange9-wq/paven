@@ -64,7 +64,7 @@ for (const name of only) {
   for (const b of [1, 2]) {
     for (const d of [0.2, 0.34, 0.5, 0.68, 0.82, 0.93]) {
       await page.evaluate((y) => window.scrollTo(0, y), list[b].top - vh + d * vh);
-      await sleep(420);
+      await sleep(900);
       await page.screenshot({ path: path.join(out, `${name}-nuage${b}-${String(Math.round(d * 100)).padStart(2, "0")}.png`), type: "png" });
     }
   }

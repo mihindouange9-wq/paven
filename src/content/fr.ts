@@ -72,7 +72,7 @@ export const ENGINE = {
 
 export const MAP = {
   title: ["Un continent.", "Des milliers d'opportunités."],
-  lead: "Près de chez vous ou de l'autre côté d'une frontière : choisissez un marché, ses entreprises et ses marchés connectés apparaissent.",
+  lead: "Des marchés séparés, un seul continent, des entreprises qui se relient. Choisissez un pays : ses chiffres et ses liaisons apparaissent.",
   companies: "Entreprises",
   opportunities: "Opportunités actives",
   requests: "Demandes de partenariat",
