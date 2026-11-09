@@ -35,7 +35,7 @@ export default function Header() {
             <button type="button" aria-pressed="true">FR</button>
             <button type="button" aria-pressed="false" title="Version anglaise à venir">EN</button>
           </span>
-          <Link className="btn btn--small header__cta" to="/app">Ouvrir l'espace</Link>
+          <Link className="btn btn--primary btn--small header__cta" to="/app">Ouvrir l'espace</Link>
         </div>
         <button className="header__toggle" type="button" aria-expanded={open} aria-controls="menu-mobile" onClick={() => setOpen((v) => !v)}>
           <span className="sr-only">{open ? "Fermer le menu" : "Ouvrir le menu"}</span>

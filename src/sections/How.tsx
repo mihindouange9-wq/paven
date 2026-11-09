@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { Button, Country, Label, Monogram, Score } from "../components/ui";
+import { Button, Country, Duo, Monogram, Score } from "../components/ui";
 import { HOW } from "../content/fr";
 import { COMPANIES, COUNTRIES, countryByCode, industryName, MATCHES, PARTNERSHIP_TYPES, USER } from "../data/mock";
 import type { Company, CountryCode, PartnershipTypeId } from "../data/types";
@@ -35,78 +35,81 @@ export default function How() {
   const type = PARTNERSHIP_TYPES.find((p) => p.id === need)!;
 
   return (
-    <section id="parcours" className="scene how" data-scene data-tone="buff" tabIndex={-1}>
+    <section id="parcours" className="scene how" data-scene data-tone="turquoise" tabIndex={-1}>
       <div className="container">
         <header className="how__head">
-          <h2 data-reveal="lines">{HOW.title}</h2>
+          <h2 data-reveal="lines"><Duo parts={HOW.title} /></h2>
           <p className="lead" data-reveal>{HOW.lead}</p>
         </header>
 
-        <div className="how__grid">
-          <div className="how__step" data-reveal>
-            <h3>{HOW.need}</h3>
-            <div className="how__types" role="radiogroup" aria-label="Type de partenariat recherché">
-              {PARTNERSHIP_TYPES.map((p) => (
-                <button key={p.id} type="button" role="radio" aria-checked={need === p.id} className={`how__type ${need === p.id ? "is-on" : ""}`} onClick={() => setNeed(p.id)}>
-                  <i className="ptype__mark" data-k={p.id} aria-hidden="true" />
-                  <span>{p.name}</span>
-                </button>
-              ))}
+        <div className="how__panel" data-reveal="lift">
+          <div className="how__choices" data-tone="sheet">
+            <div className="how__step">
+              <p className="how__n tabular">01</p>
+              <h3>{HOW.need}</h3>
+              <div className="how__types" role="radiogroup" aria-label="Type de partenariat recherché">
+                {PARTNERSHIP_TYPES.map((p) => (
+                  <button key={p.id} type="button" role="radio" aria-checked={need === p.id} className={`how__type ${need === p.id ? "is-on" : ""}`} onClick={() => setNeed(p.id)}>
+                    <i className="ptype__mark" data-k={p.id} aria-hidden="true" />
+                    <span>{p.name}</span>
+                  </button>
+                ))}
+              </div>
+              <p className="how__hint">{type.description}</p>
             </div>
-            <p className="how__hint">{type.description}</p>
+
+            <div className="how__step">
+              <p className="how__n tabular">02</p>
+              <h3>{HOW.where}</h3>
+              <div className="how__scope" role="radiogroup" aria-label="Portée de la recherche">
+                <button type="button" role="radio" aria-checked={scope === "mine"} className={scope === "mine" ? "is-on" : ""} onClick={() => setScope("mine")}>{HOW.mine}</button>
+                <button type="button" role="radio" aria-checked={scope === "other"} className={scope === "other" ? "is-on" : ""} onClick={() => setScope("other")}>{HOW.other}</button>
+              </div>
+              <div className="how__fromto">
+                <label className="how__field">
+                  <span className="label">{HOW.from}</span>
+                  <select className="input select how__select" value={from} onChange={(e) => { const v = e.target.value as CountryCode; setFrom(v); if (v === to) setTo(COUNTRIES.find((c) => c.code !== v)!.code); }}>
+                    {COUNTRIES.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
+                  </select>
+                </label>
+                <svg className="how__arrow" viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2v30M5 25l7 9 7-9" fill="none" stroke="currentColor" strokeWidth="1.5" data-draw /></svg>
+                <label className={`how__field ${scope === "mine" ? "is-off" : ""}`}>
+                  <span className="label">{HOW.to}</span>
+                  <select className="input select how__select" value={scope === "mine" ? from : to} disabled={scope === "mine"} onChange={(e) => setTo(e.target.value as CountryCode)}>
+                    {COUNTRIES.filter((c) => scope === "mine" || c.code !== from).map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
+                  </select>
+                </label>
+              </div>
+            </div>
           </div>
 
-          <div className="how__step" data-reveal>
-            <h3>{HOW.where}</h3>
-            <div className="how__scope" role="radiogroup" aria-label="Portée de la recherche">
-              <button type="button" role="radio" aria-checked={scope === "mine"} className={`chip ${scope === "mine" ? "is-on" : ""}`} onClick={() => setScope("mine")}>{HOW.mine}</button>
-              <button type="button" role="radio" aria-checked={scope === "other"} className={`chip ${scope === "other" ? "is-on" : ""}`} onClick={() => setScope("other")}>{HOW.other}</button>
-            </div>
-            <div className="how__fromto">
-              <label className="how__field">
-                <span className="label">{HOW.from}</span>
-                <select className="input select how__select" value={from} onChange={(e) => { const v = e.target.value as CountryCode; setFrom(v); if (v === to) setTo(COUNTRIES.find((c) => c.code !== v)!.code); }}>
-                  {COUNTRIES.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
-                </select>
-              </label>
-              <svg className="how__arrow" viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2v30M5 25l7 9 7-9" fill="none" stroke="currentColor" strokeWidth="1.5" data-draw /></svg>
-              <label className={`how__field ${scope === "mine" ? "is-off" : ""}`}>
-                <span className="label">{HOW.to}</span>
-                <select className="input select how__select" value={scope === "mine" ? from : to} disabled={scope === "mine"} onChange={(e) => setTo(e.target.value as CountryCode)}>
-                  {COUNTRIES.filter((c) => scope === "mine" || c.code !== from).map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div className="how__result sheet" data-reveal="lift" aria-live="polite">
-            <div className="sheet__head">
-              <Label strong>{HOW.who}</Label>
+          <div className="how__result" data-tone="dark" aria-live="polite">
+            <div className="how__result-head">
+              <p className="how__n tabular">03</p>
               <span className="how__route"><span className="country__code">{from}</span><ArrowRight size={14} aria-hidden="true" /><span className="country__code">{target}</span></span>
             </div>
-            <div className="sheet__body">
-              <p className="how__found"><span className="how__found-n tabular">{n}</span>{HOW.found}</p>
-              <ul className="how__rows">
-                {rows.map(({ company: c, score }) => (
-                  <li key={c.id} className="how__row">
-                    <Monogram company={c} />
-                    <div className="how__row-main">
-                      <strong>{c.name}</strong>
-                      <span><Country code={c.country} nameless /> {c.city} · {industryName(c.industry)}</span>
-                    </div>
-                    <Score value={score} size="1.75rem" />
-                  </li>
-                ))}
-              </ul>
-              <div className="how__foot">
-                <Button to={`/app/expansion?from=${from}&to=${target}`} primary small>{HOW.cta}<ArrowRight /></Button>
-                <span className="demo-note">{HOW.demo}</span>
-              </div>
+            <h3>{HOW.who}</h3>
+            <p className="how__found"><span className="how__found-n tabular">{n}</span>{HOW.found}</p>
+            <ul className="how__rows">
+              {rows.map(({ company: c, score }) => (
+                <li key={c.id} className="how__row">
+                  <Monogram company={c} />
+                  <div className="how__row-main">
+                    <strong>{c.name}</strong>
+                    <span><Country code={c.country} nameless /> {c.city} · {industryName(c.industry)}</span>
+                  </div>
+                  <Score value={score} size="1.75rem" />
+                </li>
+              ))}
+            </ul>
+            <div className="how__foot">
+              <Button to={`/app/expansion?from=${from}&to=${target}`} primary small>{HOW.cta}<ArrowRight /></Button>
+              <span className="demo-note">{HOW.demo}</span>
             </div>
           </div>
         </div>
 
-        <p className="how__next" data-reveal><i className="goutte" aria-hidden="true" />{HOW.next}</p>
+        <p className="how__next" data-reveal><i className="how__next-dot" aria-hidden="true" />{HOW.next}</p>
       </div>
     </section>
   );

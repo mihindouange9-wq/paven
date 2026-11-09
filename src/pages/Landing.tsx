@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Logo } from "../brand/Logo";
 import { SCENES } from "../content/fr";
 import { ScrollTrigger, prefersReducedMotion, setupReveals, useGSAP } from "../lib/motion";
 import { goTo, mountNuage, type SceneInfo } from "../lib/nuage";
@@ -59,6 +60,11 @@ export default function Landing() {
   return (
     <>
       <a className="skip-link" href="#contenu">Aller au contenu</a>
+      {/* Ouverture : le logo sur noir pétrole, un filet qui se remplit, puis le rideau se lève (0,9 s, tout en CSS). */}
+      <div className="intro" aria-hidden="true">
+        <Logo tone="dark" title="" height={34} />
+        <span className="intro__line" />
+      </div>
       <Header />
       <main id="contenu" ref={main} tabIndex={-1}>
         <Hero />

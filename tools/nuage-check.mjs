@@ -65,7 +65,7 @@ async function open(reduced) {
   await sleep(200);
   const after = await page.evaluate(() => document.querySelector(".how__rows").innerText + document.querySelector(".how__found").innerText);
   check("le besoin et le marché changent le résultat", before !== after, after.replace(/\s+/g, " ").slice(0, 90));
-  await page.click(".how__scope .chip:first-child");
+  await page.click(".how__scope button:first-child");
   await sleep(150);
   check("« Mon pays » désactive la destination", await page.evaluate(() => document.querySelector(".how__fromto label:last-child select").disabled));
   // 6. Chaque scène, une fois ouverte, montre tout son contenu (aucun élément resté masqué par une animation)

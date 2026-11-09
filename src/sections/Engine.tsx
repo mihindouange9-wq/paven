@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import { Button, Country, Label, Monogram, PType, Score, Stamp, Verifs } from "../components/ui";
+import { Button, Country, Duo, Label, Monogram, PType, Score, Stamp, Verifs } from "../components/ui";
 import { ENGINE } from "../content/fr";
 import { companyById, industryName, MATCHES } from "../data/mock";
 import { gsap, prefersReducedMotion, ScrollTrigger, stampIn, useGSAP } from "../lib/motion";
@@ -36,7 +36,7 @@ export default function Engine() {
     <section id="compatibilite" className="scene engine" data-scene data-tone="dark" tabIndex={-1} ref={root}>
       <div className="container engine__grid">
         <div className="engine__copy">
-          <h2 data-reveal="lines">{ENGINE.title}</h2>
+          <h2 data-reveal="lines"><Duo parts={ENGINE.title} /></h2>
           <p className="lead" data-reveal>{ENGINE.lead}</p>
         </div>
 

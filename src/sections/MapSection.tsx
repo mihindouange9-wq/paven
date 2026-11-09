@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import AfricaMap from "../components/AfricaMap";
-import { Button, Country, Label } from "../components/ui";
+import { Button, Country, Duo, Label } from "../components/ui";
 import { MAP } from "../content/fr";
 import { COUNTRIES, countryByCode } from "../data/mock";
 import type { CountryCode } from "../data/types";
@@ -19,13 +19,13 @@ export default function MapSection() {
   ];
 
   return (
-    <section id="marches" className="scene map" data-scene data-tone="dark" tabIndex={-1}>
+    <section id="marches" className="scene map" data-scene data-tone="yellow" tabIndex={-1}>
       <div className="container map__grid">
         <div className="map__copy">
-          <h2 data-reveal="lines">{MAP.title}</h2>
+          <h2 data-reveal="lines"><Duo parts={MAP.title} /></h2>
           <p className="lead" data-reveal>{MAP.lead}</p>
 
-          <aside className="map__sheet sheet" data-reveal="lift" aria-live="polite">
+          <aside className="map__sheet sheet sheet--dark" data-reveal="lift" aria-live="polite">
             <div className="sheet__head">
               <label className="map__pick">
                 <span className="label label--strong">Marché</span>

@@ -1,5 +1,5 @@
 /* Le nuage : passage d'une scène à la suivante.
-   Entre deux scènes, le bain se trouble : un nuage de pigment (buff, sunset, ivoire, sur fond de cuve) naît à la
+   Entre deux scènes, le bain se trouble : un nuage de pigment (turquoise, jaune pastel, ivoire, sur vert pétrole) naît à la
    couture des deux scènes, enveloppe l'écran, puis s'éclaircit sur la scène suivante. Il est piloté par le
    défilement (donc réversible) ; si le visiteur s'arrête au milieu, le passage se termine seul. Les liens internes
    jouent le même nuage en un geste. C'est le seul moment de flou du système : il ne sert qu'aux passages.
@@ -48,12 +48,12 @@ void main(){
 }`;
 
 const rgb = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255) as [number, number, number];
-/* Chaque passage a sa dominante : ivoire marbré, sunset, puis buff veiné de sunset. Toutes les teintes
-   viennent des jetons : fond raisin doux, buff, sunset, blanc cassé. */
+/* Chaque passage a sa dominante : turquoise, jaune pastel, puis turquoise sur noir pétrole. Toutes les
+   teintes viennent des jetons : vert pétrole, turquoise, jaune pastel, ivoire. */
 const PALETTES = [
-  ["#3a3639", "#d8c39a", "#f5f2ec", "#e96a4f"],
-  ["#3a3639", "#e96a4f", "#d8c39a", "#f5f2ec"],
-  ["#3a3639", "#d8c39a", "#e96a4f", "#f5f2ec"],
+  ["#1f5658", "#0d9da4", "#fce688", "#fffbea"],
+  ["#1f5658", "#fce688", "#fffbea", "#0d9da4"],
+  ["#0b2a2c", "#0d9da4", "#fffbea", "#fce688"],
 ].map((p) => p.map(rgb));
 
 const clamp = (x: number, a = 0, b = 1) => (x < a ? a : x > b ? b : x);

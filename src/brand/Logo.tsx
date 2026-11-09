@@ -1,9 +1,9 @@
 /* Marque PAVEN : le symbole est une route qui part d'un marché (la barre) vers un autre (le point).
    Construit sur une grille de 100 : la barre verticale et la route forment un P sans le dire. */
 
-export const RAISIN = "#242124";
-export const OFFWHITE = "#F5F2EC";
-export const SUNSET = "#E96A4F";
+export const RAISIN = "#0B2A2C";
+export const OFFWHITE = "#FFFBEA";
+export const SUNSET = "#0D9DA4";
 
 type Tone = "light" | "dark" | "mono-light" | "mono-dark";
 const ink = (t: Tone) => (t === "dark" || t === "mono-dark" ? OFFWHITE : RAISIN);

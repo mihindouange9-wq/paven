@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Mark } from "../brand/Logo";
 import Phone from "../components/Phone";
-import { Check, Country, Label, Score, Stamp } from "../components/ui";
+import { Check, Country, Duo, Label, Score, Stamp } from "../components/ui";
 import { MOBILE, TRUST } from "../content/fr";
 import { companyById, MATCHES } from "../data/mock";
 import { gsap, prefersReducedMotion, stampIn, useGSAP } from "../lib/motion";
@@ -25,10 +25,10 @@ export default function Trust() {
   );
 
   return (
-    <section id="confiance" className="scene trust" data-scene data-tone="dark" tabIndex={-1} ref={root}>
+    <section id="confiance" className="scene trust" data-scene data-tone="petrol" tabIndex={-1} ref={root}>
       <div className="container trust__grid">
         <div className="trust__copy">
-          <h2 data-reveal="lines">{TRUST.title}</h2>
+          <h2 data-reveal="lines"><Duo parts={TRUST.title} /></h2>
           <p className="lead" data-reveal>{TRUST.lead}</p>
           <ol className="trust__levels" aria-label="Niveaux de vérification">
             {TRUST.levels.map((l, i) => (

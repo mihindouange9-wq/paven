@@ -28,7 +28,7 @@ export const NAV = [
 
 export const HERO = {
   /* Le titre dit ce que fait PAVEN ; une ligne par élément du tableau. */
-  title: ["Trouvez le bon", "partenaire d'affaires,", "partout en Afrique."],
+  title: ["Trouvez le bon", "partenaire", "d'affaires,", "partout en Afrique."],
   lead: "PAVEN met en relation les entreprises africaines. Dites ce que vous cherchez et sur quel marché : la plateforme vous montre les entreprises compatibles, vérifiées, et vous explique pourquoi.",
   primary: "Trouver un partenaire",
   secondary: "Voir comment ça marche",
@@ -36,7 +36,8 @@ export const HERO = {
 };
 
 export const PROBLEM = {
-  title: "L'Afrique a les entreprises. Le défi, c'est de trouver les bonnes.",
+  /* Titres à deux tons : [mise en place, idée]. La première partie est atténuée, la seconde porte l'idée. */
+  title: ["L'Afrique a les entreprises.", "Le défi, c'est de trouver les bonnes."],
   items: [
     { title: "Des marchés fragmentés", text: "Des dizaines de marchés qui ne se parlent pas." },
     { title: "Une visibilité limitée", text: "Impossible de savoir qui est réellement compatible avec vous." },
@@ -47,11 +48,11 @@ export const PROBLEM = {
 };
 
 export const HOW = {
-  title: "Un besoin, un marché, les bonnes entreprises.",
+  title: ["Un besoin, un marché,", "les bonnes entreprises."],
   lead: "Trois choix suffisent. PAVEN cherche dans votre pays ou sur un autre marché africain, et classe les entreprises par compatibilité.",
-  need: "De quoi avez-vous besoin ?",
-  where: "Où voulez-vous aller ?",
-  who: "Avec qui travailler",
+  need: "Votre besoin",
+  where: "Votre marché",
+  who: "Vos partenaires",
   mine: "Mon pays",
   other: "Un autre marché africain",
   from: "Depuis",
@@ -63,14 +64,14 @@ export const HOW = {
 };
 
 export const ENGINE = {
-  title: "Toutes les connexions ne sont pas des opportunités. PAVEN trouve les bonnes.",
+  title: ["Toutes les connexions ne sont pas des opportunités.", "PAVEN trouve les bonnes."],
   lead: "Chaque mise en relation est un score expliqué, critère par critère. Jamais un pourcentage seul.",
   why: "Pourquoi cette compatibilité ?",
   view: "Voir l'entreprise",
 };
 
 export const MAP = {
-  title: "Un continent. Des milliers d'opportunités.",
+  title: ["Un continent.", "Des milliers d'opportunités."],
   lead: "Près de chez vous ou de l'autre côté d'une frontière : choisissez un marché, ses entreprises et ses marchés connectés apparaissent.",
   companies: "Entreprises",
   opportunities: "Opportunités actives",
@@ -79,7 +80,7 @@ export const MAP = {
 };
 
 export const TRUST = {
-  title: "Des connexions d'affaires construites sur le contexte.",
+  title: ["Des connexions d'affaires", "construites sur le contexte."],
   lead: "La confiance ne se décrète pas. Elle se montre, pièce par pièce.",
   items: [
     { title: "Profils clairs", text: "Ce que l'entreprise offre, ce qu'elle cherche, où elle opère." },
@@ -106,7 +107,7 @@ export const MOBILE = {
 };
 
 export const FINAL = {
-  title: "L'Afrique n'est pas un marché. C'est des milliers d'opportunités.",
+  title: ["L'Afrique n'est pas un marché.", "C'est des milliers d'opportunités."],
   lead: "PAVEN aide les entreprises à trouver où elles ont leur place, et avec qui construire.",
   primary: "Trouver votre prochain partenaire",
   secondary: "Explorer les marchés africains",

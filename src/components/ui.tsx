@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { countryByCode, partnershipName, VERIFICATIONS } from "../data/mock";
 import type { Company, PartnershipTypeId, VerificationLevel } from "../data/types";
 
+/** Titre à deux tons : la mise en place est atténuée, l'idée garde toute l'encre. */
+export const Duo = ({ parts }: { parts: readonly string[] }) => (
+  <>
+    <span className="t-soft">{parts[0]}</span> <span>{parts[1]}</span>
+  </>
+);
+
 /** Libellé de champ, capitales espacées. */
 export const Label = ({ children, strong, className = "" }: { children: ReactNode; strong?: boolean; className?: string }) => (
   <span className={`label ${strong ? "label--strong" : ""} ${className}`}>{children}</span>

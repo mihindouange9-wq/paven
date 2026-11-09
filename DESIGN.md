@@ -1,28 +1,28 @@
 ---
 name: PAVEN
-description: Le bain — marbrure ebru déterministe sur raisin, pigments buff, sunset et ivoire, feuille levée blanc cassé qui porte le dossier ; l'infrastructure de mise en relation entre entreprises africaines.
+description: Monde v3, couleurs vives — turquoise, jaune pastel et vert pétrole en aplats, titres en capitales à deux tons, panneaux arrondis, barre flottante, nuage de pigment entre les scènes ; l'infrastructure de mise en relation entre entreprises africaines.
 colors:
-  raisin: "#242124"
-  raisin-soft: "#3a3639"
-  raisin-deep: "#1a1719"
-  buff: "#d8c39a"
-  buff-tint: "#ece2c9"
-  buff-deep: "#b89a63"
-  buff-ink: "#6e5a30"
-  sunset: "#e96a4f"
-  sunset-ink: "#b84b33"
-  sunset-soft: "#f0a391"
-  sunset-press: "#d95d43"
-  on-sunset: "#1f1413"
-  offwhite: "#f5f2ec"
+  turquoise: "#0d9da4"
+  yellow: "#fce688"
+  petrol: "#1f5658"
+  ink: "#0b2a2c"
+  ink-deep: "#071f21"
+  ivory: "#fffbea"
   white: "#ffffff"
-  paper-muted: "#d9cdb0"
-  ink-muted: "#6b6468"
-  ink-faint: "#8c8488"
-  rule: "rgb(36 33 36 / 0.16)"
-  rule-strong: "rgb(36 33 36 / 0.32)"
-  rule-on-dark: "rgb(245 242 236 / 0.16)"
-  rule-on-dark-strong: "rgb(245 242 236 / 0.34)"
+  ink-muted: "#3f6163"
+  ink-faint: "#6a8587"
+  ivory-muted: "#bcd6d3"
+  yellow-tint: "#fdf3c2"
+  yellow-deep: "#e2c95c"
+  yellow-ink: "#665a14"
+  turquoise-ink: "#076b71"
+  turquoise-soft: "#5fd3d8"
+  turquoise-press: "#0b8a90"
+  on-turquoise: "#052325"
+  rule: "rgb(11 42 44 / 0.16)"
+  rule-strong: "rgb(11 42 44 / 0.34)"
+  rule-on-dark: "rgb(255 251 234 / 0.16)"
+  rule-on-dark-strong: "rgb(255 251 234 / 0.34)"
 typography:
   display:
     fontFamily: "Manrope Variable, Manrope, system-ui, sans-serif"
@@ -330,6 +330,16 @@ components:
 # Design System: PAVEN
 
 ## Overview
+
+**Monde v3 (9 novembre 2026) : couleurs vives.** À la demande du client, la palette raisin / buff / sunset est remplacée par turquoise #0D9DA4, jaune pastel #FCE688 et vert pétrole #1F5658 (dérivés : noir pétrole #0B2A2C, ivoire #FFFBEA), et la forme du site s'inspire du site de référence squared-media.nl sans en reprendre ni les textes ni les images. Ce qui suit dans ce document décrit encore le monde v2 « le bain » ; là où les deux se contredisent, c'est la présente note qui vaut :
+
+- **Jetons** : `--raisin` → `--ink`, `--raisin-soft` → `--ink-soft` (= vert pétrole), `--raisin-deep` → `--ink-deep`, `--offwhite` → `--ivory`, `--sunset*` → `--turquoise*`, `--buff*` → `--yellow*`, `--paper-muted` → `--ivory-muted`. Tons de surface : `dark` (noir pétrole), `petrol`, `yellow`, `turquoise`, `sheet` (carte ivoire) ; `.sheet--dark` pour une carte sombre sur scène claire.
+- **Scènes** : accueil sur jaune, constat sur noir pétrole, comment ça marche sur turquoise, compatibilité sur noir pétrole, marchés sur jaune, confiance sur vert pétrole, clôture sur turquoise. Les aplats vifs sont voulus.
+- **Formes** : tout est arrondi. Champs et boutons 12 px, cartes 18 px, grands panneaux 28 px, pastilles et tampons en pilule. L'angle droit du monde v2 disparaît.
+- **Titres** : Manrope 800 en capitales, interlettrage −0,045em, interligne 0,98, à deux tons (`.t-soft` pour la mise en place : encre à 50 % sur sombre, turquoise profond sur jaune, ivoire sur turquoise).
+- **En-tête** : barre arrondie flottante (noir pétrole à 84 %, flou d'arrière-plan), action primaire turquoise avec sa lueur (`--glow`, ombre décalée).
+- **Signatures** : panneau sombre arrondi qui porte le bain et l'exemple (accueil) ; bandeau des villes en très grand qui défile ; quatre cartes distribuées en éventail (constat) ; grand panneau partagé choix / résultat (comment ça marche) ; le bain vu dans une goutte ronde (clôture) ; ouverture d'une seconde (logo, filet jaune, rideau qui se lève). Le bain d'ebru reste, dans les trois pigments turquoise, jaune, ivoire sur noir pétrole.
+- **Accents sur sombre** : chiffres, tampons et repères en jaune ; sur carte claire : turquoise profond `--turquoise-ink` pour le texte, turquoise pour les aplats. Texte sur aplat turquoise : `--on-turquoise` (5,2:1), jamais blanc.
 
 **Creative North Star : « Le bain »**
 

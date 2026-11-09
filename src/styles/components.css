@@ -25,14 +25,14 @@
 /* Tampon : le seul élément incliné du site */
 .stamp {
   display: inline-grid; place-items: center; gap: 0.1rem;
-  padding: 0.6rem 1rem; border: 2px solid var(--sunset); border-radius: var(--radius-pill);
-  color: var(--sunset-ink); font-family: var(--font-ui); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; line-height: 1;
+  padding: 0.6rem 1rem; border: 2px solid var(--turquoise); border-radius: var(--radius-pill);
+  color: var(--turquoise-ink); font-family: var(--font-ui); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; line-height: 1;
   transform: rotate(-2deg); background: var(--bg);
 }
-.stamp--solid { background: var(--sunset); color: var(--on-sunset); border-color: var(--sunset); }
+.stamp--solid { background: var(--turquoise); color: var(--on-turquoise); border-color: var(--turquoise); }
 .stamp strong { font-size: 1.5rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-[data-tone="dark"] .stamp { color: var(--sunset-soft); border-color: var(--sunset); }
-[data-tone="dark"] .stamp--solid { color: var(--on-sunset); }
+[data-tone="dark"] .stamp { color: var(--turquoise-soft); border-color: var(--turquoise); }
+[data-tone="dark"] .stamp--solid { color: var(--on-turquoise); }
 
 /* Score : cellules de chiffres à largeur fixe */
 .score { display: inline-flex; align-items: baseline; font-family: var(--font-ui); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; font-variant-numeric: tabular-nums; color: var(--fg); }
@@ -43,8 +43,8 @@
 /* Pays : code en pastille carrée + nom */
 .country { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.9375rem; letter-spacing: -0.01em; }
 .country__code { display: inline-grid; place-items: center; min-width: 2rem; height: 1.5rem; padding: 0 0.35rem; border: 1px solid var(--line-strong); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.12em; }
-.country--filled .country__code { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
-[data-tone="dark"] .country--filled .country__code { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.country--filled .country__code { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+[data-tone="dark"] .country--filled .country__code { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 
 /* Marqueur de type de partenariat : légende constante sur tout le site */
 .ptype { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.875rem; }
@@ -63,28 +63,28 @@
 /* Monogramme d'entreprise : carré, initiales Manrope */
 .monogram { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid var(--line-strong); font-family: var(--font-ui); font-weight: 800; font-size: 0.875rem; letter-spacing: 0.04em; color: var(--fg); background: var(--bg); flex: none; }
 .monogram--lg { width: 4.5rem; height: 4.5rem; font-size: 1.25rem; }
-.monogram--dark { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
+.monogram--dark { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
 
 /* Vérification : pastilles sunset */
 .verif { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; color: var(--fg); }
-.verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sunset); outline: 1px solid var(--sunset); outline-offset: 2px; }
+.verif__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--turquoise); outline: 1px solid var(--turquoise); outline-offset: 2px; }
 .verif--off { color: var(--fg-muted); }
 .verif--off .verif__dot { background: transparent; border: 1.5px solid var(--line-strong); box-shadow: none; }
 
 /* Boutons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--raisin);
+  min-height: 3.25rem; padding: 0 1.5rem; border: 1px solid var(--ink);
   font-family: var(--font-ui); font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.01em; text-decoration: none;
-  color: var(--raisin); background: transparent; transition: background var(--t-fast) linear, color var(--t-fast) linear, border-color var(--t-fast) linear, transform var(--t-fast) var(--ease);
+  color: var(--ink); background: transparent; transition: background var(--t-fast) linear, color var(--t-fast) linear, border-color var(--t-fast) linear, transform var(--t-fast) var(--ease);
 }
-.btn:hover { background: var(--raisin); color: var(--offwhite); }
+.btn:hover { background: var(--ink); color: var(--ivory); }
 .btn:active { transform: scale(0.985); }
-.btn--primary { background: var(--sunset); border-color: var(--sunset); color: var(--on-sunset); }
-.btn--primary:hover { background: #d95d43; border-color: #d95d43; color: var(--on-sunset); }
+.btn--primary { background: var(--turquoise); border-color: var(--turquoise); color: var(--on-turquoise); }
+.btn--primary:hover { background: var(--turquoise-press); border-color: var(--turquoise-press); color: var(--on-turquoise); }
 .btn--small { min-height: 2.5rem; padding: 0 1rem; font-size: 0.875rem; }
-.btn--light { border-color: var(--offwhite); color: var(--offwhite); }
-.btn--light:hover { background: var(--offwhite); color: var(--raisin); }
+.btn--light { border-color: var(--ivory); color: var(--ivory); }
+.btn--light:hover { background: var(--ivory); color: var(--ink); }
 .btn svg { width: 1.1em; height: 1.1em; }
 .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
 
@@ -100,19 +100,19 @@
 
 /* Pastille de statut d'étape */
 .stage { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.stage__dot { width: 0.5rem; height: 0.5rem; background: var(--sunset); }
+.stage__dot { width: 0.5rem; height: 0.5rem; background: var(--turquoise); }
 
 /* Champ de recherche / filtres */
 .input { width: 100%; min-height: 2.75rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); background-color: var(--white); color: var(--fg); font-family: var(--font-text); font-size: 0.9375rem; }
-[data-tone="dark"] .input { background-color: var(--raisin-soft); }
-.input:focus { outline: 2px solid var(--sunset-ink); outline-offset: 0; border-color: transparent; }
+[data-tone="dark"] .input { background-color: var(--ink-soft); }
+.input:focus { outline: 2px solid var(--turquoise-ink); outline-offset: 0; border-color: transparent; }
 .select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2rem; }
 
 /* Puce de filtre */
 .chip { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0 0.85rem; border: 1px solid var(--line-strong); font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; background: transparent; color: var(--fg); transition: background var(--t-fast) linear, color var(--t-fast) linear; }
 .chip:hover { background: var(--field); }
-.chip[aria-pressed="true"], .chip.is-on { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
-[data-tone="dark"] .chip[aria-pressed="true"] { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.chip[aria-pressed="true"], .chip.is-on { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+[data-tone="dark"] .chip[aria-pressed="true"] { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 
 /* Table du dossier */
 .table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
@@ -122,29 +122,29 @@
 
 /* ───────────── Monde v2 : le bain et la feuille ───────────── */
 /* La feuille : la seule surface qui porte une ombre, celle d'une feuille levée du bain */
-.sheet, .feuille { --bg: var(--offwhite); --fg: var(--raisin); --fg-muted: var(--ink-muted); --line: var(--rule); --line-strong: var(--rule-strong); --field: var(--buff-tint); --accent-text: var(--sunset-ink); background: var(--offwhite); color: var(--raisin); border: 0; box-shadow: 0 30px 60px -30px rgb(10 8 9 / 0.7), 0 2px 0 0 rgb(36 33 36 / 0.3); color-scheme: light; }
+.sheet, .feuille { --bg: var(--ivory); --fg: var(--ink); --fg-muted: var(--ink-muted); --line: var(--rule); --line-strong: var(--rule-strong); --field: var(--yellow-tint); --accent-text: var(--turquoise-ink); background: var(--ivory); color: var(--ink); border: 0; box-shadow: 0 30px 60px -30px rgb(10 8 9 / 0.7), 0 2px 0 0 rgb(36 33 36 / 0.3); color-scheme: light; }
 .sheet .label { color: var(--ink-muted); }
 .sheet .field--empty .field__value { background: var(--hatch); }
-.sheet .stamp { background: var(--offwhite); color: var(--sunset-ink); }
-.sheet .stamp--solid { background: var(--sunset); color: var(--on-sunset); }
-.sheet .country--filled .country__code { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
-.sheet .monogram { background: var(--offwhite); color: var(--raisin); border-color: var(--rule-strong); }
-.sheet .btn { border-color: var(--raisin); color: var(--raisin); }
-.sheet .btn:hover { background: var(--raisin); color: var(--offwhite); }
-.sheet .btn--primary, .sheet .btn--primary:hover { color: var(--on-sunset); }
-.sheet .chip { border-color: var(--rule-strong); color: var(--raisin); }
-.sheet .chip[aria-pressed="true"], .sheet .chip.is-on { background: var(--raisin); color: var(--offwhite); border-color: var(--raisin); }
-.sheet .input { background-color: var(--white); color: var(--raisin); }
+.sheet .stamp { background: var(--ivory); color: var(--turquoise-ink); }
+.sheet .stamp--solid { background: var(--turquoise); color: var(--on-turquoise); }
+.sheet .country--filled .country__code { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.sheet .monogram { background: var(--ivory); color: var(--ink); border-color: var(--rule-strong); }
+.sheet .btn { border-color: var(--ink); color: var(--ink); }
+.sheet .btn:hover { background: var(--ink); color: var(--ivory); }
+.sheet .btn--primary, .sheet .btn--primary:hover { color: var(--on-turquoise); }
+.sheet .chip { border-color: var(--rule-strong); color: var(--ink); }
+.sheet .chip[aria-pressed="true"], .sheet .chip.is-on { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.sheet .input { background-color: var(--white); color: var(--ink); }
 
 /* Boutons sur le bain : contour ivoire ; sur la feuille, contour raisin (règle ci-dessus) */
 .btn { border-color: var(--fg); color: var(--fg); }
 .btn:hover { background: var(--fg); color: var(--bg); }
-.btn--primary, .btn--primary:hover { color: var(--on-sunset); }
-.btn--light { border-color: var(--offwhite); color: var(--offwhite); }
+.btn--primary, .btn--primary:hover { color: var(--on-turquoise); }
+.btn--light { border-color: var(--ivory); color: var(--ivory); }
 
 /* La goutte : le marqueur du bain (anneaux concentriques nets) */
-.goutte { display: inline-block; width: 0.85em; height: 0.85em; border-radius: 50%; background: var(--sunset); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--buff); flex: none; }
-.goutte--buff { background: var(--buff); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--sunset); }
+.goutte { display: inline-block; width: 0.85em; height: 0.85em; border-radius: 50%; background: var(--turquoise); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--yellow); flex: none; }
+.goutte--yellow { background: var(--yellow); box-shadow: 0 0 0 0.18em var(--bg), 0 0 0 0.3em var(--turquoise); }
 .goutte--vide { background: transparent; box-shadow: inset 0 0 0 0.12em var(--line-strong); }
 
 /* Marqueurs de type de partenariat sur le bain */
@@ -156,18 +156,61 @@
 
 /* Pays, monogrammes, vérification sur le bain */
 .country__code { border-color: var(--line-strong); }
-.country--filled .country__code { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.country--filled .country__code { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 .monogram { background: transparent; color: var(--fg); border-color: var(--line-strong); }
-.monogram--dark { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
+.monogram--dark { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 .verif { color: var(--fg); }
 .verif--off { color: var(--fg-muted); }
-.stamp { background: var(--bg); color: var(--sunset-soft); }
-.stamp--solid { background: var(--sunset); border-color: var(--sunset); color: var(--on-sunset); }
+.stamp { background: var(--bg); color: var(--turquoise-soft); }
+.stamp--solid { background: var(--turquoise); border-color: var(--turquoise); color: var(--on-turquoise); }
 .ledger { border-top-color: var(--fg); }
 .rule-head { border-bottom-color: var(--fg); }
 .table th { border-bottom-color: var(--fg); }
 .chip:hover { background: var(--field); }
-.chip[aria-pressed="true"], .chip.is-on { background: var(--offwhite); color: var(--raisin); border-color: var(--offwhite); }
-.input { background-color: var(--raisin-soft); color: var(--offwhite); border-color: var(--line-strong); }
-.input::placeholder { color: var(--paper-muted); }
+.chip[aria-pressed="true"], .chip.is-on { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+.input { background-color: var(--ink-soft); color: var(--ivory); border-color: var(--line-strong); }
+.input::placeholder { color: var(--ivory-muted); }
 .select { background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); }
+
+/* ───────────── Monde v3 : formes arrondies, couleurs vives ─────────────
+   Tout est arrondi, du champ au grand panneau ; l'action primaire porte une lueur orange (ombre décalée). */
+.btn { border-radius: var(--r-ctl); }
+.btn--small { border-radius: 10px; }
+.btn--primary, .btn--primary:hover { border-color: var(--turquoise); }
+.btn--primary:hover { border-color: var(--turquoise-press); }
+.btn--primary { box-shadow: var(--glow); }
+.btn--primary:hover { box-shadow: 0 14px 40px -8px rgb(13 157 164 / 0.75); }
+.btn--ink { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.btn--ink:hover { background: var(--ink-soft); border-color: var(--ink-soft); color: var(--ivory); }
+.chip { border-radius: var(--radius-pill); padding: 0 1rem; }
+.input { border-radius: var(--r-ctl); }
+.field--filled .field__value { border-radius: 8px; }
+.monogram { border-radius: 10px; }
+.country__code { border-radius: 6px; }
+.sheet, .feuille { border: 0; border-radius: var(--r-card); overflow: clip; }
+.stamp { border-color: var(--turquoise); }
+.verif__dot { background: var(--turquoise); outline-color: var(--turquoise); }
+
+/* Carte sombre : la même structure que la feuille, posée sur une scène claire */
+.sheet.sheet--dark { --bg: var(--ink); --fg: var(--ivory); --fg-muted: var(--ivory-muted); --line: var(--rule-on-dark); --line-strong: var(--rule-on-dark-strong); --field: var(--ink-soft); --accent-text: var(--turquoise-soft); background: var(--ink); color: var(--ivory); color-scheme: dark; box-shadow: 0 34px 60px -34px rgb(11 42 44 / 0.6); }
+.sheet.sheet--dark .label { color: var(--ivory-muted); }
+.sheet.sheet--dark .label--strong { color: var(--ivory); }
+.sheet.sheet--dark .monogram { background: var(--ink-soft); color: var(--ivory); border-color: var(--rule-on-dark-strong); }
+.sheet.sheet--dark .country__code { border-color: var(--rule-on-dark-strong); }
+.sheet.sheet--dark .country--filled .country__code { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+.sheet.sheet--dark .btn { border-color: var(--ivory); color: var(--ivory); }
+.sheet.sheet--dark .btn:hover { background: var(--ivory); color: var(--ink); }
+.sheet.sheet--dark .btn--primary, .sheet.sheet--dark .btn--primary:hover { border-color: var(--turquoise); background: var(--turquoise); color: var(--on-turquoise); }
+.sheet.sheet--dark .btn--primary:hover { background: var(--turquoise-press); border-color: var(--turquoise-press); }
+.sheet.sheet--dark .input { background-color: var(--ink-soft); color: var(--ivory); border-color: var(--rule-on-dark-strong); }
+.sheet.sheet--dark .ptype__mark[data-k="manufacturer"] { background: var(--hatch-dark); }
+
+/* Tampons v3 : jaune sur les fonds sombres, turquoise sur les cartes claires */
+.stamp { border-color: var(--yellow); color: var(--yellow); }
+.stamp--solid { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.sheet .stamp { border-color: var(--turquoise-ink); color: var(--turquoise-ink); }
+.sheet .stamp--solid { background: var(--turquoise); border-color: var(--turquoise); color: var(--on-turquoise); }
+.sheet.sheet--dark .stamp { border-color: var(--yellow); color: var(--yellow); background: var(--ink); }
+.sheet.sheet--dark .stamp--solid { background: var(--yellow); color: var(--ink); }
+.sheet .btn--primary { border-color: var(--turquoise); }
+.sheet .btn--primary:hover { border-color: var(--turquoise-press); background: var(--turquoise-press); }

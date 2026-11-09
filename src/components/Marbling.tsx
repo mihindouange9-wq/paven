@@ -78,7 +78,7 @@ type Props = {
 };
 
 /** Le bain : un canvas qui rend la marbrure à l'état demandé. Le parent anime `progress`. */
-export default function Marbling({ ops, progress, bath = "#242124", className = "", label }: Props) {
+export default function Marbling({ ops, progress, bath = "#0b2a2c", className = "", label }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const c = ref.current!;

@@ -9,7 +9,8 @@ import puppeteer from "puppeteer-core";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pub = path.join(root, "public");
 fs.mkdirSync(path.join(pub, "brand"), { recursive: true });
-const RAISIN = "#242124", OFFWHITE = "#F5F2EC", SUNSET = "#E96A4F";
+/* Palette du 9 novembre 2026 : noir pétrole, ivoire, turquoise, jaune pastel (les noms des constantes sont historiques). */
+const RAISIN = "#0B2A2C", OFFWHITE = "#FFFBEA", SUNSET = "#0D9DA4", YELLOW = "#FCE688";
 
 const mark = (ink, node) => `<path d="M28 12v76" stroke="${ink}" stroke-width="14" stroke-linecap="square" fill="none"/><path d="M28 19h26a19 19 0 0 1 0 38h-8" stroke="${ink}" stroke-width="14" stroke-linecap="square" fill="none"/><circle cx="73" cy="78" r="10" fill="${node}"/>`;
 const word = (ink) => `<text x="112" y="80" font-family="Manrope Variable, Manrope, sans-serif" font-weight="800" font-size="78" letter-spacing="-3" fill="${ink}">PAVEN</text>`;
@@ -50,21 +51,22 @@ await render(icon(192), 192, 192, "icon-192.png");
 await render(icon(180), 180, 180, "apple-touch-icon.png");
 
 const og = `<html><head>${fontCss()}<style>
-body{margin:0;width:1200px;height:630px;background:${OFFWHITE};font-family:"Manrope Variable",sans-serif;color:${RAISIN};position:relative;overflow:hidden}
+body{margin:0;width:1200px;height:630px;background:${YELLOW};font-family:"Manrope Variable",sans-serif;color:${RAISIN};position:relative;overflow:hidden}
 .rule{position:absolute;left:72px;right:72px;top:96px;height:1px;background:${RAISIN}}
 .logo{position:absolute;left:72px;top:40px;display:flex;align-items:center;gap:18px;font-weight:800;font-size:34px;letter-spacing:-1.5px}
-.title{position:absolute;left:72px;top:150px;width:720px;font-weight:700;font-size:72px;letter-spacing:-3.5px;line-height:0.98}
-.sheet{position:absolute;right:72px;top:150px;width:300px;border:1px solid ${RAISIN};background:${OFFWHITE}}
-.sheet div{padding:14px 18px;border-bottom:1px solid rgba(36,33,36,.16)}
-.sheet small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6b6468;font-weight:700;margin-bottom:6px}
+.title{position:absolute;left:72px;top:150px;width:720px;font-weight:800;font-size:70px;letter-spacing:-3.4px;line-height:0.98;text-transform:uppercase}
+.title span{color:#076b71}
+.sheet{position:absolute;right:72px;top:150px;width:300px;border-radius:18px;overflow:hidden;background:${OFFWHITE}}
+.sheet div{padding:14px 18px;border-bottom:1px solid rgba(11,42,44,.16)}
+.sheet small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#3f6163;font-weight:700;margin-bottom:6px}
 .sheet b{font-size:22px;letter-spacing:-.5px}
-.fill b{background:#ece2c9;padding:4px 8px;margin:0 -8px}
-.stamp{position:absolute;right:80px;top:470px;transform:rotate(-2deg);background:${SUNSET};color:#1f1413;border-radius:999px;padding:14px 22px;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:14px;text-align:center}
+.fill b{background:#fdf3c2;border-radius:6px;padding:4px 8px;margin:0 -8px}
+.stamp{position:absolute;right:80px;top:470px;transform:rotate(-2deg);background:${SUNSET};color:#052325;border-radius:999px;padding:14px 22px;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:14px;text-align:center}
 .stamp b{display:block;font-size:34px;letter-spacing:-1px}
-.foot{position:absolute;left:72px;bottom:56px;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#6b6468}
+.foot{position:absolute;left:72px;bottom:56px;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1f5658}
 </style></head><body>
 <div class="logo"><svg viewBox="0 0 100 100" width="56" height="56">${mark(RAISIN, SUNSET)}</svg>PAVEN</div><div class="rule"></div>
-<div class="title">Les affaires changent de rythme quand l'Afrique se connecte.</div>
+<div class="title">Trouvez le bon partenaire d'affaires, <span>partout en Afrique.</span></div>
 <div class="sheet"><div class="fill"><small>Depuis</small><b>Libreville · GA</b></div><div class="fill"><small>Vers</small><b>Douala · CM</b></div><div><small>Objectif</small><b>Distributeur</b></div><div style="border:0;height:70px"></div></div>
 <div class="stamp"><b>94 %</b>compatible</div>
 <div class="foot">Africa's Business Connection Infrastructure</div>
