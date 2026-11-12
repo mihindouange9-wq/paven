@@ -2,6 +2,9 @@
 .app { min-height: 100vh; display: grid; grid-template-columns: 1fr; background: var(--ivory); color: var(--ink); }
 .app__rail { position: fixed; inset: 0 auto 0 0; z-index: 90; width: 16.5rem; display: flex; flex-direction: column; gap: 1.5rem; padding: 1.25rem 1.25rem 1.5rem; background: var(--ink); color: var(--ivory); transform: translateX(-100%); transition: transform var(--t-mid) var(--ease); }
 .is-open .app__rail { transform: none; }
+/* Écran peu haut (téléphone en paysage) : le rail défile au lieu de couper ses derniers liens */
+.app__rail { overflow-y: auto; overscroll-behavior: contain; }
+.app__nav, .app__me { flex: none; }
 .app__brand { display: inline-flex; padding: 0.25rem 0; }
 .app__nav { display: grid; gap: 0.15rem; }
 .app__link { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.5rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.9375rem; color: var(--ivory-muted); text-decoration: none; border-left: 1px solid transparent; transition: color var(--t-fast) linear, background var(--t-fast) linear; }
@@ -13,12 +16,13 @@
 .app__me strong { display: block; font-family: var(--font-ui); font-size: 0.9375rem; }
 .app__me span { font-size: 0.75rem; color: var(--ivory-muted); }
 .app__me .monogram--dark { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
-.app__main { display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; }
+/* La colonne ne s'élargit jamais au-delà de l'écran : la barre se resserre (champ de recherche) au lieu de pousser la page */
+.app__main { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr auto; min-height: 100vh; min-width: 0; }
 .app__bar { position: sticky; top: 0; z-index: 80; display: flex; align-items: center; gap: 0.75rem; height: 4rem; padding: 0 var(--gutter); background: rgb(245 242 236 / 0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
 .app__toggle { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; gap: 5px; border: 1px solid var(--rule-strong); }
 .app__toggle i { display: block; width: 16px; height: 2px; background: var(--ink); }
-.app__bar-brand { display: inline-flex; }
-.app__search { flex: 1; display: flex; align-items: center; gap: 0.6rem; max-width: 34rem; min-height: 2.5rem; padding: 0 0.85rem; border: 1px solid var(--rule-strong); background: var(--white); color: var(--ink-muted); }
+.app__bar-brand { display: inline-flex; align-items: center; justify-content: center; min-width: 2.5rem; min-height: 2.5rem; }
+.app__search { flex: 1; min-width: 0; display: flex; align-items: center; gap: 0.6rem; max-width: 34rem; min-height: 2.5rem; padding: 0 0.85rem; border: 1px solid var(--rule-strong); background: var(--white); color: var(--ink-muted); }
 .app__search input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-size: 0.9375rem; }
 .app__bell { position: relative; width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border: 1px solid var(--rule-strong); margin-left: auto; }
 .app__bell-n { position: absolute; top: -6px; right: -6px; min-width: 1.1rem; height: 1.1rem; padding: 0 0.25rem; display: grid; place-items: center; background: var(--turquoise); color: var(--on-turquoise); font-family: var(--font-ui); font-size: 0.6875rem; font-weight: 800; }
@@ -36,12 +40,18 @@
 .page-head { display: grid; gap: 0.5rem; }
 .page-head h1 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); letter-spacing: -0.035em; }
 .page-head p { color: var(--ink-muted); max-width: 44rem; }
+/* Liens en petites capitales (retour, « Tout voir », « Ouvrir ») : le lien ne s'étire pas sur toute la ligne, et sa zone tactile dépasse le texte */
+.page-head > a.label { justify-self: start; }
+.page-head > a.label, .panel__head > a.label { position: relative; }
+.page-head > a.label::after, .panel__head > a.label::after { content: ''; position: absolute; inset: -0.75rem -0.5rem; }
 .page-head__row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; }
 
 /* Blocs de dossier dans l'espace */
 .panel { border: 1px solid var(--rule-strong); background: var(--white); }
 .panel__head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--rule-strong); }
 .panel__body { padding: 1rem 1.25rem 1.25rem; }
+/* Très petits écrans (320 à 360 px) : le tampon passe sous le nom au lieu de sortir du panneau */
+@media (max-width: 360px) { .panel__head { flex-wrap: wrap; } }
 .panel--dark { background: var(--ink); color: var(--ivory); border-color: var(--ink); --fg: var(--ivory); --fg-muted: var(--ivory-muted); --line: var(--rule-on-dark); --line-strong: var(--rule-on-dark-strong); --field: var(--ink-soft); --bg: var(--ink); }
 
 /* Compteurs : cellules fixes */
@@ -113,7 +123,8 @@
 .pipeline__card span { font-size: 0.75rem; color: var(--ink-muted); }
 .pipeline__card:hover { border-color: var(--ink); }
 .pipeline__empty { padding: 1rem 0.75rem; border: 1px dashed var(--rule-strong); font-size: 0.8125rem; color: var(--ink-muted); background: var(--hatch); }
-@media (min-width: 900px) { .pipeline { grid-template-columns: repeat(5, 1fr); } }
+/* Cinq colonnes quand la largeur le permet, moins sinon : une colonne ne descend jamais sous la largeur de sa carte (sinon la page débordait vers 1024 px) */
+@media (min-width: 900px) { .pipeline { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); } }
 
 /* Tâches, documents */
 .tasks { display: grid; }
@@ -151,9 +162,12 @@
 .counters > li { display: grid; }
 .counters--5 { grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 900px) { .counters--5 { grid-template-columns: repeat(5, 1fr); } }
+/* Cinq cellules sur deux colonnes : la dernière prend toute la largeur, sans case vide */
+@media (max-width: 899px) { .counters--5 > :last-child { grid-column: 1 / -1; } }
 .table-wrap { overflow-x: auto; }
 .table-wrap .table { min-width: 40rem; }
-.stages { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+/* Chaque colonne garde au moins la largeur de son libellé : dans un panneau étroit la frise défile au lieu de superposer ses libellés */
+.stages { grid-template-columns: repeat(5, minmax(max-content, 1fr)); }
 @media (max-width: 600px) {
   .stages li { font-size: 0.5625rem; letter-spacing: 0.04em; }
   .company-row { grid-template-columns: 1fr; }
@@ -168,7 +182,7 @@
 .counter { height: 100%; align-content: start; }
 .stages { overflow-x: auto; }
 .stages li { overflow-wrap: normal; hyphens: manual; white-space: nowrap; min-width: 5.5rem; }
-@media (max-width: 600px) { .stages li { font-size: 0.625rem; letter-spacing: 0.04em; } }
+@media (max-width: 600px) { .stages li { font-size: 0.6875rem; letter-spacing: 0.04em; } }
 .stages { gap: 0.75rem; padding-bottom: 0.25rem; }
 
 @media (max-width: 599px) {

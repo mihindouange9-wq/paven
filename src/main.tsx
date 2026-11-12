@@ -1,6 +1,6 @@
 import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import "@fontsource-variable/manrope/wght.css";
 import "@fontsource-variable/dm-sans/wght.css";
 import "./styles/tokens.css";
@@ -33,8 +33,12 @@ const router = createBrowserRouter([
       { path: "expansion", lazy: () => import("./app/pages/Expansion") },
       { path: "partenariats", lazy: () => import("./app/pages/Pipeline") },
       { path: "analytique", lazy: () => import("./app/pages/Analytics") },
+      // Adresse inconnue dans l'espace : retour à la vue d'ensemble
+      { path: "*", element: <Navigate to="/app" replace /> },
     ],
   },
+  // Adresse inconnue : retour à l'accueil (sans cette route, React Router affiche son écran d'erreur par défaut)
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);
 
 createRoot(document.getElementById("root")!).render(

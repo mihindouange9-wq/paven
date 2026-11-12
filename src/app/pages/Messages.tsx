@@ -2,12 +2,14 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Send } from "lucide-react";
 import { Country, Label, Monogram } from "../../components/ui";
-import { companyById, CONVERSATIONS, USER } from "../../data/mock";
+import { COMPANIES, companyById, CONVERSATIONS, USER } from "../../data/mock";
 import type { Conversation, Message } from "../../data/types";
 
 export function Component() {
   const [params] = useSearchParams();
-  const avec = params.get("avec");
+  // Une adresse qui nomme une entreprise inconnue (ou la sienne) retombe sur la première conversation
+  const asked = params.get("avec");
+  const avec = asked && asked !== USER.company && COMPANIES.some((c) => c.id === asked) ? asked : null;
   const initial = CONVERSATIONS.find((c) => c.with === avec) ?? CONVERSATIONS[0];
   const [convos, setConvos] = useState<Conversation[]>(() => {
     if (avec && !CONVERSATIONS.find((c) => c.with === avec)) {

@@ -54,7 +54,7 @@ export function Component() {
                   <Label>{e.fromCity}<ArrowRight size={13} aria-label="vers" />{e.toCity}</Label>
                   <div className="field__value" style={{ display: "flex", justifyContent: "space-between", gap: "1rem", alignItems: "center" }}>
                     <span><Country code={e.to} /></span>
-                    <span className="tabular" style={{ color: "var(--turquoise-ink)" }}>{e.found} entreprises</span>
+                    <span className="tabular" style={{ color: "var(--turquoise-soft)" }}>{e.found} entreprises</span>
                   </div>
                   <PType id={e.partnershipType} />
                 </div>

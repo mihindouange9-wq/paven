@@ -10,8 +10,11 @@ import type { CountryCode, PartnershipTypeId } from "../../data/types";
 /** Expansion : Depuis → Vers → Objectif, puis « PAVEN a trouvé n entreprises », avec la route tracée sur la carte. */
 export function Component() {
   const [params] = useSearchParams();
-  const [from, setFrom] = useState<CountryCode>((params.get("from") as CountryCode) || "GA");
-  const [to, setTo] = useState<CountryCode>((params.get("to") as CountryCode) || "CM");
+  // Les codes viennent de l'adresse : un code inconnu, ou une destination égale au départ, retombe sur un marché valide
+  const known = (v: string | null): v is CountryCode => COUNTRIES.some((c) => c.code === v);
+  const other = (f: CountryCode) => COUNTRIES.find((c) => c.code !== f)!.code;
+  const [from, setFrom] = useState<CountryCode>(() => { const f = params.get("from"); return known(f) ? f : "GA"; });
+  const [to, setTo] = useState<CountryCode>(() => { const t = params.get("to"); return known(t) && t !== from ? t : from === "CM" ? other(from) : "CM"; });
   const [type, setType] = useState<PartnershipTypeId>("distributor");
   const [launched, setLaunched] = useState(true);
   const results = useMemo(() => COMPANIES.filter((c) => c.id !== USER.company && c.country === to), [to]);
@@ -28,7 +31,7 @@ export function Component() {
           <div className="panel__body">
             <form className="expansion-form" onSubmit={(e) => { e.preventDefault(); setLaunched(true); }}>
               <div className="expansion-form__row">
-                <label className="field"><span className="label">Depuis</span><select className="input select" value={from} onChange={(e) => { setFrom(e.target.value as CountryCode); setLaunched(false); }}>{COUNTRIES.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}</select></label>
+                <label className="field"><span className="label">Depuis</span><select className="input select" value={from} onChange={(e) => { const v = e.target.value as CountryCode; setFrom(v); if (v === to) setTo(other(v)); setLaunched(false); }}>{COUNTRIES.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}</select></label>
                 <label className="field"><span className="label">Vers</span><select className="input select" value={to} onChange={(e) => { setTo(e.target.value as CountryCode); setLaunched(false); }}>{COUNTRIES.filter((c) => c.code !== from).map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}</select></label>
                 <label className="field"><span className="label">Objectif</span><select className="input select" value={type} onChange={(e) => { setType(e.target.value as PartnershipTypeId); setLaunched(false); }}>{PARTNERSHIP_TYPES.map((p) => <option key={p.id} value={p.id}>{p.verb}</option>)}</select></label>
               </div>

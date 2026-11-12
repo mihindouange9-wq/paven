@@ -89,7 +89,7 @@
 .feuille--hero .field__value--lg { font-size: clamp(1.25rem, 1rem + 0.9vw, 1.75rem); }
 .dossier__meta { font-weight: 500; color: var(--ink-muted); font-size: 0.9rem; letter-spacing: 0; }
 .dossier__place { display: inline-flex; align-items: center; gap: 0.6rem; }
-.dossier__result { max-width: 12.5rem; padding-top: 0.8rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-muted); }
+.dossier__result { max-width: min(12.5rem, 100% - 8.5rem); padding-top: 0.8rem; font-size: 0.875rem; line-height: 1.4; color: var(--ink-muted); }
 .dossier__stamp { position: absolute; right: 1.1rem; bottom: 0.9rem; }
 @media (min-width: 1024px) {
   /* Le panneau est grand ; la carte d'exemple flotte par-dessus son bord gauche */
@@ -251,6 +251,10 @@
 @media (min-width: 760px) {
   .trust__grid { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 }
+/* Entre 760 et 1099 px la colonne est trop étroite pour « tampon + texte » côte à côte : le texte passe dessous */
+@media (min-width: 760px) and (max-width: 1099px) {
+  .trust__level { grid-template-columns: 1fr; gap: 0.6rem; }
+}
 @media (min-width: 1100px) {
   .trust__grid { grid-template-columns: 5fr 4fr auto; }
   .trust__phone { display: grid; }
@@ -328,7 +332,7 @@
 /* Pied de page */
 .footer { --bg: var(--ink-deep); background: var(--bg); color: var(--ivory); padding: 4rem 0 2rem; border-top: 1px solid var(--rule-on-dark); }
 .footer__top { display: grid; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule-on-dark); }
-.footer__brand { display: grid; gap: 0.75rem; }
+.footer__brand { display: grid; gap: 0.75rem; align-content: start; }
 .footer__statement { font-family: var(--font-ui); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; }
 .footer__vision { color: var(--ivory-muted); font-size: 0.9375rem; }
 .footer__col { display: grid; gap: 0.75rem; align-content: start; }
@@ -336,7 +340,7 @@
 .footer__col ul { display: grid; gap: 0.5rem; }
 .footer__col a, .footer__col span { color: var(--ivory); text-decoration: none; font-family: var(--font-ui); font-weight: 600; font-size: 0.9375rem; }
 .footer__col a:hover { color: var(--turquoise-soft); }
-.footer__lang { display: flex; gap: 0.5rem; }
+.footer__col .footer__lang { display: flex; gap: 0.5rem; }
 .footer__lang button { padding: 0.35rem 0.6rem; border: 1px solid var(--rule-on-dark-strong); color: var(--ivory); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; }
 .footer__lang button[aria-pressed="true"] { background: var(--ivory); color: var(--ink); }
 .footer__partner { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--rule-on-dark); }

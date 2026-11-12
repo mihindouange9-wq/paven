@@ -15,7 +15,7 @@ export function Component() {
             <div className="panel__head"><Label strong>{o.title}</Label><Score value={o.fit} size="1.5rem" /></div>
             <div className="panel__body">
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", marginBottom: "0.5rem" }}><Monogram company={c} /><div><strong style={{ fontFamily: "var(--font-ui)" }}>{c.name}</strong><br /><span className="company-row__meta"><Country code={c.country} /> · {c.city}</span></div></div>
-              <p style={{ color: "var(--ink-muted)", marginBottom: "0.5rem" }}>{o.summary}</p>
+              <p style={{ color: "var(--fg-muted)", marginBottom: "0.5rem" }}>{o.summary}</p>
               <div className="facts">
                 <Field label="Recherche" value={<PType id={o.partnershipType} />} />
                 <Field label="Marché" value={<Country code={o.market} filled />} />

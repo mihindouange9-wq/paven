@@ -59,7 +59,7 @@ input::placeholder, textarea::placeholder { color: var(--ink-muted); opacity: 1;
 .container { width: min(100% - var(--gutter) * 2, var(--max)); margin-inline: auto; }
 .section { position: relative; padding-block: var(--section); background: var(--bg); color: var(--fg); }
 .tabular { font-family: var(--font-ui); font-variant-numeric: tabular-nums; }
-.app-loading { min-height: 100vh; display: grid; place-items: center; font-family: var(--font-ui); color: var(--ink-muted); }
+.app-loading { min-height: 100vh; display: grid; place-items: center; font-family: var(--font-ui); color: var(--ivory-muted); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

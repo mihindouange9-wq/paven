@@ -18,7 +18,7 @@ export default function Shell() {
   return (
     <div className={`app ${open ? "is-open" : ""}`}>
       <a className="skip-link" href="#page">Aller au contenu</a>
-      <aside className="app__rail" aria-label="Navigation de l'espace">
+      <aside id="rail" className="app__rail" aria-label="Navigation de l'espace">
         <NavLink to="/" className="app__brand" aria-label="PAVEN, retour au site"><Logo tone="dark" height={24} title="" /></NavLink>
         <nav className="app__nav">
           {APP_NAV.map((n) => (

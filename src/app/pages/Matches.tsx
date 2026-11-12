@@ -21,7 +21,7 @@ export function Component() {
                 <tr key={m.id}>
                   <td><Link to={`/app/compatibilites/${m.id}`} style={{ display: "flex", gap: "0.75rem", alignItems: "center", textDecoration: "none" }}><Monogram company={c} /><span><strong style={{ fontFamily: "var(--font-ui)" }}>{c.name}</strong><br /><span className="company-row__meta"><Country code={c.country} /> · {industryName(c.industry)}</span></span></Link></td>
                   <td><PType id={m.partnershipType} /></td>
-                  <td style={{ color: "var(--ink-muted)", maxWidth: "26rem" }}>{m.summary}</td>
+                  <td style={{ color: "var(--fg-muted)", maxWidth: "26rem" }}>{m.summary}</td>
                   <td>{m.status === "new" ? <Stamp>{STATUS[m.status]}</Stamp> : <span className="label">{STATUS[m.status]}</span>}</td>
                   <td className="num"><Score value={m.score} size="1.5rem" /></td>
                 </tr>
